@@ -3,5 +3,9 @@ class User{
     int profileId;
     String username;
     String email;
-    String
+    String passwordHash;
+    boolean isAdmin;
+
+
+
 }
