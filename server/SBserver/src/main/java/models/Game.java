@@ -1,14 +1,26 @@
 package models;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Game {
+    @NotNull(message = "Need Game ID.")
     int gameId;
+    @NotBlank(message = "Title is required.")
     String title;
+
+    @NotBlank(message = "Developer is required.")
     String developer;
+
+    @NotBlank(message = "Genre is required.")
     String genre;
     int yearReleased;
+
+    @NotBlank(message = "Platform is required.")
     String platform;
+
+    @NotBlank(message = "Region is required.")
     String region;
 
     public int getGameId() {

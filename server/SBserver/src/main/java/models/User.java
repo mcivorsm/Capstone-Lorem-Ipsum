@@ -1,20 +1,28 @@
 package models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
-import java.time.LocalDate;
+
 
 
 public class User{
+    @NotNull(message = "Need ID.")
     int id;
+
+    @NotNull(message = "Need Profile ID.")
     int profileId;
 
-    @NotBlank(message = "Customer name is required.")
-    @Size(max = 50, message = "Customer name cannot be greater than 50 characters.")
+    @NotBlank(message = "Username is required.")
+    @Size(max = 25, message = "Username cannot be greater than 50 characters.")
     String username;
-    @NotBlank(message = "Customer name is required.")
-    @Size(max = 50, message = "Customer name cannot be greater than 50 characters.")
+    @NotBlank(message = "Email is required.")
+    @Email(message = "Email must be a valid email address.")
     String email;
+
     String passwordHash;
     boolean isAdmin;
 

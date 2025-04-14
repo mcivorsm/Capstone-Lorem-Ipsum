@@ -1,12 +1,23 @@
 package models;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class GameReview {
+    @NotNull(message = "Need Game Review ID.")
     int gameReviewId;
+
+    @NotNull(message = "Need Game ID.")
     int gameId;
+
+    @NotNull(message = "Need User ID.")
     int userId;
+
+    @NotBlank(message = "Review cannot be blank.")
     String reviewText;
+
+    @NotNull(message = "Need Rating.")
     int rating;
 
     public int getGameReviewId() {
