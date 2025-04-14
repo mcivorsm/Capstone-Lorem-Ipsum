@@ -10,7 +10,7 @@ public class Profile {
     @NotNull(message = "Need Profile ID.")
     int profileId;
 
-    @NotNull(message = "Need Favorite Game ID.")
+
     Game favoriteGame;
 
     @NotNull(message = "Date Joined.")
@@ -21,9 +21,12 @@ public class Profile {
 
     String profileDescription;
 
-    @NotBlank(message = "Preferred Genre is required.")
+
     String preferredGenre;
 
+    public Profile(){
+        this.dateJoined = new Date();
+    }
     public int getProfileId() {
         return profileId;
     }
