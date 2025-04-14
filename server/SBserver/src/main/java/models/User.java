@@ -47,16 +47,24 @@ public class User implements UserDetails{
         this.profile = new Profile();
     }
 
-
+    public User(){}
 
 
 
     public int getId() {
-        return id;
+        return userId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.userId = id;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     @Override

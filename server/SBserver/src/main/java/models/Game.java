@@ -21,7 +21,7 @@ public class Game {
     String platform;
 
     @NotBlank(message = "Region is required.")
-    String region;
+    Region region;
 
     public int getGameId() {
         return gameId;
@@ -71,11 +71,11 @@ public class Game {
         this.platform = platform;
     }
 
-    public String getRegion() {
+    public Region getRegion() {
         return region;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(Region region) {
         this.region = region;
     }
 

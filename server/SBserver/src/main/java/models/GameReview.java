@@ -9,16 +9,16 @@ public class GameReview {
     int gameReviewId;
 
     @NotNull(message = "Need Game ID.")
-    int gameId;
+    Game game;
 
     @NotNull(message = "Need User ID.")
-    int userId;
+    User user;
 
     @NotBlank(message = "Review cannot be blank.")
     String reviewText;
 
     @NotNull(message = "Need Rating.")
-    int rating;
+    double rating;
 
     public int getGameReviewId() {
         return gameReviewId;
@@ -28,12 +28,12 @@ public class GameReview {
         this.gameReviewId = gameReviewId;
     }
 
-    public int getGameId() {
-        return gameId;
+    public Game getGame() {
+        return game;
     }
 
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     public String getReviewText() {
@@ -44,19 +44,19 @@ public class GameReview {
         this.reviewText = reviewText;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -64,11 +64,11 @@ public class GameReview {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         GameReview that = (GameReview) o;
-        return gameId == that.gameId && userId == that.userId && Objects.equals(reviewText, that.reviewText);
+        return Objects.equals(game,that.game)  && Objects.equals(user, that.user)  && Objects.equals(reviewText, that.reviewText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gameId, userId, reviewText);
+        return Objects.hash(game, user, reviewText);
     }
 }

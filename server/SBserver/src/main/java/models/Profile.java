@@ -11,7 +11,7 @@ public class Profile {
     int profileId;
 
     @NotNull(message = "Need Favorite Game ID.")
-    int favoriteGameId;
+    Game favoriteGame;
 
     @NotNull(message = "Date Joined.")
     @PastOrPresent(message = "Date joined cannot be in the future.")
@@ -32,12 +32,12 @@ public class Profile {
         this.profileId = profileId;
     }
 
-    public int getFavoriteGameId() {
-        return favoriteGameId;
+    public Game getFavoriteGame() {
+        return favoriteGame;
     }
 
-    public void setFavoriteGameId(int favoriteGameId) {
-        this.favoriteGameId = favoriteGameId;
+    public void setFavoriteGame(Game favoriteGame) {
+        this.favoriteGame = favoriteGame;
     }
 
     public Date getDateJoined() {
