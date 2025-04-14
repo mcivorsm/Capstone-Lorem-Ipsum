@@ -17,9 +17,7 @@ public class Profile {
     @PastOrPresent(message = "Date joined cannot be in the future.")
     Date dateJoined;
 
-    @NotBlank(message = "Region is required")
-    @Size(max = 5, message = "Max Length of 5 characters")
-    String region;
+    Region region;
 
     String profileDescription;
 
@@ -50,11 +48,11 @@ public class Profile {
         this.dateJoined = dateJoined;
     }
 
-    public String getRegion() {
+    public Region getRegion() {
         return region;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(Region region) {
         this.region = region;
     }
 
