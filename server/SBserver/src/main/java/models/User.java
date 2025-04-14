@@ -4,14 +4,18 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 
-public class User{
+public class User implements UserDetails{
     @NotNull(message = "Need ID.")
-    int id;
+    int userId;
 
     @NotNull(message = "Need Profile ID.")
     int profileId;
@@ -27,14 +31,15 @@ public class User{
     boolean isAdmin;
 
 
-    public User(int profileId, int id, String username, String email, String passwordHash, boolean isAdmin) {
+    public User( int userId, int profileId, String username, String email, boolean isAdmin) {
+        this.userId = userId;
         this.profileId = profileId;
-        this.id = id;
         this.username = username;
         this.email = email;
-        this.passwordHash = passwordHash;
         this.isAdmin = isAdmin;
     }
+
+
 
     public int getProfileId() {
         return profileId;
@@ -52,8 +57,38 @@ public class User{
         this.id = id;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getPassword() {
+        return "";
+    }
+
     public String getUsername() {
         return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 
     public void setUsername(String username) {
