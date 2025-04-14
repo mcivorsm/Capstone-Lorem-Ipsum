@@ -1,0 +1,6 @@
+review_id,game_id,user_id,review,rating
+1,1,1,"Absolutely loved this game. The story and graphics were amazing!",4.8
+2,2,3,"Fun gameplay but a bit repetitive after a while.",3.5
+3,4,2,"Didn't meet my expectations. Laggy and full of bugs.",2.0
+4,3,5,"A solid game overall. Worth the money.",4.0
+5,5,4,"Masterpiece. Can't wait for the sequel!",5.0
