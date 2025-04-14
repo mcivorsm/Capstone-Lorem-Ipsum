@@ -1,0 +1,1001 @@
+game_id,title,developer,genre,year_released,platform,region
+1,Wii Sports,Nintendo,Sports,2006,Wii,NA
+2,Super Mario Bros.,Nintendo,Platform,1985,NES,NA
+3,Mario Kart Wii,Nintendo,Racing,2008,Wii,NA
+4,Wii Sports Resort,Nintendo,Sports,2009,Wii,NA
+5,Pokemon Red/Pokemon Blue,Nintendo,Role-Playing,1996,GB,NA
+6,Tetris,Nintendo,Puzzle,1989,GB,NA
+7,New Super Mario Bros.,Nintendo,Platform,2006,DS,NA
+8,Wii Play,Nintendo,Misc,2006,Wii,NA
+9,New Super Mario Bros. Wii,Nintendo,Platform,2009,Wii,NA
+10,Duck Hunt,Nintendo,Shooter,1984,NES,NA
+11,Nintendogs,Nintendo,Simulation,2005,DS,EU
+12,Mario Kart DS,Nintendo,Racing,2005,DS,NA
+13,Pokemon Gold/Pokemon Silver,Nintendo,Role-Playing,1999,GB,NA
+14,Wii Fit,Nintendo,Sports,2007,Wii,NA
+15,Wii Fit Plus,Nintendo,Sports,2009,Wii,NA
+16,Kinect Adventures!,Microsoft Game Studios,Misc,2010,X360,NA
+17,Grand Theft Auto V,Take-Two Interactive,Action,2013,PS3,EU
+18,Grand Theft Auto: San Andreas,Take-Two Interactive,Action,2004,PS2,OTHER
+19,Super Mario World,Nintendo,Platform,1990,SNES,NA
+20,Brain Age: Train Your Brain in Minutes a Day,Nintendo,Misc,2005,DS,EU
+21,Pokemon Diamond/Pokemon Pearl,Nintendo,Role-Playing,2006,DS,NA
+22,Super Mario Land,Nintendo,Platform,1989,GB,NA
+23,Super Mario Bros. 3,Nintendo,Platform,1988,NES,NA
+24,Grand Theft Auto V,Take-Two Interactive,Action,2013,X360,NA
+25,Grand Theft Auto: Vice City,Take-Two Interactive,Action,2002,PS2,NA
+26,Pokemon Ruby/Pokemon Sapphire,Nintendo,Role-Playing,2002,GBA,NA
+27,Pokemon Black/Pokemon White,Nintendo,Role-Playing,2010,DS,JP
+28,Brain Age 2: More Training in Minutes a Day,Nintendo,Puzzle,2005,DS,EU
+29,Gran Turismo 3: A-Spec,Sony Computer Entertainment,Racing,2001,PS2,NA
+30,Call of Duty: Modern Warfare 3,Activision,Shooter,2011,X360,NA
+31,PokÃ©mon Yellow: Special Pikachu Edition,Nintendo,Role-Playing,1998,GB,NA
+32,Call of Duty: Black Ops,Activision,Shooter,2010,X360,NA
+33,Pokemon X/Pokemon Y,Nintendo,Role-Playing,2013,3DS,NA
+34,Call of Duty: Black Ops 3,Activision,Shooter,2015,PS4,EU
+35,Call of Duty: Black Ops II,Activision,Shooter,2012,PS3,EU
+36,Call of Duty: Black Ops II,Activision,Shooter,2012,X360,NA
+37,Call of Duty: Modern Warfare 2,Activision,Shooter,2009,X360,NA
+38,Call of Duty: Modern Warfare 3,Activision,Shooter,2011,PS3,EU
+39,Grand Theft Auto III,Take-Two Interactive,Action,2001,PS2,NA
+40,Super Smash Bros. Brawl,Nintendo,Fighting,2008,Wii,NA
+41,Call of Duty: Black Ops,Activision,Shooter,2010,PS3,NA
+42,Animal Crossing: Wild World,Nintendo,Simulation,2005,DS,JP
+43,Mario Kart 7,Nintendo,Racing,2011,3DS,NA
+44,Halo 3,Microsoft Game Studios,Shooter,2007,X360,NA
+45,Grand Theft Auto V,Take-Two Interactive,Action,2014,PS4,EU
+46,Pokemon HeartGold/Pokemon SoulSilver,Nintendo,Action,2009,DS,NA
+47,Super Mario 64,Nintendo,Platform,1996,N64,NA
+48,Gran Turismo 4,Sony Computer Entertainment,Racing,2004,PS2,OTHER
+49,Super Mario Galaxy,Nintendo,Platform,2007,Wii,NA
+50,Pokemon Omega Ruby/Pokemon Alpha Sapphire,Nintendo,Role-Playing,2014,3DS,NA
+51,Super Mario Land 2: 6 Golden Coins,Nintendo,Adventure,1992,GB,NA
+52,Grand Theft Auto IV,Take-Two Interactive,Action,2008,X360,NA
+53,Gran Turismo,Sony Computer Entertainment,Racing,1997,PS,NA
+54,Super Mario 3D Land,Nintendo,Platform,2011,3DS,NA
+55,Gran Turismo 5,Sony Computer Entertainment,Racing,2010,PS3,EU
+56,Call of Duty: Modern Warfare 2,Activision,Shooter,2009,PS3,NA
+57,Grand Theft Auto IV,Take-Two Interactive,Action,2008,PS3,NA
+58,Super Mario All-Stars,Nintendo,Platform,1993,SNES,NA
+59,Pokemon FireRed/Pokemon LeafGreen,Nintendo,Role-Playing,2004,GBA,NA
+60,Super Mario 64,Nintendo,Platform,2004,DS,NA
+61,Just Dance 3,Ubisoft,Misc,2011,Wii,NA
+62,Call of Duty: Ghosts,Activision,Shooter,2013,X360,NA
+63,Halo: Reach,Microsoft Game Studios,Shooter,2010,X360,NA
+64,Mario Kart 64,Nintendo,Racing,1996,N64,NA
+65,New Super Mario Bros. 2,Nintendo,Platform,2012,3DS,NA
+66,Halo 4,Microsoft Game Studios,Shooter,2012,X360,NA
+67,Final Fantasy VII,Sony Computer Entertainment,Role-Playing,1997,PS,JP
+68,Call of Duty: Ghosts,Activision,Shooter,2013,PS3,NA
+69,Just Dance 2,Ubisoft,Misc,2010,Wii,NA
+70,Gran Turismo 2,Sony Computer Entertainment,Racing,1999,PS,NA
+71,Call of Duty 4: Modern Warfare,Activision,Shooter,2007,X360,NA
+72,Donkey Kong Country,Nintendo,Platform,1994,SNES,NA
+73,Minecraft,Microsoft Game Studios,Misc,2013,X360,NA
+74,Animal Crossing: New Leaf,Nintendo,Simulation,2012,3DS,JP
+75,Mario Party DS,Nintendo,Misc,2007,DS,NA
+76,The Elder Scrolls V: Skyrim,Bethesda Softworks,Role-Playing,2011,X360,NA
+77,Super Mario Kart,Nintendo,Racing,1992,SNES,JP
+78,FIFA 16,Electronic Arts,Sports,2015,PS4,EU
+79,Wii Party,Nintendo,Misc,2010,Wii,EU
+80,Halo 2,Microsoft Game Studios,Shooter,2004,XB,NA
+81,Mario Party 8,Nintendo,Misc,2007,Wii,NA
+82,Pokemon Black 2/Pokemon White 2,Nintendo,Role-Playing,2012,DS,JP
+83,FIFA Soccer 13,Electronic Arts,Action,2012,PS3,EU
+84,The Sims 3,Electronic Arts,Simulation,2009,PC,EU
+85,GoldenEye 007,Nintendo,Shooter,1997,N64,NA
+86,Mario & Sonic at the Olympic Games,Sega,Sports,2007,Wii,EU
+87,Final Fantasy X,Sony Computer Entertainment,Role-Playing,2001,PS2,NA
+88,Final Fantasy VIII,SquareSoft,Role-Playing,1999,PS,JP
+89,PokÃ©mon Platinum Version,Nintendo,Role-Playing,2008,DS,NA
+90,Pac-Man,Atari,Puzzle,1982,2600,NA
+91,Grand Theft Auto: Liberty City Stories,Take-Two Interactive,Action,2005,PSP,NA
+92,Super Mario Galaxy 2,Nintendo,Platform,2010,Wii,NA
+93,Star Wars Battlefront (2015),Electronic Arts,Shooter,2015,PS4,EU
+94,Call of Duty: Advanced Warfare,Activision,Shooter,2014,PS4,EU
+95,The Legend of Zelda: Ocarina of Time,Nintendo,Action,1998,N64,NA
+96,Crash Bandicoot 2: Cortex Strikes Back,Sony Computer Entertainment,Platform,1997,PS,NA
+97,Super Mario Bros. 2,Nintendo,Platform,1988,NES,NA
+98,Super Smash Bros. for Wii U and 3DS,Nintendo,Fighting,2014,3DS,NA
+99,Call of Duty: World at War,Activision,Shooter,2008,X360,NA
+100,Battlefield 3,Electronic Arts,Shooter,2011,X360,NA
+101,The Legend of Zelda: Twilight Princess,Nintendo,Action,2006,Wii,NA
+102,Call of Duty: Black Ops 3,Activision,Shooter,2015,XOne,NA
+103,Just Dance,Ubisoft,Misc,2009,Wii,NA
+104,Battlefield 3,Electronic Arts,Shooter,2011,PS3,EU
+105,Need for Speed Underground,Electronic Arts,Racing,2003,PS2,NA
+106,Tekken 3,Sony Computer Entertainment,Fighting,1998,PS,NA
+107,Crash Bandicoot 3: Warped,Sony Computer Entertainment,Platform,1998,PS,NA
+108,Super Smash Bros. Melee,Nintendo,Fighting,2001,GC,NA
+109,Mario Kart 8,Nintendo,Racing,2014,WiiU,NA
+110,Fallout 4,Bethesda Softworks,Role-Playing,2015,PS4,EU
+111,Mario Kart: Double Dash!!,Nintendo,Racing,2003,GC,NA
+112,Just Dance 4,Ubisoft,Misc,2012,Wii,NA
+113,FIFA 14,Electronic Arts,Sports,2013,PS3,EU
+114,Need for Speed Underground 2,Electronic Arts,Racing,2004,PS2,EU
+115,Medal of Honor: Frontline,Electronic Arts,Shooter,2002,PS2,NA
+116,Uncharted 3: Drake's Deception,Sony Computer Entertainment,Action,2011,PS3,EU
+117,Crash Bandicoot,Sony Computer Entertainment,Platform,1996,PS,NA
+118,Zumba Fitness,505 Games,Sports,2010,Wii,NA
+119,Gears of War 2,Microsoft Game Studios,Shooter,2008,X360,NA
+120,Uncharted 2: Among Thieves,Sony Computer Entertainment,Action,2009,PS3,NA
+121,Call of Duty 4: Modern Warfare,Activision,Shooter,2007,PS3,NA
+122,FIFA 12,Electronic Arts,Sports,2011,PS3,EU
+123,Big Brain Academy,Nintendo,Misc,2005,DS,EU
+124,Red Dead Redemption,Take-Two Interactive,Action,2010,PS3,NA
+125,FIFA 15,Electronic Arts,Sports,2014,PS4,EU
+126,Donkey Kong Country Returns,Nintendo,Platform,2010,Wii,NA
+127,The Elder Scrolls V: Skyrim,Bethesda Softworks,Role-Playing,2011,PS3,EU
+128,The Legend of Zelda,Nintendo,Action,1986,NES,NA
+129,Assassin's Creed III,Ubisoft,Action,2012,PS3,NA
+130,Halo: Combat Evolved,Microsoft Game Studios,Shooter,2001,XB,NA
+131,PokÃ©mon Emerald Version,Nintendo,Role-Playing,2004,GBA,NA
+132,Kingdom Hearts,Sony Computer Entertainment,Role-Playing,2002,PS2,NA
+133,PokÃ©mon Crystal Version,Nintendo,Role-Playing,2000,GB,NA
+134,Halo 3: ODST,Microsoft Game Studios,Shooter,2009,X360,NA
+135,Red Dead Redemption,Take-Two Interactive,Action,2010,X360,NA
+136,Super Mario Sunshine,Nintendo,Platform,2002,GC,NA
+137,Street Fighter II: The World Warrior,Capcom,Fighting,1992,SNES,JP
+138,World of Warcraft,Activision,Role-Playing,2004,PC,EU
+139,Driver,GT Interactive,Action,1999,PS,NA
+140,Kinect Sports,Microsoft Game Studios,Sports,2010,X360,NA
+141,Gears of War 3,Microsoft Game Studios,Shooter,2011,X360,NA
+142,Gears of War,Microsoft Game Studios,Shooter,2006,X360,NA
+143,Metal Gear Solid 2: Sons of Liberty,Konami Digital Entertainment,Action,2001,PS2,NA
+144,Sonic the Hedgehog 2,Sega,Platform,1992,GEN,NA
+145,Metal Gear Solid 4: Guns of the Patriots,Konami Digital Entertainment,Action,2008,PS3,NA
+146,Metal Gear Solid,Konami Digital Entertainment,Action,1998,PS,NA
+147,The Last of Us,Sony Computer Entertainment Europe,Action,2013,PS3,NA
+148,Final Fantasy XII,Square Enix,Role-Playing,2006,PS2,JP
+149,LittleBigPlanet,Sony Computer Entertainment,Platform,2008,PS3,NA
+150,Dragon Quest IX: Sentinels of the Starry Skies,Nintendo,Role-Playing,2009,DS,JP
+151,LEGO Star Wars: The Complete Saga,LucasArts,Action,2007,Wii,NA
+152,Resident Evil 2,Virgin Interactive,Action,1998,PS,JP
+153,Tekken 2,Sony Computer Entertainment,Fighting,1996,PS,NA
+154,Cooking Mama,505 Games,Simulation,2006,DS,NA
+155,Destiny,Activision,Shooter,2014,PS4,NA
+156,Tetris,Nintendo,Puzzle,1988,NES,NA
+157,Assassin's Creed II,Ubisoft,Action,2009,PS3,NA
+158,Super Smash Bros.,Nintendo,Fighting,1999,N64,NA
+159,Assassin's Creed,Ubisoft,Adventure,2007,X360,NA
+160,Batman: Arkham City,Warner Bros. Interactive Entertainment,Action,2011,PS3,NA
+161,Forza Motorsport 3,Microsoft Game Studios,Racing,2009,X360,NA
+162,Monster Hunter Freedom Unite,Capcom,Role-Playing,2008,PSP,JP
+163,Super Mario Advance,Nintendo,Platform,2001,GBA,NA
+164,Mario Kart: Super Circuit,Nintendo,Racing,2001,GBA,NA
+165,Super Mario World,Nintendo,Platform,2001,GBA,NA
+166,Pokemon Stadium,Nintendo,Strategy,1999,N64,NA
+167,Call of Duty: World at War,Activision,Shooter,2008,PS3,NA
+168,Crash Bandicoot: The Wrath of Cortex,Universal Interactive,Platform,2001,PS2,EU
+169,Minecraft,Sony Computer Entertainment,Misc,2014,PS3,EU
+170,Final Fantasy XIII,Square Enix,Role-Playing,2009,PS3,JP
+171,Dr. Mario,Nintendo,Puzzle,1989,GB,NA
+172,Pokemon Pinball,Nintendo,Misc,1999,GB,NA
+173,Assassin's Creed III,Ubisoft,Action,2012,X360,NA
+174,Final Fantasy IX,SquareSoft,Role-Playing,2000,PS,JP
+175,Final Fantasy X-2,Electronic Arts,Role-Playing,2003,PS2,JP
+176,Donkey Kong 64,Nintendo,Platform,1999,N64,NA
+177,Assassin's Creed II,Ubisoft,Action,2009,X360,NA
+178,Professor Layton and the Curious Village,Nintendo,Puzzle,2007,DS,EU
+179,Tomb Raider II,Eidos Interactive,Action,1997,PS,EU
+180,Dragon Quest VIII: Journey of the Cursed King,Square Enix,Role-Playing,2004,PS2,JP
+181,Diablo III,Activision,Role-Playing,2012,PC,NA
+182,Super Mario Bros. 3,Nintendo,Platform,2003,GBA,NA
+183,New Super Mario Bros. U,Nintendo,Platform,2012,WiiU,NA
+184,Super Mario Land 3: Wario Land,Nintendo,Platform,1994,GB,NA
+185,FIFA Soccer 13,Electronic Arts,Action,2012,X360,EU
+186,The Legend of Zelda: Phantom Hourglass,Nintendo,Action,2007,DS,NA
+187,Donkey Kong Country 2: Diddy's Kong Quest,Nintendo,Platform,1995,SNES,JP
+188,Tomodachi Life,Nintendo,Simulation,2013,3DS,EU
+189,Mario & Sonic at the Olympic Games,Sega,Sports,2008,DS,EU
+190,Medal of Honor: Rising Sun,Electronic Arts,Shooter,2003,PS2,EU
+191,Kirby's Dream Land,Nintendo,Platform,1992,GB,NA
+192,Fable III,Microsoft Game Studios,Role-Playing,2010,X360,NA
+193,Call of Duty: Advanced Warfare,Activision,Shooter,2014,XOne,NA
+194,Microsoft Flight Simulator,Microsoft Game Studios,Simulation,1996,PC,NA
+195,Guitar Hero II,RedOctane,Misc,2006,PS2,NA
+196,Resident Evil 5,Capcom,Action,2009,PS3,NA
+197,Grand Theft Auto V,Take-Two Interactive,Action,2014,XOne,NA
+198,Grand Theft Auto: Vice City Stories,Take-Two Interactive,Action,2006,PSP,EU
+199,FIFA Soccer 11,Electronic Arts,Sports,2010,PS3,EU
+200,Super Mario Bros.,Nintendo,Platform,1999,GB,NA
+201,Resident Evil,Virgin Interactive,Action,1996,PS,NA
+202,Tony Hawk's Pro Skater,Activision,Sports,1999,PS,NA
+203,Super Smash Bros. for Wii U and 3DS,Nintendo,Fighting,2014,WiiU,NA
+204,Warzone 2100,Eidos Interactive,Strategy,1999,PS,NA
+205,Spyro the Dragon,Sony Computer Entertainment,Platform,1998,PS,NA
+206,Link's Crossbow Training,Nintendo,Shooter,2007,Wii,NA
+207,Guitar Hero III: Legends of Rock,Activision,Misc,2007,PS2,NA
+208,Fallout 3,Bethesda Softworks,Role-Playing,2008,X360,NA
+209,Uncharted: Drake's Fortune,Sony Computer Entertainment,Action,2007,PS3,NA
+210,Madden NFL 06,Electronic Arts,Sports,2005,PS2,NA
+211,LEGO Star Wars: The Complete Saga,LucasArts,Action,2007,DS,NA
+212,Diddy Kong Racing,Nintendo,Racing,1997,N64,NA
+213,Monster Hunter Freedom 3,Capcom,Role-Playing,2010,PSP,JP
+214,Dr. Mario,Nintendo,Puzzle,1990,NES,NA
+215,God of War III,Sony Computer Entertainment,Action,2010,PS3,NA
+216,StarCraft II: Wings of Liberty,Activision,Strategy,2010,PC,NA
+217,Assassin's Creed,Ubisoft,Adventure,2007,PS3,EU
+218,FIFA 15,Electronic Arts,Sports,2014,PS3,EU
+219,Crash Team Racing,Sony Computer Entertainment,Racing,1999,PS,NA
+220,FIFA 17,Electronic Arts,Sports,2016,PS4,EU
+221,Batman: Arkham City,Warner Bros. Interactive Entertainment,Action,2011,X360,NA
+222,Driver 2,Atari,Action,2000,PS,NA
+223,The Simpsons: Hit & Run,Vivendi Games,Racing,2003,PS2,EU
+224,Tony Hawk's Pro Skater 2,Activision,Sports,2000,PS,NA
+225,Animal Crossing: City Folk,Nintendo,Simulation,2008,Wii,NA
+226,The Lord of the Rings: The Two Towers,Electronic Arts,Action,2002,PS2,EU
+227,Forza Motorsport 4,Microsoft Game Studios,Racing,2011,X360,NA
+228,Tomb Raider,Eidos Interactive,Action,1996,PS,NA
+229,Guitar Hero III: Legends of Rock,Activision,Misc,2007,Wii,NA
+230,The Legend of Zelda: A Link to the Past,Nintendo,Action,1991,SNES,NA
+231,The Legend of Zelda: The Wind Waker,Nintendo,Action,2002,GC,NA
+232,Mario & Sonic at the Olympic Winter Games,Sega,Sports,2009,Wii,EU
+233,Luigi's Mansion: Dark Moon,Nintendo,Action,2013,3DS,NA
+234,Splatoon,Nintendo,Shooter,2015,WiiU,NA
+235,The Last of Us,Sony Computer Entertainment,Action,2014,PS4,EU
+236,Guitar Hero III: Legends of Rock,Activision,Misc,2007,X360,NA
+237,Madden NFL 2005,Electronic Arts,Sports,2004,PS2,NA
+238,Pitfall!,Activision,Platform,1981,2600,NA
+239,Madden NFL 07,Electronic Arts,Sports,2006,PS2,NA
+240,Spider-Man: The Movie,Activision,Action,2002,PS2,NA
+241,Dragon Quest VII: Warriors of Eden,Enix Corporation,Role-Playing,2000,PS,JP
+242,Uncharted: The Nathan Drake Collection,Sony Computer Entertainment,Action,2015,PS4,NA
+243,Call of Duty: Advanced Warfare,Activision,Shooter,2014,PS3,EU
+244,God of War,Sony Computer Entertainment,Action,2005,PS2,NA
+245,Nintendo Land,Nintendo,Misc,2012,WiiU,NA
+246,Michael Jackson: The Experience,Ubisoft,Misc,2010,Wii,NA
+247,Tony Hawk's Pro Skater 3,Activision,Sports,2001,PS2,NA
+248,Winning Eleven: Pro Evolution Soccer 2007,Konami Digital Entertainment,Sports,2006,PS2,EU
+249,The Elder Scrolls IV: Oblivion,Take-Two Interactive,Role-Playing,2006,X360,NA
+250,Zelda II: The Adventure of Link,Nintendo,Adventure,1987,NES,NA
+251,Need for Speed: Most Wanted,Electronic Arts,Racing,2005,PS2,NA
+252,Resistance: Fall of Man,Sony Computer Entertainment,Shooter,2006,PS3,NA
+253,Sonic the Hedgehog,Sega,Platform,1991,GEN,NA
+254,Kingdom Hearts II,Square Enix,Role-Playing,2005,PS2,NA
+255,FIFA 14,Electronic Arts,Sports,2013,X360,EU
+256,Call of Duty: Advanced Warfare,Activision,Shooter,2014,X360,NA
+257,Asteroids,Atari,Shooter,1980,2600,NA
+258,Fable II,Microsoft Game Studios,Role-Playing,2008,X360,NA
+259,Halo 5: Guardians,Microsoft Game Studios,Shooter,2015,XOne,NA
+260,Super Mario 3D World,Nintendo,Platform,2013,WiiU,NA
+261,Batman: Arkham Asylum,Eidos Interactive,Action,2009,PS3,NA
+262,Assassin's Creed: Revelations,Ubisoft,Action,2011,PS3,EU
+263,Namco Museum,Namco Bandai Games,Misc,2001,GBA,NA
+264,Metal Gear Solid 3: Snake Eater,Konami Digital Entertainment,Action,2004,PS2,OTHER
+265,Daxter,Sony Computer Entertainment,Platform,2006,PSP,NA
+266,Warcraft II: Tides of Darkness,Activision,Strategy,1995,PC,EU
+267,The Legend of Zelda: Ocarina of Time,Nintendo,Action,2011,3DS,NA
+268,FIFA Soccer 06,Electronic Arts,Sports,2005,PS2,EU
+269,EyeToy Play,Sony Computer Entertainment,Misc,2003,PS2,EU
+270,Uncharted 4: A Thief's End,Sony Computer Entertainment,Shooter,2016,PS4,EU
+271,Gran Turismo 5 Prologue,Sony Computer Entertainment,Racing,2007,PS3,EU
+272,Assassin's Creed: Revelations,Ubisoft,Action,2011,X360,NA
+273,Street Fighter IV,Capcom,Fighting,2009,PS3,NA
+274,FIFA 12,Electronic Arts,Sports,2011,X360,EU
+275,Teenage Mutant Ninja Turtles,Palcom,Action,1989,NES,NA
+276,Excitebike,Nintendo,Racing,1984,NES,NA
+277,Frogger,Hasbro Interactive,Action,1997,PS,NA
+278,Madden NFL 2003,Electronic Arts,Sports,2002,PS2,NA
+279,Watch Dogs,Ubisoft,Action,2014,PS4,EU
+280,Half-Life,Vivendi Games,Shooter,1997,PC,NA
+281,Super Mario World 2: Yoshi's Island,Nintendo,Platform,1995,SNES,JP
+282,FIFA Soccer 07,Electronic Arts,Sports,2006,PS2,EU
+283,The Legend of Zelda: Skyward Sword,Nintendo,Action,2011,Wii,NA
+284,Street Fighter II Turbo,Capcom,Fighting,1992,SNES,JP
+285,Carnival Games,Take-Two Interactive,Misc,2007,Wii,NA
+286,Fallout 4,Bethesda Softworks,Role-Playing,2015,XOne,NA
+287,World of Warcraft: The Burning Crusade,Activision,Role-Playing,2007,PC,NA
+288,Fallout: New Vegas,Bethesda Softworks,Role-Playing,2010,X360,NA
+289,God of War II,Sony Computer Entertainment,Action,2007,PS2,NA
+290,Forza Motorsport 2,Microsoft Game Studios,Racing,2007,X360,NA
+291,World Soccer Winning Eleven 9,Konami Digital Entertainment,Sports,2005,PS2,EU
+292,Namco Museum Vol.3,Sony Computer Entertainment,Misc,1996,PS,NA
+293,Tekken Tag Tournament,Namco Bandai Games,Fighting,2000,PS2,NA
+294,Far Cry 4,Ubisoft,Shooter,2014,PS4,EU
+295,Star Fox 64,Nintendo,Shooter,1997,N64,NA
+296,Minecraft,Sony Computer Entertainment Europe,Misc,2014,PS4,EU
+297,Golf,Nintendo,Sports,1984,NES,JP
+298,Fallout 3,Bethesda Softworks,Role-Playing,2008,PS3,NA
+299,Professor Layton and the Diabolical Box,Nintendo,Puzzle,2007,DS,EU
+300,Left 4 Dead 2,Electronic Arts,Shooter,2009,X360,NA
+301,Namco Museum: 50th Anniversary,Namco Bandai Games,Misc,2005,PS2,NA
+302,EA Sports Active,Electronic Arts,Sports,2009,Wii,NA
+303,Assassin's Creed: Unity,Ubisoft,Action,2014,PS4,EU
+304,Donkey Kong Land,Nintendo,Platform,1994,GB,NA
+305,Tony Hawk's Underground,Activision,Sports,2003,PS2,NA
+306,Assassin's Creed IV: Black Flag,Ubisoft,Action,2013,PS3,EU
+307,Monster Hunter 4 Ultimate,Nintendo,Role-Playing,2014,3DS,JP
+308,MotorStorm,Sony Computer Entertainment,Racing,2006,PS3,EU
+309,The Elder Scrolls V: Skyrim,Bethesda Softworks,Role-Playing,2011,PC,EU
+310,Tekken 5,Namco Bandai Games,Fighting,2005,PS2,EU
+311,Dragon Warrior III,Enix Corporation,Role-Playing,1988,NES,JP
+312,Sports Champions,Sony Computer Entertainment,Sports,2010,PS3,NA
+313,NBA 2K16,Take-Two Interactive,Sports,2015,PS4,NA
+314,World Soccer Winning Eleven 8 International,Konami Digital Entertainment,Sports,2004,PS2,EU
+315,Flash Focus: Vision Training in Minutes a Day,Nintendo,Misc,2007,DS,EU
+316,Namco Museum Vol.1,Sony Computer Entertainment,Misc,1995,PS,NA
+317,The Legend of Zelda: Link's Awakening,Nintendo,Action,1992,GB,NA
+318,Mario & Luigi: Bowser's Inside Story,Nintendo,Role-Playing,2009,DS,NA
+319,Big Brain Academy: Wii Degree,Nintendo,Misc,2007,Wii,EU
+320,Nintendogs + cats,Nintendo,Simulation,2011,3DS,NA
+321,Batman: Arkham Knight,Warner Bros. Interactive Entertainment,Action,2015,PS4,EU
+322,Mario & Sonic at the London 2012 Olympic Games,Sega,Sports,2011,Wii,EU
+323,LEGO Indiana Jones: The Original Adventures,Activision,Action,2008,X360,NA
+324,Resident Evil Director's Cut,Virgin Interactive,Action,1996,PS,NA
+325,Ratchet & Clank: Size Matters,Sony Computer Entertainment,Platform,2007,PSP,NA
+326,Just Dance 2014,Ubisoft,Misc,2013,Wii,NA
+327,The Sims: Unleashed,Electronic Arts,Simulation,2002,PC,NA
+328,Super Paper Mario,Nintendo,Platform,2007,Wii,NA
+329,Harry Potter and the Sorcerer's Stone,Electronic Arts,Action,2001,PS,EU
+330,The Witcher 3: Wild Hunt,Namco Bandai Games,Role-Playing,2015,PS4,EU
+331,Resident Evil 3: Nemesis,Eidos Interactive,Action,1999,PS,JP
+332,Spyro: Year of the Dragon,Sony Computer Entertainment,Platform,2000,PS,NA
+333,FIFA Soccer 2005,Electronic Arts,Sports,2004,PS2,EU
+334,PokÃ©mon Trading Card Game,Nintendo,Strategy,1998,GB,NA
+335,Battlefield 4,Electronic Arts,Shooter,2013,PS3,EU
+336,MySims,Electronic Arts,Simulation,2007,DS,EU
+337,Friend Collection,Nintendo,Misc,2009,DS,JP
+338,Tony Hawk's Pro Skater 4,Activision,Sports,2002,PS2,NA
+339,Midnight Club 3: DUB Edition,Take-Two Interactive,Racing,2005,PSP,NA
+340,Banjo-Kazooie,Nintendo,Platform,1998,N64,NA
+341,SOCOM: U.S. Navy SEALs,Sony Computer Entertainment,Shooter,2002,PS2,NA
+342,Guitar Hero: World Tour,Activision,Misc,2008,Wii,NA
+343,Gran Turismo 6,Sony Computer Entertainment,Racing,2013,PS3,EU
+344,Jak and Daxter: The Precursor Legacy,Sony Computer Entertainment,Platform,2001,PS2,NA
+345,Pokemon Snap,Nintendo,Simulation,1999,N64,NA
+346,FIFA Soccer 10,Electronic Arts,Sports,2009,PS3,EU
+347,Pro Evolution Soccer 2008,Konami Digital Entertainment,Sports,2007,PS2,OTHER
+348,Call of Duty: Ghosts,Activision,Shooter,2013,PS4,NA
+349,Resident Evil 4,Capcom,Action,2005,PS2,NA
+350,Tom Clancy's The Division,Ubisoft,Shooter,2016,PS4,EU
+351,Star Wars: Battlefront,LucasArts,Shooter,2004,PS2,NA
+352,Doom II: Hell on Earth,Virgin Interactive,Shooter,1994,PC,NA
+353,The Simpsons: Road Rage,Electronic Arts,Racing,2001,PS2,NA
+354,Cooking Mama 2: Dinner With Friends,505 Games,Simulation,2007,DS,NA
+355,Luigi's Mansion,Nintendo,Action,2001,GC,NA
+356,Star Wars: Battlefront II,LucasArts,Shooter,2005,PS2,NA
+357,WWF SmackDown!,THQ,Fighting,2000,PS,NA
+358,Croc: Legend of the Gobbos,Fox Interactive,Platform,1997,PS,EU
+359,Grand Theft Auto: Liberty City Stories,Take-Two Interactive,Action,2006,PS2,NA
+360,The Getaway,Sony Computer Entertainment,Action,2002,PS2,EU
+361,Tomb Raider III: Adventures of Lara Croft,Eidos Interactive,Action,1997,PS,NA
+362,James Bond 007: Agent Under Fire,Electronic Arts,Shooter,2001,PS2,NA
+363,LEGO Star Wars: The Video Game,Eidos Interactive,Action,2005,PS2,NA
+364,Battlefield 4,Electronic Arts,Shooter,2013,X360,NA
+365,FIFA Soccer 11,Electronic Arts,Sports,2010,X360,EU
+366,Rugrats in Paris: The Movie,THQ,Action,2000,PS,NA
+367,Spyro 2: Ripto's Rage!,Sony Computer Entertainment,Platform,1999,PS,NA
+368,Left 4 Dead,Electronic Arts,Shooter,2008,X360,NA
+369,Mario & Sonic at the Olympic Winter Games,Sega,Sports,2009,DS,EU
+370,Resident Evil 5,Capcom,Action,2009,X360,NA
+371,Assassin's Creed: Brotherhood,Ubisoft,Action,2010,X360,NA
+372,Kung Fu,Nintendo,Action,1985,NES,NA
+373,Batman: Arkham Asylum,Eidos Interactive,Action,2009,X360,NA
+374,Clubhouse Games,Nintendo,Misc,2006,DS,EU
+375,Star Wars Battlefront (2015),Electronic Arts,Shooter,2015,XOne,NA
+376,Battlefield: Bad Company 2,Electronic Arts,Shooter,2010,X360,NA
+377,Guitar Hero: On Tour,Activision,Misc,2008,DS,NA
+378,Assassin's Creed: Unity,Ubisoft,Action,2014,XOne,NA
+379,Far Cry 3,Ubisoft,Shooter,2012,PS3,EU
+380,Monster Hunter 4,Capcom,Role-Playing,2013,3DS,JP
+381,Borderlands,Take-Two Interactive,Shooter,2009,X360,NA
+382,Tekken 4,Namco Bandai Games,Fighting,2002,PS2,NA
+383,Battlefield 4,Electronic Arts,Shooter,2013,PS4,EU
+384,LittleBigPlanet 2,Sony Computer Entertainment,Platform,2011,PS3,NA
+385,Grand Theft Auto 2,Take-Two Interactive,Action,1998,PS,EU
+386,Final Fantasy III,SquareSoft,Role-Playing,1994,SNES,JP
+387,Spider-Man 2,Activision,Action,2004,PS2,NA
+388,F-1 Race,Nintendo,Racing,1990,GB,NA
+389,FIFA Soccer 2003,Electronic Arts,Sports,2002,PS2,EU
+390,Crash Bash,Sony Computer Entertainment,Misc,2000,PS,NA
+391,LEGO Batman: The Videogame,Warner Bros. Interactive Entertainment,Action,2008,X360,NA
+392,Metal Gear Solid V: The Phantom Pain,Konami Digital Entertainment,Action,2015,PS4,EU
+393,The Legend of Zelda: Spirit Tracks,Nintendo,Action,2009,DS,NA
+394,WWF War Zone,Acclaim Entertainment,Fighting,1998,PS,NA
+395,The Legend of Zelda: Majora's Mask,Nintendo,Action,2000,N64,NA
+396,Professor Layton and the Unwound Future,Nintendo,Puzzle,2008,DS,EU
+397,Rugrats: Search For Reptar,THQ,Adventure,1998,PS,NA
+398,Assassin's Creed IV: Black Flag,Ubisoft,Action,2013,X360,NA
+399,English Training: Have Fun Improving Your Skills!,Nintendo,Misc,2006,DS,JP
+400,James Bond 007: Nightfire,Electronic Arts,Shooter,2002,PS2,NA
+401,Ratchet & Clank,Sony Computer Entertainment,Platform,2002,PS2,NA
+402,Mario Party 9,Nintendo,Misc,2012,Wii,EU
+403,Star Wars Episode III: Revenge of the Sith,LucasArts,Action,2005,PS2,NA
+404,Max Payne,Take-Two Interactive,Shooter,2001,PS2,NA
+405,The Lord of the Rings: The Return of the King,Electronic Arts,Action,2003,PS2,NA
+406,Assassin's Creed Syndicate,Ubisoft,Action,2015,PS4,EU
+407,Destiny,Activision,Shooter,2014,XOne,NA
+408,True Crime: Streets of LA,Activision,Action,2003,PS2,NA
+409,Wii Music,Nintendo,Misc,2008,Wii,NA
+410,Gran Turismo (PSP),Sony Computer Entertainment,Racing,2009,PSP,EU
+411,Monster Hunter X,Capcom,Action,2015,3DS,JP
+412,Tekken,Sony Computer Entertainment,Fighting,1995,PS,EU
+413,FIFA 16,Electronic Arts,Sports,2015,XOne,EU
+414,L.A. Noire,Take-Two Interactive,Adventure,2011,PS3,EU
+415,Madden NFL 16,Electronic Arts,Sports,2015,PS4,NA
+416,Yokai Watch 2 Ganso/Honke,Nintendo,Role-Playing,2014,3DS,JP
+417,007: Tomorrow Never Dies,Electronic Arts,Shooter,1999,PS,NA
+418,Baseball,Nintendo,Sports,1983,NES,JP
+419,Killer Instinct,Nintendo,Fighting,1995,SNES,NA
+420,WWF SmackDown! 2: Know Your Role,THQ,Fighting,2000,PS,NA
+421,Crisis Core: Final Fantasy VII,Square Enix,Role-Playing,2007,PSP,NA
+422,God of War: Chains of Olympus,Sony Computer Entertainment,Action,2008,PSP,NA
+423,Dragon Quest VI: Maboroshi no Daichi,Enix Corporation,Role-Playing,1995,SNES,JP
+424,Dance Central,MTV Games,Misc,2010,X360,NA
+425,Enter the Matrix,Atari,Action,2003,PS2,NA
+426,Super Mario Maker,Nintendo,Platform,2015,WiiU,NA
+427,Fallout: New Vegas,Bethesda Softworks,Role-Playing,2010,PS3,NA
+428,Rhythm Heaven,Nintendo,Misc,2008,DS,JP
+429,Ace Combat 04: Shattered Skies,Sony Computer Entertainment Europe,Simulation,2001,PS2,NA
+430,Club Penguin: Elite Penguin Force,Disney Interactive Studios,Adventure,2008,DS,NA
+431,Animal Crossing,Nintendo,Simulation,2001,GC,NA
+432,LEGO Batman: The Videogame,Warner Bros. Interactive Entertainment,Action,2008,DS,NA
+433,Sonic Rush,Sega,Platform,2005,DS,EU
+434,Resident Evil 6,Capcom,Shooter,2012,PS3,EU
+435,Halo: The Master Chief Collection,Microsoft Game Studios,Shooter,2014,XOne,NA
+436,FIFA Soccer 08,Electronic Arts,Sports,2007,PS2,OTHER
+437,Spider-Man,Activision,Action,2000,PS,NA
+438,Need for Speed III: Hot Pursuit,Electronic Arts,Racing,1998,PS,NA
+439,Star Wars Episode I Racer,Nintendo,Racing,1999,N64,NA
+440,Personal Trainer: Cooking,Nintendo,Misc,2006,DS,JP
+441,The Elder Scrolls IV: Oblivion,Ubisoft,Role-Playing,2007,PS3,NA
+442,Dragon Warrior IV,Enix Corporation,Role-Playing,1990,NES,JP
+443,Heavy Rain,Sony Computer Entertainment,Adventure,2010,PS3,NA
+444,Mass Effect 2,Electronic Arts,Role-Playing,2010,X360,NA
+445,FIFA 15,Electronic Arts,Sports,2014,X360,EU
+446,Dragon Ball Z: Budokai,Atari,Fighting,2002,PS2,NA
+447,Madden NFL 2002,Electronic Arts,Sports,2001,PS2,NA
+448,World Class Track Meet,Namco Bandai Games,Sports,1986,NES,NA
+449,Borderlands 2,Take-Two Interactive,Shooter,2012,X360,NA
+450,The Legend of Zelda: A Link Between Worlds,Nintendo,Action,2013,3DS,NA
+451,Donkey Kong,Nintendo,Platform,1994,GB,NA
+452,The Sims: Vacation,Electronic Arts,Simulation,2002,PC,NA
+453,Mass Effect 3,Electronic Arts,Role-Playing,2012,X360,NA
+454,Kung Fu Panda,Activision,Action,2008,X360,NA
+455,Far Cry 3,Ubisoft,Shooter,2012,X360,NA
+456,Epic Mickey,Disney Interactive Studios,Platform,2010,Wii,NA
+457,Saints Row 2,THQ,Action,2008,X360,NA
+458,Rayman,Ubisoft,Platform,1995,PS,NA
+459,Killzone 2,Sony Computer Entertainment,Shooter,2009,PS3,NA
+460,Tom Clancy's Splinter Cell,Ubisoft,Action,2002,XB,NA
+461,Mike Tyson's Punch-Out!!,Nintendo,Fighting,1987,NES,NA
+462,WWE SmackDown! Shut Your Mouth,THQ,Sports,2002,PS2,NA
+463,Gears of War: Ultimate Edition,Microsoft Game Studios,Shooter,2015,XOne,NA
+464,NBA 2K13,Take-Two Interactive,Sports,2012,X360,NA
+465,Dragon Ball Z: Budokai Tenkaichi 3,Atari,Fighting,2007,PS2,NA
+466,Middle-Earth: Shadow of Mordor,Warner Bros. Interactive Entertainment,Action,2014,PS4,EU
+467,Star Fox,Nintendo,Shooter,1993,SNES,NA
+468,The Sims: Livin Large,Electronic Arts,Misc,2000,PC,NA
+469,World Soccer Winning Eleven 6 International,Konami Digital Entertainment,Sports,2002,PS2,EU
+470,Devil May Cry,Capcom,Action,2001,PS2,NA
+471,Animal Crossing: Happy Home Designer,Nintendo,Simulation,2015,3DS,JP
+472,Battlefield: Bad Company 2,Electronic Arts,Shooter,2010,PS3,NA
+473,The Sims 4,Electronic Arts,Simulation,2014,PC,EU
+474,Star Wars: The Old Republic,Electronic Arts,Role-Playing,2011,PC,NA
+475,Sonic Heroes,Sega,Platform,2003,PS2,EU
+476,Kirby Super Star Ultra,Nintendo,Platform,2008,DS,NA
+477,Hitman 2: Silent Assassin,Eidos Interactive,Action,2002,PS2,NA
+478,Street Fighter IV,Capcom,Fighting,2009,X360,NA
+479,Wave Race 64,Nintendo,Racing,1996,N64,NA
+480,SOCOM II: U.S. Navy SEALs,Sony Computer Entertainment,Shooter,2003,PS2,NA
+481,WWE SmackDown! vs. RAW 2006,THQ,Fighting,2005,PS2,NA
+482,inFAMOUS,Sony Computer Entertainment,Action,2009,PS3,NA
+483,Pac-Man Collection,Atari,Puzzle,2001,GBA,NA
+484,Mass Effect,Microsoft Game Studios,Role-Playing,2007,X360,NA
+485,WarioWare: Smooth Moves,Nintendo,Puzzle,2006,Wii,EU
+486,Cooking Mama: Cook Off,505 Games,Simulation,2007,Wii,NA
+487,Super Mario World 2: Yoshi's Island,Nintendo,Platform,2002,GBA,NA
+488,FIFA 14,Electronic Arts,Sports,2013,PS4,EU
+489,Titanfall,Electronic Arts,Shooter,2014,XOne,NA
+490,Sonic Mega Collection Plus,Sega,Misc,2004,PS2,NA
+491,Sega Superstars Tennis,Sega,Sports,2008,X360,NA
+492,World Soccer Winning Eleven 7 International,Konami Digital Entertainment,Sports,2003,PS2,EU
+493,Need for Speed: Most Wanted,Electronic Arts,Racing,2012,PS3,EU
+494,Hot Shots Golf 3,Sony Computer Entertainment,Sports,2001,PS2,JP
+495,Call of Duty: Finest Hour,Activision,Shooter,2004,PS2,NA
+496,Zumba Fitness 2,Majesco Entertainment,Sports,2011,Wii,NA
+497,Syphon Filter,Sony Computer Entertainment,Shooter,1999,PS,NA
+498,Imagine: Babyz,Ubisoft,Simulation,2007,DS,NA
+499,Colin McRae Rally,Codemasters,Racing,1998,PS,EU
+500,Call of Duty: Ghosts,Activision,Shooter,2013,XOne,NA
+501,Madden NFL 13,Electronic Arts,Sports,2012,X360,NA
+502,The Elder Scrolls III: Morrowind,Ubisoft,Role-Playing,2002,XB,NA
+503,Mortal Kombat,Warner Bros. Interactive Entertainment,Fighting,2011,PS3,NA
+504,F-Zero,Nintendo,Racing,1990,SNES,NA
+505,Yoshi's Story,Nintendo,Platform,1997,N64,NA
+506,Command & Conquer: Red Alert,Virgin Interactive,Strategy,1996,PC,NA
+507,Skylanders: Spyro's Adventure,Activision,Action,2011,Wii,NA
+508,FIFA 16,Electronic Arts,Sports,2015,PS3,EU
+509,Assassin's Creed: Brotherhood,Ubisoft,Action,2010,PS3,NA
+510,BioShock,Take-Two Interactive,Shooter,2007,X360,NA
+511,Madden NFL 10,Electronic Arts,Sports,2009,X360,NA
+512,Medal of Honor,Electronic Arts,Shooter,2010,PS3,NA
+513,WWE SmackDown! vs. Raw,THQ,Fighting,2002,PS2,NA
+514,Metroid Prime,Nintendo,Shooter,2002,GC,NA
+515,Finding Nemo,THQ,Action,2003,GBA,NA
+516,Myst,Red Orb,Adventure,1994,PC,EU
+517,Need for Speed: Hot Pursuit,Electronic Arts,Racing,2010,PS3,EU
+518,Imagine: Fashion Designer,Ubisoft,Simulation,2007,DS,NA
+519,WWE SmackDown! Here Comes the Pain,THQ,Fighting,2003,PS2,NA
+520,Star Wars: The Force Unleashed,LucasArts,Action,2008,X360,NA
+521,Yoshi's Island DS,Nintendo,Platform,2006,DS,NA
+522,Hot Shots Golf,Sony Computer Entertainment,Sports,1997,PS,JP
+523,Killzone 3,Sony Computer Entertainment,Shooter,2011,PS3,NA
+524,A Bug's Life,Sony Computer Entertainment,Platform,1998,PS,NA
+525,WWF SmackDown! Just Bring It,THQ,Fighting,2001,PS2,NA
+526,Dragon Quest V: Tenkuu no Hanayome,Enix Corporation,Role-Playing,1992,SNES,JP
+527,Mortal Kombat Trilogy,GT Interactive,Fighting,1996,PS,NA
+528,Battlefield 3,Electronic Arts,Shooter,2011,PC,EU
+529,NBA Street,Electronic Arts,Sports,2001,PS2,NA
+530,Professor Layton and the Last Specter,Nintendo,Puzzle,2009,DS,EU
+531,Monster Hunter Tri,Nintendo,Role-Playing,2011,3DS,JP
+532,Jak II,Sony Computer Entertainment,Platform,2003,PS2,NA
+533,inFAMOUS: Second Son,Sony Computer Entertainment,Action,2014,PS4,NA
+534,Ratchet & Clank: Going Commando,Sony Computer Entertainment,Platform,2003,PS2,NA
+535,Tekken 6,Namco Bandai Games,Fighting,2009,PS3,NA
+536,The Sims,Electronic Arts,Simulation,2003,PS2,NA
+537,Sonic and the Secret Rings,Sega,Platform,2007,Wii,NA
+538,Saints Row: The Third,THQ,Action,2011,X360,NA
+539,Missile Command,Atari,Shooter,1980,2600,NA
+540,Mario Paint,Nintendo,Misc,1992,SNES,NA
+541,Assassin's Creed IV: Black Flag,Ubisoft,Action,2013,PS4,EU
+542,PokÃ©mon Stadium 2,Nintendo,Strategy,2000,N64,JP
+543,Metroid,Nintendo,Action,1986,NES,NA
+544,L.A. Noire,Take-Two Interactive,Adventure,2011,X360,NA
+545,Call of Duty 3,Activision,Shooter,2006,X360,NA
+546,The Legend of Zelda: A Link to the Past,Nintendo,Action,2002,GBA,NA
+547,Onimusha: Warlords,Virgin Interactive,Action,2001,PS2,JP
+548,Mortal Kombat X,Warner Bros. Interactive Entertainment,Fighting,2015,PS4,NA
+549,Mario Party,Nintendo,Misc,1998,N64,NA
+550,Madden NFL 12,Electronic Arts,Sports,2011,X360,NA
+551,LEGO Star Wars II: The Original Trilogy,LucasArts,Action,2006,PS2,NA
+552,Madden NFL 11,Electronic Arts,Sports,2010,X360,NA
+553,Mario vs. Donkey Kong: Mini-Land Mayhem!,Nintendo,Puzzle,2010,DS,NA
+554,Skate 3,Electronic Arts,Sports,2010,X360,NA
+555,Burnout 3: Takedown,Electronic Arts,Racing,2004,PS2,NA
+556,Yokai Watch 2 Shinuchi,Level 5,Role-Playing,2014,3DS,JP
+557,Need for Speed: Shift,Electronic Arts,Racing,2009,PS3,EU
+558,Final Fantasy XIII-2,Square Enix,Role-Playing,2011,PS3,JP
+559,Mortal Kombat,Arena Entertainment,Fighting,1992,GEN,NA
+560,Call Of Duty 2: Big Red One,Activision,Shooter,2005,PS2,NA
+561,Guitar Hero: World Tour,Activision,Misc,2008,X360,NA
+562,Medal of Honor,Electronic Arts,Shooter,1998,PS,NA
+563,Fable,Microsoft Game Studios,Role-Playing,2004,XB,NA
+564,Hannah Montana,Disney Interactive Studios,Action,2006,DS,NA
+565,Tom Clancy's Splinter Cell,Ubisoft,Action,2003,PS2,NA
+566,Skylanders Giants,Activision,Action,2012,Wii,NA
+567,Medal of Honor Heroes,Electronic Arts,Shooter,2006,PSP,EU
+568,Super Mario Bros.: The Lost Levels,Nintendo,Platform,1986,NES,JP
+569,Star Wars: Shadows of the Empire,Nintendo,Action,1996,N64,NA
+570,LEGO Star Wars: The Complete Saga,LucasArts,Action,2007,X360,NA
+571,Midnight Club: Street Racing,Take-Two Interactive,Racing,2000,PS2,NA
+572,Pac-Man: Adventures in Time,Sony Computer Entertainment,Fighting,2006,PSP,EU
+573,Halo Wars,Microsoft Game Studios,Strategy,2009,X360,NA
+574,God of War Collection,Sony Computer Entertainment,Action,2009,PS3,NA
+575,ESPN NFL 2K5,Sega,Sports,2004,PS2,NA
+576,Mario Strikers Charged,Nintendo,Sports,2007,Wii,NA
+577,Medal of Honor,Electronic Arts,Shooter,2010,X360,NA
+578,FIFA Soccer 10,Electronic Arts,Sports,2009,X360,EU
+579,NBA 2K12,Take-Two Interactive,Sports,2011,X360,NA
+580,Style Savvy,Nintendo,Simulation,2008,DS,JP
+581,Harry Potter and the Chamber of Secrets,Electronic Arts,Action,2002,PS2,EU
+582,Super Mario All-Stars: Limited Edition,Nintendo,Platform,2010,Wii,NA
+583,Streets of Rage,Sega,Action,1990,GEN,NA
+584,FIFA Soccer 09,Electronic Arts,Sports,2008,PS3,EU
+585,Ratchet & Clank Future: Tools of Destruction,Sony Computer Entertainment,Platform,2007,PS3,EU
+586,NBA Live 2005,Electronic Arts,Sports,2004,PS2,NA
+587,LittleBigPlanet,Sony Computer Entertainment,Platform,2009,PSP,EU
+588,Killzone: Shadow Fall,Sony Computer Entertainment,Shooter,2013,PS4,EU
+589,Ghostbusters: The Video Game (DS Version),Take-Two Interactive,Action,2009,X360,EU
+590,Monster Hunter Freedom 2,Capcom,Role-Playing,2007,PSP,JP
+591,WWE SmackDown vs. RAW 2007,THQ,Fighting,2006,PS2,NA
+592,Ratchet & Clank: Up Your Arsenal,Sony Computer Entertainment,Platform,2004,PS2,NA
+593,Art Academy,Nintendo,Misc,2010,DS,EU
+594,Dragon Age: Origins,Electronic Arts,Role-Playing,2009,X360,NA
+595,Madden NFL 08,Electronic Arts,Sports,2007,PS2,NA
+596,Sonic Adventure 2 Battle,Sega,Platform,2001,GC,NA
+597,Dragon Warrior II,Enix Corporation,Role-Playing,1987,NES,JP
+598,Madden NFL 13,Electronic Arts,Sports,2012,PS3,NA
+599,PokÃ©mon Colosseum,Nintendo,Role-Playing,2003,GC,NA
+600,Deca Sports,Konami Digital Entertainment,Sports,2008,Wii,NA
+601,Madden NFL 09,Electronic Arts,Sports,2008,X360,NA
+602,Crazy Taxi,Acclaim Entertainment,Racing,2001,PS2,NA
+603,Perfect Dark,Nintendo,Action,2000,N64,NA
+604,Game Party,Midway Games,Misc,2007,Wii,NA
+605,Dragon Warrior,Capcom,Role-Playing,1986,NES,OTHER
+606,Tomb Raider (2013),Square Enix,Action,2013,PS3,EU
+607,Marvel: Ultimate Alliance,Activision,Role-Playing,2006,X360,NA
+608,PES 2009: Pro Evolution Soccer,Konami Digital Entertainment,Sports,2008,PS2,OTHER
+609,Mario Party 2,Nintendo,Misc,1999,N64,NA
+610,Saints Row: The Third,THQ,Action,2011,PS3,EU
+611,LEGO Harry Potter: Years 1-4,Warner Bros. Interactive Entertainment,Action,2010,Wii,NA
+612,Mortal Kombat: Deadly Alliance,Midway Games,Fighting,2002,PS2,NA
+613,Resistance 2,Sony Computer Entertainment,Shooter,2008,PS3,NA
+614,Pure,Disney Interactive Studios,Racing,2008,X360,NA
+615,Tomb Raider: The Last Revelation,Eidos Interactive,Action,1998,PS,NA
+616,NBA 2K13,Take-Two Interactive,Sports,2012,PS3,NA
+617,NBA 2K14,Take-Two Interactive,Sports,2013,X360,NA
+618,Mario Party 4,Nintendo,Misc,2002,GC,NA
+619,uDraw Studio,THQ,Misc,2010,Wii,NA
+620,Midnight Club: Los Angeles,Take-Two Interactive,Racing,2008,PS3,NA
+621,Final Fantasy V,SquareSoft,Role-Playing,1992,SNES,JP
+622,Final Fantasy Tactics,SquareSoft,Role-Playing,1997,PS,JP
+623,Twisted Metal 2,Sony Computer Entertainment,Racing,1996,PS,NA
+624,Halo: Combat Evolved Anniversary,Microsoft Game Studios,Shooter,2011,X360,NA
+625,Need for Speed Carbon: Own the City,Electronic Arts,Racing,2006,PSP,EU
+626,The Sims: Bustin' Out,Electronic Arts,Simulation,2003,PS2,EU
+627,Riven: The Sequel to Myst,Red Orb,Adventure,1997,PC,NA
+628,Tom Clancy's Rainbow Six: Vegas 2,Ubisoft,Shooter,2008,X360,NA
+629,Sonic Adventure,Sega,Platform,1998,DC,NA
+630,Ice Hockey,Nintendo,Sports,1988,NES,NA
+631,pro evolution soccer 2011,Konami Digital Entertainment,Sports,2010,PS3,EU
+632,Dragon Ball Z: Budokai 2,Atari,Fighting,2003,PS2,NA
+633,ATV Offroad Fury,Sony Computer Entertainment,Racing,2001,PS2,NA
+634,Dino Crisis,Capcom,Action,1998,PS,NA
+635,Minecraft,Microsoft Game Studios,Misc,2014,XOne,NA
+636,Need for Speed: ProStreet,Electronic Arts,Racing,2007,PS2,OTHER
+637,Madden NFL 16,Electronic Arts,Sports,2015,XOne,NA
+638,Tetris Plus,JVC,Puzzle,1996,PS,NA
+639,Pro Wrestling,Nintendo,Fighting,1987,NES,JP
+640,Theme Hospital,Electronic Arts,Strategy,1997,PC,NA
+641,Need for Speed (2015),Electronic Arts,Racing,2015,PS4,EU
+642,Zumba Fitness,505 Games,Sports,2010,X360,NA
+643,Monopoly,Hasbro Interactive,Misc,1994,PC,NA
+644,Batman: Arkham Origins,Warner Bros. Interactive Entertainment,Action,2013,PS3,NA
+645,Dead Island,Deep Silver,Action,2011,X360,NA
+646,Guitar Hero,RedOctane,Misc,2005,PS2,NA
+647,LEGO Star Wars: The Complete Saga,LucasArts,Action,2007,PS3,NA
+648,Kinect: Disneyland Adventures,Microsoft Game Studios,Misc,2011,X360,NA
+649,WCW/nWo Revenge,THQ,Fighting,1998,N64,NA
+650,Bloodborne,Sony Computer Entertainment,Action,2015,PS4,NA
+651,NBA 2K15,Take-Two Interactive,Sports,2014,PS4,NA
+652,Madden NFL 11,Electronic Arts,Sports,2010,PS3,NA
+653,Yu-Gi-Oh! The Duelists of the Roses,Konami Digital Entertainment,Misc,2001,PS2,NA
+654,Madden NFL 08,Electronic Arts,Sports,2007,X360,NA
+655,Half-Life 2,Vivendi Games,Shooter,2004,PC,NA
+656,The Incredibles,THQ,Action,2004,PS2,EU
+657,Tony Hawk's Underground 2,Activision,Sports,2004,PS2,NA
+658,Madden NFL 10,Electronic Arts,Sports,2009,PS3,NA
+659,Kinect Sports: Season Two,Microsoft Game Studios,Sports,2011,X360,NA
+660,Kirby's Dream Land 2,Nintendo,Platform,1995,GB,JP
+661,LEGO Harry Potter: Years 1-4,Warner Bros. Interactive Entertainment,Action,2010,DS,NA
+662,Donkey Kong Land II,Nintendo,Platform,1996,GB,NA
+663,Dragon Warrior Monsters,Eidos Interactive,Role-Playing,1998,GB,JP
+664,Midnight Club: Los Angeles,Take-Two Interactive,Racing,2008,X360,NA
+665,Skylanders SWAP Force,Activision,Platform,2013,Wii,NA
+666,WWE SmackDown vs Raw 2008,THQ,Fighting,2007,PS2,OTHER
+667,My Fitness Coach,Ubisoft,Sports,2008,Wii,NA
+668,Resident Evil - Code: Veronica X,Capcom,Action,2001,PS2,NA
+669,The Sims 3,Electronic Arts,Simulation,2010,X360,NA
+670,The Legend of Zelda: Majora's Mask 3D,Nintendo,Action,2015,3DS,NA
+671,NBA 2K16,Take-Two Interactive,Sports,2015,XOne,NA
+672,Just Dance Kids,Ubisoft,Misc,2010,Wii,NA
+673,Mario Tennis,Nintendo,Sports,2000,N64,JP
+674,Grand Theft Auto,Take-Two Interactive,Action,1997,PS,EU
+675,James Bond 007: Everything or Nothing,Electronic Arts,Shooter,2004,PS2,EU
+676,WarioWare Touched!,Nintendo,Puzzle,2004,DS,JP
+677,Need For Speed: High Stakes,Electronic Arts,Racing,1999,PS,NA
+678,Chrono Trigger,SquareSoft,Role-Playing,1995,SNES,JP
+679,Cool Boarders 3,989 Studios,Sports,1998,PS,NA
+680,LEGO Marvel Super Heroes,Warner Bros. Interactive Entertainment,Action,2013,X360,NA
+681,Guild Wars 2,NCSoft,Action,2012,PC,EU
+682,Pokemon Ranger: Shadows of Almia,Nintendo,Role-Playing,2008,DS,NA
+683,Dead Island,Deep Silver,Action,2011,PS3,NA
+684,Tomb Raider II,Eidos Interactive,Action,1997,PC,EU
+685,God of War: Ascension,Sony Computer Entertainment,Action,2013,PS3,NA
+686,Need for Speed Underground 2,Electronic Arts,Racing,2004,XB,NA
+687,Pro Evolution Soccer 2010,Konami Digital Entertainment,Sports,2009,PS3,EU
+688,Just Dance 2015,Ubisoft,Misc,2014,Wii,NA
+689,Yokai Watch Busters,Level 5,Action,2015,3DS,JP
+690,Mario Bros.,Nintendo,Platform,1983,NES,JP
+691,FIFA Soccer 09,Electronic Arts,Sports,2008,PS2,OTHER
+692,Star Wars: The Force Unleashed,LucasArts,Action,2008,PS3,NA
+693,Borderlands 2,Take-Two Interactive,Shooter,2012,PS3,NA
+694,TOCA Touring Car Championship,Codemasters,Racing,1997,PS,EU
+695,Paper Mario: Sticker Star,Nintendo,Role-Playing,2012,3DS,NA
+696,Sonic's Ultimate Genesis Collection,Sega,Misc,2009,PS3,NA
+697,Super Monkey Ball: Banana Blitz,Sega,Misc,2006,Wii,NA
+698,Kirby: Nightmare in Dream Land,Nintendo,Platform,2002,GBA,NA
+699,Wario Land 4,Nintendo,Platform,2001,GBA,NA
+700,Guitar Hero III: Legends of Rock,Activision,Misc,2007,PS3,NA
+701,Resident Evil 4,Capcom,Action,2007,Wii,NA
+702,Minecraft,Sony Computer Entertainment Europe,Misc,2014,PSV,JP
+703,Onimusha 2: Samurai's Destiny,Capcom,Adventure,2002,PS2,JP
+704,Cool Boarders 2,UEP Systems,Sports,1997,PS,NA
+705,Paper Mario: The Thousand-Year Door,Nintendo,Role-Playing,2004,GC,NA
+706,Madden NFL 12,Electronic Arts,Sports,2011,PS3,NA
+707,Monster Hunter Tri,Nintendo,Role-Playing,2009,Wii,JP
+708,Dissidia: Final Fantasy,Square Enix,Fighting,2008,PSP,JP
+709,Sonic Advance,Sega,Platform,2001,GBA,NA
+710,Spyro: Season of Ice,Vivendi Games,Platform,2001,GBA,NA
+711,Teenage Mutant Ninja Turtles II: The Arcade Game,Konami Digital Entertainment,Action,1990,NES,NA
+712,LEGO Indiana Jones: The Original Adventures,Activision,Action,2008,DS,NA
+713,Dance Dance Revolution X2,Konami Digital Entertainment,Simulation,2009,PS2,NA
+714,New Super Luigi U,Nintendo,Platform,2013,WiiU,NA
+715,Prince of Persia: The Sands of Time,Ubisoft,Action,2003,PS2,EU
+716,Scribblenauts,Warner Bros. Interactive Entertainment,Puzzle,2009,DS,NA
+717,The Legend of Zelda: Link's Awakening DX,Nintendo,Adventure,1998,GB,NA
+718,Need for Speed: Hot Pursuit,Electronic Arts,Racing,2010,X360,NA
+719,BioShock 2,Take-Two Interactive,Shooter,2010,X360,NA
+720,Assassin's Creed IV: Black Flag,Ubisoft,Action,2013,XOne,NA
+721,Devil May Cry 3: Dante's Awakening Special Edition,Capcom,Action,2006,PS2,NA
+722,Rock Band 2,Electronic Arts,Misc,2008,X360,NA
+723,Frogger,Parker Bros.,Action,1981,2600,NA
+724,Guitar Hero II,Activision,Misc,2007,X360,NA
+725,Wario Land 3,Nintendo,Platform,2000,GB,NA
+726,Pro Yakyuu Family Stadium,Namco Bandai Games,Sports,1986,NES,JP
+727,Sonic Unleashed,Sega,Platform,2008,Wii,NA
+728,High School Musical: Makin' the Cut!,Disney Interactive Studios,Puzzle,2007,DS,NA
+729,Pro Evolution Soccer 2012,Konami Digital Entertainment,Action,2011,PS3,EU
+730,Saints Row,THQ,Action,2006,X360,NA
+731,Star Wars: Knights of the Old Republic,Activision,Role-Playing,2003,XB,NA
+732,Kirby's Pinball Land,Nintendo,Misc,1992,GB,JP
+733,Donkey Kong Country,Nintendo,Platform,2000,GB,NA
+734,Hitman: Absolution,Square Enix,Action,2012,PS3,EU
+735,Yu-Gi-Oh: Duel Monsters 4,Konami Digital Entertainment,Role-Playing,2000,GB,JP
+736,ATV Offroad Fury 2,THQ,Racing,2002,PS2,NA
+737,Forza Motorsport 5,Microsoft Game Studios,Racing,2013,XOne,NA
+738,Madden NFL 25,Electronic Arts,Sports,2013,X360,NA
+739,Pokemon Ranger,Nintendo,Role-Playing,2006,DS,NA
+740,Mario & Luigi: Superstar Saga,Nintendo,Role-Playing,2003,GBA,NA
+741,Final Fantasy XIII,Square Enix,Role-Playing,2010,X360,NA
+742,Star Wars: Rogue Squadron,Nintendo,Simulation,1998,N64,NA
+743,Tennis,Nintendo,Sports,1984,NES,JP
+744,The Sims: House Party,Electronic Arts,Simulation,2001,PC,NA
+745,Your Shape featuring Jenny McCarthy,Ubisoft,Sports,2009,Wii,NA
+746,Syphon Filter 2,Sony Computer Entertainment,Shooter,2000,PS,NA
+747,Tom Clancy's Rainbow Six: Siege,Ubisoft,Shooter,2015,PS4,EU
+748,Volleyball,Nintendo,Sports,1987,NES,JP
+749,FIFA 15,Electronic Arts,Sports,2014,XOne,EU
+750,Call of Duty: Roads to Victory,Activision,Shooter,2007,PSP,EU
+751,Super Mario RPG: Legend of the Seven Stars,Nintendo,Role-Playing,1996,SNES,JP
+752,Mahjong,Nintendo,Misc,1983,NES,JP
+753,R.C. Pro-Am,Nintendo,Racing,1988,NES,NA
+754,SimCity 2000,Maxis,Simulation,1992,PC,NA
+755,Demon Attack,Imagic,Shooter,1981,2600,NA
+756,Dance Dance Revolution Extreme,Konami Digital Entertainment,Simulation,2004,PS2,NA
+757,Tetris DS,Nintendo,Puzzle,2006,DS,JP
+758,Final Fantasy Tactics Advance,SquareSoft,Role-Playing,2003,GBA,JP
+759,Far Cry: Primal,Ubisoft,Action,2016,PS4,EU
+760,Toy Story 3: The Video Game,Disney Interactive Studios,Action,2010,DS,EU
+761,Final Fantasy III,Square Enix,Role-Playing,2006,DS,JP
+762,Kirby's Epic Yarn,Nintendo,Platform,2010,Wii,NA
+763,Project Gotham Racing,Microsoft Game Studios,Racing,2001,XB,NA
+764,Golf,Nintendo,Sports,1989,GB,JP
+765,NBA 2K12,Take-Two Interactive,Sports,2011,PS3,NA
+766,Borderlands,Take-Two Interactive,Shooter,2009,PS3,NA
+767,Tony Hawk's Pro Skater,Activision,Sports,2000,N64,NA
+768,PES 2009: Pro Evolution Soccer,Konami Digital Entertainment,Sports,2008,PS3,EU
+769,Need for Speed: Hot Pursuit 2,Electronic Arts,Racing,2002,PS2,NA
+770,Mario Sports Mix,Nintendo,Sports,2010,Wii,NA
+771,Dynasty Warriors 4,Tecmo Koei,Action,2003,PS2,JP
+772,Mortal Kombat,Warner Bros. Interactive Entertainment,Fighting,2011,X360,NA
+773,Parasite Eve,SquareSoft,Role-Playing,1998,PS,JP
+774,Scooby-Doo! Night of 100 Frights,THQ,Platform,2002,PS2,NA
+775,Project Gotham Racing (JP weekly sales),Microsoft Game Studios,Action,2002,XB,NA
+776,Need for Speed: Most Wanted 5-1-0,Electronic Arts,Racing,2005,PSP,NA
+777,Portal 2,Valve Software,Shooter,2011,X360,NA
+778,Devil May Cry 3: Dante's Awakening,Capcom,Action,2005,PS2,NA
+779,Derby Stallion,ASCII Entertainment,Sports,1997,PS,JP
+780,Dead Rising,Capcom,Action,2006,X360,NA
+781,Finding Nemo,THQ,Action,2003,PS2,NA
+782,NBA 2K11,Take-Two Interactive,Action,2010,X360,NA
+783,Wipeout: The Game,Mindscape,Misc,2009,Wii,NA
+784,The Sims 2: Pets,Electronic Arts,Simulation,2006,DS,EU
+785,Battlefield: Hardline,Electronic Arts,Shooter,2015,PS4,EU
+786,Metal Gear Solid: Peace Walker,Konami Digital Entertainment,Action,2010,PSP,JP
+787,World of Warcraft: Cataclysm,Activision,Role-Playing,2010,PC,NA
+788,Tetris Worlds,THQ,Puzzle,2002,PS2,NA
+789,Need For Speed: Undercover,Electronic Arts,Racing,2008,PS3,EU
+790,Dance Dance Revolution: Hottest Party,Konami Digital Entertainment,Simulation,2007,Wii,NA
+791,Mario Party 5,Nintendo,Misc,2003,GC,NA
+792,Ghostbusters: The Video Game (DS Version),Take-Two Interactive,Action,2010,PS3,EU
+793,Sim Theme Park,Electronic Arts,Strategy,1998,PC,NA
+794,Warcraft: Orcs & Humans,Activision,Strategy,1994,PC,EU
+795,Skate 3,Electronic Arts,Sports,2010,PS3,EU
+796,Spec Ops: Airborne Commando,Take-Two Interactive,Shooter,2002,PS,NA
+797,Kingdom Hearts: Birth by Sleep,Square Enix,Role-Playing,2010,PSP,JP
+798,UFC 2009 Undisputed,THQ,Fighting,2009,X360,NA
+799,Dark Souls,Namco Bandai Games,Role-Playing,2011,PS3,NA
+800,Yu-Gi-Oh! The Eternal Duelist Soul,Konami Digital Entertainment,Strategy,2001,GBA,NA
+801,Need for Speed: ProStreet,Electronic Arts,Racing,2007,X360,NA
+802,The Sims 3,Electronic Arts,Simulation,2010,PS3,EU
+803,Tom Clancy's Splinter Cell: Conviction,Ubisoft,Action,2010,X360,NA
+804,Pokemon Mystery Dungeon: Red/Blue Rescue Team,Nintendo,Role-Playing,2005,GBA,JP
+805,The Incredibles,THQ,Action,2004,GBA,NA
+806,R4: Ridge Racer Type 4,Namco Bandai Games,Racing,1998,PS,JP
+807,SoulCalibur II,Namco Bandai Games,Fighting,2003,PS2,NA
+808,Mario & Luigi: Dream Team,Nintendo,Role-Playing,2013,3DS,NA
+809,Need for Speed: ProStreet,Electronic Arts,Racing,2007,PS3,EU
+810,Carnival Games,Take-Two Interactive,Misc,2008,DS,NA
+811,NBA 2K14,Take-Two Interactive,Sports,2013,PS3,NA
+812,PokÃ©mon Mystery Dungeon: Blue Rescue Team,Nintendo,Role-Playing,2005,DS,NA
+813,Sonic Mega Collection,Infogrames,Misc,2002,GC,NA
+814,Diablo III,Activision,Role-Playing,2013,PS3,EU
+815,NBA Jam,Arena Entertainment,Sports,1992,GEN,NA
+816,PGR4 - Project Gotham Racing 4,Microsoft Game Studios,Racing,2007,X360,EU
+817,Kingdom Hearts 358/2 Days,Square Enix,Role-Playing,2009,DS,NA
+818,Dance Central 2,Microsoft Game Studios,Misc,2011,X360,NA
+819,Rayman Raving Rabbids: TV Party,Ubisoft,Misc,2008,Wii,EU
+820,SOCOM: U.S. Navy SEALs: Combined Assault,Sony Computer Entertainment,Shooter,2006,PS2,NA
+821,Donkey Kong Country,Nintendo,Platform,2003,GBA,NA
+822,Need for Speed: The Run,Electronic Arts,Action,2011,PS3,EU
+823,Madden NFL 15,Electronic Arts,Sports,2014,PS4,NA
+824,1080Â°: TenEighty Snowboarding,Nintendo,Sports,1998,N64,NA
+825,Just Dance 3,Ubisoft,Misc,2011,X360,NA
+826,NBA Live 2004,Electronic Arts,Sports,2003,PS2,NA
+827,Dead Space,Electronic Arts,Action,2008,PS3,NA
+828,Call of Duty 2,Activision,Shooter,2005,X360,NA
+829,Madden NFL 15,Electronic Arts,Sports,2014,X360,NA
+830,Forza Horizon,Microsoft Game Studios,Racing,2012,X360,EU
+831,TouchMaster,Midway Games,Puzzle,2007,DS,EU
+832,Tom Clancy's The Division,Ubisoft,Shooter,2016,XOne,NA
+833,LEGO Marvel Super Heroes,Warner Bros. Interactive Entertainment,Action,2013,PS3,EU
+834,Fire Emblem: Awakening,Nintendo,Role-Playing,2012,3DS,NA
+835,DriveClub,Sony Computer Entertainment,Racing,2014,PS4,EU
+836,Super Street Fighter II,Nintendo,Fighting,1993,SNES,JP
+837,Mortal Kombat vs. DC Universe,Midway Games,Fighting,2008,PS3,NA
+838,Tenchu: Stealth Assassins,Activision,Action,1997,PS,NA
+839,Tennis,Nintendo,Sports,1989,GB,JP
+840,Harry Potter and the Chamber of Secrets,Electronic Arts,Action,2002,GBA,NA
+841,Harry Potter and the Chamber of Secrets,Electronic Arts,Action,2002,PS,EU
+842,SimCity,Nintendo,Simulation,1991,SNES,NA
+843,Battlefield 4,Electronic Arts,Shooter,2013,XOne,NA
+844,Resident Evil 6,Capcom,Shooter,2012,X360,NA
+845,Dragon Age: Inquisition,Electronic Arts,Role-Playing,2014,PS4,EU
+846,Sonic Classic Collection,Sega,Platform,2010,DS,NA
+847,Spyro: Enter the Dragonfly,Universal Interactive,Platform,2002,PS2,EU
+848,Call of Duty: World at War,Activision,Shooter,2008,Wii,NA
+849,Devil May Cry 2,Capcom,Action,2003,PS2,NA
+850,Burnout Paradise,Electronic Arts,Racing,2008,PS3,NA
+851,E.T.: The Extra Terrestrial,Atari,Action,1981,2600,NA
+852,BioShock Infinite,Take-Two Interactive,Shooter,2013,X360,NA
+853,Hot Shots Golf: Open Tee,Sony Computer Entertainment,Sports,2004,PSP,JP
+854,Rad Racer,Nintendo,Racing,1986,NES,NA
+855,Soccer,Nintendo,Sports,1985,NES,JP
+856,Kirby Squeak Squad,Nintendo,Platform,2006,DS,JP
+857,Tom Clancy's Rainbow Six: Vegas,Ubisoft,Shooter,2006,X360,NA
+858,Destiny,Activision,Shooter,2014,X360,NA
+859,Crash Nitro Kart,Vivendi Games,Racing,2003,PS2,EU
+860,Grand Theft Auto: San Andreas,Take-Two Interactive,Action,2005,XB,NA
+861,Star Wars: Dark Forces,LucasArts,Shooter,1994,PC,NA
+862,NBA Street Vol. 2,Electronic Arts,Sports,2003,PS2,NA
+863,Def Jam Vendetta,Electronic Arts,Fighting,2003,PS2,NA
+864,FIFA Soccer 09,Electronic Arts,Sports,2008,X360,EU
+865,Who wants to be a millionaire,Disney Interactive Studios,Misc,1999,PC,NA
+866,Scooby Doo and the Cyber Chase,THQ,Adventure,2001,PS,EU
+867,Alleyway,Nintendo,Puzzle,1989,GB,NA
+868,Dragon Ball Z: Budokai 3,Atari,Fighting,2004,PS2,NA
+869,Jet Moto 2,Sony Computer Entertainment,Racing,1997,PS,NA
+870,Tom Clancy's Ghost Recon,Ubisoft,Shooter,2002,PS2,NA
+871,X-Men Legends,Activision,Role-Playing,2004,PS2,NA
+872,Batman: Arkham Origins,Warner Bros. Interactive Entertainment,Action,2013,X360,NA
+873,Guitar Hero: World Tour,Activision,Misc,2008,PS3,NA
+874,Mortal Kombat II,Acclaim Entertainment,Fighting,1993,SNES,NA
+875,Virtua Fighter 2,Sega,Fighting,1995,SAT,JP
+876,Tetris DX,Nintendo,Puzzle,1998,GB,NA
+877,Mortal Kombat vs. DC Universe,Midway Games,Fighting,2008,X360,NA
+878,Watch Dogs,Ubisoft,Action,2014,PS3,EU
+879,Mario Super Sluggers,Nintendo,Sports,2008,Wii,NA
+880,Tomb Raider (2013),Square Enix,Action,2013,X360,EU
+881,The Legend of Zelda: Oracle of Ages,Nintendo,Action,2001,GB,NA
+882,Need for Speed: Shift,Electronic Arts,Racing,2009,X360,EU
+883,Monopoly,Electronic Arts,Misc,2008,Wii,NA
+884,Red Faction,THQ,Shooter,2001,PS2,EU
+885,The Sims: Makin' Magic,Electronic Arts,Simulation,2003,PC,NA
+886,MX Unleashed,THQ,Racing,2004,PS2,NA
+887,PaRappa The Rapper,Sony Computer Entertainment,Misc,1996,PS,JP
+888,Toy Story Mania!,Disney Interactive Studios,Misc,2009,Wii,NA
+889,Mario Party 3,Nintendo,Misc,2000,N64,JP
+890,Star Wars: The Force Unleashed,LucasArts,Action,2008,Wii,NA
+891,Game Party 2,Midway Games,Misc,2008,Wii,NA
+892,Destiny: The Taken King,Activision,Shooter,2015,PS4,EU
+893,LEGO Star Wars III: The Clone Wars,LucasArts,Action,2011,Wii,NA
+894,Star Wars Rogue Leader: Rogue Squadron II,LucasArts,Simulation,2001,GC,NA
+895,Max Payne 3,Take-Two Interactive,Shooter,2012,PS3,EU
+896,Need for Speed Rivals,Electronic Arts,Racing,2013,PS4,EU
+897,Madden NFL 09,Electronic Arts,Sports,2008,PS3,NA
+898,Yokai Watch,Nintendo,Role-Playing,2013,3DS,JP
+899,Ratchet & Clank Future: A Crack in Time,Sony Computer Entertainment,Platform,2009,PS3,NA
+900,Yu-Gi-Oh! Forbidden Memories,Konami Digital Entertainment,Role-Playing,1999,PS,NA
+901,Mortal Kombat: Deception,Midway Games,Fighting,2004,PS2,NA
+902,Hot Shots Golf 2,Sony Computer Entertainment,Sports,1999,PS,JP
+903,WCW Nitro,THQ,Fighting,1998,PS,NA
+904,High School Musical: Sing It!,Disney Interactive Studios,Misc,2007,PS2,OTHER
+905,Star Fox Adventures,Nintendo,Adventure,2002,GC,NA
+906,FIFA 2000,Electronic Arts,Sports,1998,PS,EU
+907,Dynasty Warriors 3,THQ,Action,2001,PS2,JP
+908,Donkey Kong Country Returns,Nintendo,Platform,2013,3DS,NA
+909,The Legend of Zelda: Oracle of Seasons,Nintendo,Adventure,2001,GB,NA
+910,Madden NFL 06,Electronic Arts,Sports,2005,XB,NA
+911,Shrek 2,Activision,Platform,2004,PS2,NA
+912,The Legend of Dragoon,Sony Computer Entertainment,Role-Playing,1999,PS,NA
+913,Turok 2: Seeds of Evil,Acclaim Entertainment,Platform,1997,N64,NA
+914,SingStar,Sony Computer Entertainment,Misc,2004,PS2,EU
+915,LittleBigPlanet 3,Sony Computer Entertainment,Platform,2014,PS4,EU
+916,NBA Live 2002,Electronic Arts,Sports,2001,PS2,NA
+917,Phineas and Ferb,Disney Interactive Studios,Action,2009,DS,NA
+918,Chrono Cross,SquareSoft,Role-Playing,1999,PS,JP
+919,GoldenEye 007 (2010),Activision,Action,2010,Wii,NA
+920,Mario Party: Island Tour,Nintendo,Misc,2013,3DS,NA
+921,Jak 3,Sony Computer Entertainment,Platform,2004,PS2,NA
+922,Rayman Raving Rabbids 2,Ubisoft,Misc,2007,Wii,NA
+923,Kingdom Hearts: Chain of Memories,Square Enix,Role-Playing,2004,GBA,NA
+924,Pinball,Nintendo,Action,1984,NES,JP
+925,inFAMOUS 2,Sony Computer Entertainment,Action,2011,PS3,NA
+926,Gran Turismo Concept 2001 Tokyo,Unknown,Racing,2001,PS2,EU
+927,Demon's Souls,Namco Bandai Games,Role-Playing,2009,PS3,NA
+928,NCAA Football 06,Electronic Arts,Sports,2005,PS2,NA
+929,"Hey You, Pikachu!",Nintendo,Simulation,1998,N64,JP
+930,2 Games in 1: Sonic Advance & ChuChu Rocket!,THQ,Misc,2005,GBA,NA
+931,World of Warcraft: Mists of Pandaria,Activision,Role-Playing,2012,PC,NA
+932,Jet Moto,Sony Computer Entertainment,Racing,1996,PS,NA
+933,Just Cause 3,Square Enix,Action,2015,PS4,EU
+934,Secret of Mana,SquareSoft,Role-Playing,1993,SNES,JP
+935,The Orange Box,Electronic Arts,Shooter,2007,X360,NA
+936,Air Combat,Sony Computer Entertainment,Simulation,1995,PS,NA
+937,Kirby: Triple Deluxe,Nintendo,Platform,2014,3DS,JP
+938,Sonic & Knuckles,Sega,Platform,1994,GEN,NA
+939,Namco Museum,Namco Bandai Games,Misc,2001,PS2,NA
+940,The Sims: Hot Date,Electronic Arts,Simulation,2001,PC,NA
+941,Metroid Prime 3: Corruption,Nintendo,Shooter,2007,Wii,NA
+942,Dragon Quest VI: Realms of Revelation,Nintendo,Role-Playing,2010,DS,JP
+943,The Evil Within,Bethesda Softworks,Action,2014,PS4,EU
+944,DDRMAX2: Dance Dance Revolution,Konami Digital Entertainment,Simulation,2003,PS2,NA
+945,Crazy Taxi,Sega,Racing,2000,DC,NA
+946,Virtua Fighter 4,Sega,Fighting,2002,PS2,NA
+947,Sly 2: Band of Thieves,Sony Computer Entertainment,Platform,2004,PS2,NA
+948,Guitar Hero: World Tour,Activision,Misc,2008,PS2,NA
+949,Sonic Advance 2,Sega,Platform,2002,GBA,NA
+950,Madden NFL 07,Electronic Arts,Sports,2006,X360,NA
+951,NBA 2K11,Take-Two Interactive,Action,2010,PS3,NA
+952,NFL GameDay 2000,989 Studios,Sports,1999,PS,NA
+953,Call of Duty: Black Ops 3,Activision,Shooter,2015,PS3,EU
+954,Disney's The Lion King,Virgin Interactive,Platform,1994,SNES,NA
+955,Beyond: Two Souls,Sony Computer Entertainment,Adventure,2013,PS3,EU
+956,Kinect Star Wars,Microsoft Game Studios,Action,2012,X360,NA
+957,Midnight Club II,Take-Two Interactive,Racing,2003,PS2,NA
+958,Dragon Quest Monsters: Joker,Square Enix,Role-Playing,2006,DS,JP
+959,SpongeBob SquarePants: SuperSponge,THQ,Action,2001,PS,NA
+960,The Getaway: Black Monday,Sony Computer Entertainment,Action,2004,PS2,EU
+961,Professor Layton and the Mask of Miracle,Nintendo,Puzzle,2011,3DS,EU
+962,Just Cause 2,Square Enix,Action,2010,PS3,EU
+963,Dragon's Dogma,Capcom,Role-Playing,2012,PS3,JP
+964,The Legend of Zelda: The Wind Waker,Nintendo,Action,2013,WiiU,NA
+965,50 Cent: Bulletproof,Vivendi Games,Action,2005,PS2,NA
+966,High School Musical: Sing It!,Disney Interactive Studios,Misc,2007,Wii,NA
+967,Wii Party U,Nintendo,Misc,2013,WiiU,JP
+968,Madden NFL 25,Electronic Arts,Sports,2013,PS3,NA
+969,Final Fantasy II,Square,Role-Playing,1991,SNES,JP
+970,Kirby 64: The Crystal Shards,Nintendo,Platform,2000,N64,JP
+971,Dead or Alive 3,Microsoft Game Studios,Fighting,2001,XB,NA
+972,UFC 2009 Undisputed,THQ,Fighting,2009,PS3,NA
+973,Metroid II: Return of Samus,Nintendo,Adventure,1991,GB,NA
+974,WWF Attitude,Acclaim Entertainment,Fighting,1998,PS,NA
+975,The SpongeBob SquarePants Movie,THQ,Platform,2004,PS2,NA
+976,Golden Sun,Nintendo,Role-Playing,2001,GBA,NA
+977,Sonic the Hedgehog 3,Sega,Platform,1994,GEN,NA
+978,Kid Icarus,Nintendo,Platform,1986,NES,JP
+979,Def Jam: Fight for NY,Electronic Arts,Fighting,2004,PS2,NA
+980,Tom Clancy's Ghost Recon,Ubisoft,Shooter,2002,XB,NA
+981,State of Emergency,Take-Two Interactive,Action,2002,PS2,NA
+982,BioShock Infinite,Take-Two Interactive,Shooter,2013,PS3,NA
+983,Hitman: Absolution,Square Enix,Action,2012,X360,EU
+984,Call of Duty: Black Ops 3,Activision,Shooter,2015,X360,NA
+985,The Urbz: Sims in the City,Electronic Arts,Simulation,2004,PS2,EU
+986,FIFA Soccer 08,Electronic Arts,Sports,2007,PS3,EU
+987,Star Wars: Starfighter,Activision,Simulation,2001,PS2,EU
+988,Madden NFL 2000,Electronic Arts,Sports,1998,PS,NA
+989,Kingdom Hearts,Square Enix,Role-Playing,2013,PS3,NA
+990,Star Wars: Battlefront,Activision,Shooter,2004,XB,NA
+991,Pro Evolution Soccer,Konami Digital Entertainment,Sports,2001,PS2,EU
+992,Crackdown,Microsoft Game Studios,Shooter,2007,X360,NA
+993,Yoshi,Nintendo,Puzzle,1991,NES,JP
+994,Disney's Aladdin,Capcom,Platform,1993,SNES,NA
+995,Kirby's Adventure,Nintendo,Platform,1993,NES,JP
+996,Cooking Mama 3: Shop & Chop,505 Games,Simulation,2009,DS,NA
+997,Dance Dance Revolution X,Konami Digital Entertainment,Simulation,2008,PS2,NA
+998,2 Games in 1: Disney Princess & The Lion King,THQ,Misc,2004,GBA,NA
+999,Star Wars Episode I: The Phantom Menace,LucasArts,Adventure,1999,PS,EU
+1000,Xenosaga Episode I: Der Wille zur Macht,Namco Bandai Games,Role-Playing,2002,PS2,NA
