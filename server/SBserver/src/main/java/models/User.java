@@ -17,8 +17,7 @@ public class User implements UserDetails{
     @NotNull(message = "Need ID.")
     int userId;
 
-    @NotNull(message = "Need Profile ID.")
-    int profileId;
+    Profile profile;
 
     @NotBlank(message = "Username is required.")
     @Size(max = 25, message = "Username cannot be greater than 50 characters.")
@@ -31,15 +30,17 @@ public class User implements UserDetails{
     boolean isAdmin;
 
 
-    public User( int userId, int profileId, String username, String email, boolean isAdmin) {
+    public User( int userId, Profile profile, String username, String email, boolean isAdmin) {
         this.userId = userId;
-        this.profileId = profileId;
+        this.profile = profile;
         this.username = username;
         this.email = email;
         this.isAdmin = isAdmin;
     }
 
+    public User(String username, String passwordHash, String email){
 
+    }
 
     public int getProfileId() {
         return profileId;

@@ -1,6 +1,7 @@
 package controllers;
 
 import domain.UserService;
+import models.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,5 +25,6 @@ public class UserController {
 
         // 1. Hash the password
         String hashedPassword = passwordEncoder.encode(rawPassword);
+        User user = new User()
     }
 }
