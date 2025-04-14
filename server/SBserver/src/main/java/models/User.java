@@ -11,8 +11,6 @@ import java.util.Objects;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-
 public class User implements UserDetails{
     @NotNull(message = "Need ID.")
     int userId;
@@ -28,7 +26,6 @@ public class User implements UserDetails{
 
     String passwordHash;
     boolean isAdmin;
-
 
     public User( int userId, Profile profile, String username, String email, boolean isAdmin) {
         this.userId = userId;
@@ -48,8 +45,6 @@ public class User implements UserDetails{
     }
 
     public User(){}
-
-
 
     public int getId() {
         return userId;
