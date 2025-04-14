@@ -1,13 +1,15 @@
 package data;
 
+import models.Game;
 import models.GameReview;
+import models.User;
 
 import java.util.List;
 
 public interface GameReviewRepository {
     List<GameReview> findAll(); // finds all reviews in the database, does not need to be public
-	List<GameReview> findByGame(); // finds all reviews of a game
-	List<GameReview> findByUser(); // finds all reviews of a user
+	List<GameReview> findByGame(Game game); // finds all reviews of a game
+	List<GameReview> findByUser(User user); // finds all reviews of a user
 	GameReview findById(int gameReviewId); // finds a review by id
 	GameReview add(GameReview gameReview); // create a review
 	boolean update(GameReview gameReview); // update a review
