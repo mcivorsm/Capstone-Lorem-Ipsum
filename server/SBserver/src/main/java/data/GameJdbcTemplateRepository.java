@@ -1,10 +1,20 @@
 package data;
 
 import models.Game;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class GameJdbcTemplateRepository implements GameRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public GameJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     @Override
     public List<Game> findAll() {
         return List.of();

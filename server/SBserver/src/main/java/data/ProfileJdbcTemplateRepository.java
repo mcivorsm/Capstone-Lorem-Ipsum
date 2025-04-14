@@ -1,10 +1,20 @@
 package data;
 
 import models.Profile;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class ProfileJdbcTemplateRepository implements ProfileRepository{
+@Repository
+public class ProfileJdbcTemplateRepository implements ProfileRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public ProfileJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     @Override
     public List<Profile> findAll() {
         return List.of();
