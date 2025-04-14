@@ -15,6 +15,7 @@ public class UserValidationService implements UserDetailsService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Query the database to find the user by username
@@ -29,4 +30,5 @@ public class UserValidationService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
     }
+
 }

@@ -53,6 +53,8 @@ public class JwtConverter {
                     .build()
                     .parseClaimsJws(token.substring(7));
 
+
+            //JWT TOKEN CONTENTS
             String username = jws.getBody().getSubject();
             String authStr = (String) jws.getBody().get("authorities");
             int userId = (int) jws.getBody().get("userId");

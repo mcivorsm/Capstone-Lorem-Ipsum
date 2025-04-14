@@ -1,8 +1,11 @@
 package security;
 
+import domain.UserValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,6 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtConverter converter;
+
+    @Autowired
+    private UserValidationService userValidationService;
 
     public SecurityConfig(JwtConverter converter) {
         this.converter = converter;
@@ -38,13 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    @Bean
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManager();
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userValidationService)  // Set UserDetailsService
+                .passwordEncoder(new BCryptPasswordEncoder());  // Set PasswordEncoder
     }
 
-    @Bean
-    public PasswordEncoder getEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

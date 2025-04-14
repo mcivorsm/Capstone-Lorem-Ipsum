@@ -18,8 +18,16 @@ import java.util.Map;
 @RestController
 public class AuthController {
 
+//    1. Client submits login form with username + password
+//2. Spring calls `UserValidationService.loadUserByUsername(username)`
+//            3. Your method fetches user from DB and returns it with the hashed password
+//4. Spring then compares the raw password with the hashed one:
+//            passwordEncoder.matches(raw, hashed)
+//            5. If match = success. Otherwise = failure.
+
     private final AuthenticationManager authenticationManager;
     private final JwtConverter converter;
+
 
     public AuthController(AuthenticationManager authenticationManager, JwtConverter converter) {
         this.authenticationManager = authenticationManager;
@@ -50,4 +58,5 @@ public class AuthController {
 
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
+
 }
