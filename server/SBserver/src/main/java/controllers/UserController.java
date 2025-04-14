@@ -27,6 +27,6 @@ public class UserController {
         String hashedPassword = passwordEncoder.encode(rawPassword);
         User user = new User(username, hashedPassword, email);
 
-        userService.addUser(user);
+        userService.add(user);
     }
 }
