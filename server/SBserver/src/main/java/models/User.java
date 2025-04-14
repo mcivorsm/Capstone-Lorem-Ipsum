@@ -38,17 +38,18 @@ public class User implements UserDetails{
         this.isAdmin = isAdmin;
     }
 
+    //Add user initally
     public User(String username, String passwordHash, String email){
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.email = email;
 
+        this.profile = new Profile();
     }
 
-    public int getProfileId() {
-        return profileId;
-    }
 
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
-    }
+
+
 
     public int getId() {
         return id;
