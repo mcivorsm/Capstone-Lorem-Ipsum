@@ -55,12 +55,15 @@ public class JwtConverter {
 
             String username = jws.getBody().getSubject();
             String authStr = (String) jws.getBody().get("authorities");
+            int userId = (int) jws.getBody().get("userId");
+            int profileId =(int) jws.getBody().get("profileId");
+            String email = (String) jws.getBody().get("email");
             List<GrantedAuthority> authorities = Arrays.stream(authStr.split(","))
                     .map(i -> new SimpleGrantedAuthority(i))
                     .collect(Collectors.toList());
 
           boolean adminFlag = authorities.get(0).equals("ADMIN");
-            return new User(username, );
+            return new User(userId, profileId, username, email, adminFlag);
 
         } catch (JwtException e) {
             // 5. JWT failures are modeled as exceptions.
