@@ -2,9 +2,13 @@ package models;
 
 import java.util.Objects;
 
-class User{
+import java.time.LocalDate;
+
+
+public class User{
     int id;
     int profileId;
+
     @NotBlank(message = "Customer name is required.")
     @Size(max = 50, message = "Customer name cannot be greater than 50 characters.")
     String username;
@@ -13,6 +17,7 @@ class User{
     String email;
     String passwordHash;
     boolean isAdmin;
+
 
     public User(int profileId, int id, String username, String email, String passwordHash, boolean isAdmin) {
         this.profileId = profileId;

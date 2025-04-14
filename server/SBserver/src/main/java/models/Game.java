@@ -1,4 +1,81 @@
 package models;
 
+import java.util.Objects;
+
 public class Game {
+    int gameId;
+    String title;
+    String developer;
+    String genre;
+    int yearReleased;
+    String platform;
+    String region;
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(String developer) {
+        this.developer = developer;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getYearReleased() {
+        return yearReleased;
+    }
+
+    public void setYearReleased(int yearReleased) {
+        this.yearReleased = yearReleased;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return Objects.equals(title, game.title) && Objects.equals(developer, game.developer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, developer);
+    }
 }
