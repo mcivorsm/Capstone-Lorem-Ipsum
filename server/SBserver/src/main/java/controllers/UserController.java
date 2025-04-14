@@ -25,6 +25,8 @@ public class UserController {
 
         // 1. Hash the password
         String hashedPassword = passwordEncoder.encode(rawPassword);
-        User user = new User()
+        User user = new User(username, hashedPassword, email);
+
+        userService.addUser(user);
     }
 }
