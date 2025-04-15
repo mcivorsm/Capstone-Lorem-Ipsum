@@ -48,7 +48,8 @@ function Login() {
         }
     })
     .then(data => {
-        if(data){ // Happy path
+        if(data && data.jwtToken){ // Happy path
+            localStorage.setItem("token", data.jwtToken); // save token
             // navigate to home page
             navigate("/");
         } else { // Unhappy path

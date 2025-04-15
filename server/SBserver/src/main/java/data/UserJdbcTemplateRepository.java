@@ -94,7 +94,6 @@ public class UserJdbcTemplateRepository implements UserRepository {
                 user.getUsername(), user.getEmail(), user.getPasswordHash(), user.getId()) > 0;
     }
 
-
         @Override
         public boolean deleteById(int userId) throws DataIntegrityViolationException {
 
