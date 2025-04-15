@@ -3,6 +3,7 @@ package learn.ligr.security;
 import learn.ligr.data.ProfileRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import learn.ligr.domain.ProfileService;
 import learn.ligr.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,7 +27,7 @@ public class JwtConverter {
     private final int EXPIRATION_MILLIS = EXPIRATION_MINUTES * 60 * 1000;
 
     @Autowired
-    ProfileRepository profileRepository;
+    ProfileService profileService;
 
     public String getTokenFromUser(User user) {
 
@@ -74,7 +75,7 @@ public class JwtConverter {
           boolean adminFlag = authorities.get(0).equals("ROLE_ADMIN");
 
           //START PROFILE ASSIGNMENT HERE?
-          return new User(userId, profileRepository.findById(profileId), username, email, adminFlag);
+          return new User(userId, profileService.findById(profileId), username, email, adminFlag);
 
         } catch (JwtException e) {
             // 5. JWT failures are modeled as exceptions.
