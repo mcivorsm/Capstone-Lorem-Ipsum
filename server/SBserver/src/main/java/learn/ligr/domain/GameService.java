@@ -59,7 +59,7 @@ public class GameService {
         }
 
         if (!repository.update(game)) {
-            String msg = String.format("agentId: %s, not found", game.getGameId());
+            String msg = String.format("gameId: %s, not found", game.getGameId());
             result.addMessage(msg, ResultType.NOT_FOUND);
         }
 
