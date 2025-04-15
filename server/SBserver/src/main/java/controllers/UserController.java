@@ -49,6 +49,13 @@ public class UserController {
 
         boolean deleted = userService.deleteById(user.getId(),user.getProfile().getProfileId());
 
+        if (!deleted) {
+            return ErrorResponse.build("User not found");
+
+        }
+
+        return ResponseEntity.noContent().build();
+
 
     }
 }

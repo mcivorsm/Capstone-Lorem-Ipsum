@@ -32,9 +32,16 @@ public class UserService {
         return result;
     }
     @Transactional
-    public boolean deleteById(int userId, int profileId){
-        try{
-            profileRepository.deleteById(profileId)
+    public boolean deleteById(int userId, int profileId) {
+        try {
+            // Delete profile first if there are foreign key constraints
+            profileRepository.deleteById(profileId);
+            userRepository.deleteById(userId);
+            return true;
+        } catch (Exception ex) {
+            // Log the exception if needed
+            System.err.println("Error deleting user/profile: " + ex.getMessage());
+            return false;
         }
     }
 }
