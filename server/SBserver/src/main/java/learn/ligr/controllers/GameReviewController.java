@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@RestController
+@RequestMapping("/gameReview")
 public class GameReviewController {
     private final GameReviewService gameReviewService;
     private final GameService gameService;
@@ -26,7 +28,7 @@ public class GameReviewController {
         this.userService = userService;
     }
 
-    @GetMapping("/{reviewId}")
+    @GetMapping("/{gameReviewId}")
     public GameReview findById(@PathVariable int gameReviewId) { // handles get route find by id
         return gameReviewService.findById(gameReviewId);
     }
@@ -57,7 +59,7 @@ public class GameReviewController {
         return ErrorResponse.build(result);
     }
 
-    @PutMapping("/{reviewId}")
+    @PutMapping("/{gameReviewId}")
     public ResponseEntity<Object> update(@PathVariable int gameReviewId, @RequestBody @Valid GameReview gameReview, BindingResult bindingResult) { // handles put route
         // if url gameReviewId doesn't match request body gameReview's gameReviewId
         if (gameReviewId != gameReview.getGameReviewId()) {
@@ -76,7 +78,7 @@ public class GameReviewController {
         return ErrorResponse.build(result);
     }
 
-    @DeleteMapping("/{reviewId}")
+    @DeleteMapping("/{gameReviewId}")
     public ResponseEntity<Void> deleteById(@PathVariable int gameReviewId) { // handles delete route
         if (gameReviewService.deleteById(gameReviewId)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
