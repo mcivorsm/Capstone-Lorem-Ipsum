@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.ValidationException;
+import java.util.List;
 
 public class UserService {
     private final UserRepository userRepository;
@@ -18,6 +19,31 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = bCryptPasswordEncoder;
         this.profileRepository = profileRepository;
+    }
+    public Result<User> update(User user) {
+        Result<User> result = new Result<>();
+        List<User> allUsers = userRepository.findAll();
+        if(DuplicateValidations.isDuplicate(user,allUsers)){
+            result.addMessage("No change has been made", ResultType.INVALID);
+            return result;
+        }
+
+        if (DuplicateValidations.isUsernameDuplicate(user,allUsers)) {
+            result.addMessage("Username taken.", ResultType.INVALID);
+            return result;
+        }
+
+        if (DuplicateValidations.isEmailDuplicate(user,allUsers)) {
+            result.addMessage("Email already in use.", ResultType.INVALID);
+            return result;
+        }
+
+        if (!userRepository.update(user)) {
+            String msg = String.format("userId: %s, not found", user.getId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
     }
 
     public Result<User> add(User user) {
