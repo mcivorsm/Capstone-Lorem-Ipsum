@@ -13,43 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class GameJdbcTemplateRepositoryTest {
-<<<<<<< HEAD
-//
-//    @Autowired
-//    GameJdbcTemplateRepository repository;
-//
-//    @Autowired
-//    KnownGoodState knownGoodState;
-//
-//    @BeforeEach
-//    void setup() { knownGoodState.set(); }
-//
-//    @Test
-//    void shouldFindAll() {
-//        List<Game> games = repository.findAll();
-//        assertNotNull(games);
-//    }
-//
-//    @Test
-//    void findByGenre() {
-//    }
-//
-//    @Test
-//    void findById() {
-//    }
-//
-//    @Test
-//    void add() {
-//    }
-//
-//    @Test
-//    void update() {
-//    }
-//
-//    @Test
-//    void deleteById() {
-//    }
-=======
 
     @Autowired
     GameJdbcTemplateRepository repository;
@@ -136,5 +99,5 @@ class GameJdbcTemplateRepositoryTest {
 
         return game;
     }
->>>>>>> 2238fbb90db8b6ef6f0017d4a5e63304da595eb3
+
 }
