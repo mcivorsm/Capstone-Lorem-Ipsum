@@ -26,8 +26,8 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     public List<GameReview> findAll() {
         final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
                 +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_release, g.platform, g.region "
+                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
+                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
                 +"from game_review gr "
                 +"join user u on gr.user_id = u.user_id "
                 +"join profile p on u.profile_id = p.profile_id "
@@ -42,8 +42,8 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
 
         final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
                 +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_release, g.platform, g.region "
+                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
+                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
                 +"from game_review gr "
                 +"join user u on gr.user_id = u.user_id "
                 +"join profile p on u.profile_id = p.profile_id "
@@ -60,8 +60,8 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     public List<GameReview> findByUser(User user) {
         final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
                 +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_release, g.platform, g.region "
+                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
+                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
                 +"from game_review gr "
                 +"join user u on gr.user_id = u.user_id "
                 +"join profile p on u.profile_id = p.profile_id "
@@ -79,8 +79,8 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
 
         final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
                 +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_release, g.platform, g.region "
+                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
+                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
                 +"from game_review gr "
                 +"join user u on gr.user_id = u.user_id "
                 +"join profile p on u.profile_id = p.profile_id "
@@ -119,18 +119,19 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     @Override
     public boolean update(GameReview gameReview) {
 
-        final String sql = "update agent set "
+        final String sql = "update game_review set "
                 + "game_id = ?, "
                 + "user_id = ?, "
                 + "review = ?, "
                 + "rating = ? "
-                + "where agent_id = ?;";
+                + "where review_id = ?;";
 
         return jdbcTemplate.update(sql,
                 gameReview.getGame().getGameId(),
                 gameReview.getUser().getId(),
                 gameReview.getReviewText(),
-                gameReview.getRating()) > 0;
+                gameReview.getRating(),
+                gameReview.getGameReviewId()) > 0;
     }
 
     @Override

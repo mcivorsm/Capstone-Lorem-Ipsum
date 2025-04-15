@@ -7,22 +7,17 @@ import java.util.Date;
 public class Profile {
     @NotNull(message = "Need Profile ID.")
     int profileId;
-
-
     Game favoriteGame;
-
     @NotNull(message = "Date Joined.")
     @PastOrPresent(message = "Date joined cannot be in the future.")
     Date dateJoined;
-
     Region region;
-
     String profileDescription;
-
-
     String preferredGenre;
 
     public Profile(){
+
+        this.favoriteGame = new Game();
         this.dateJoined = new Date();
     }
     public int getProfileId() {

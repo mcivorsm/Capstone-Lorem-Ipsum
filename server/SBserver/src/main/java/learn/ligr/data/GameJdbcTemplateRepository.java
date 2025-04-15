@@ -96,7 +96,7 @@ public class GameJdbcTemplateRepository implements GameRepository {
     @Transactional
     public boolean deleteById(int gameId) {
 
-        jdbcTemplate.update("update profile set fav_game_id = 1 where fav_game_id = ?",gameId );
+        jdbcTemplate.update("update profile set fav_game_id = NULL where fav_game_id = ?",gameId );
         jdbcTemplate.update("delete from game_review where game_id = ?",gameId );
         return jdbcTemplate.update("delete from game where game_id = ?;", gameId) > 0;
     }
