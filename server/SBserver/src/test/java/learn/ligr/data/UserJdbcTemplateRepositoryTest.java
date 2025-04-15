@@ -57,7 +57,7 @@ class UserJdbcTemplateRepositoryTest {
     @Test
     void shouldUpdate() {
         User user = makeUser();
-        user.setId(3);
+        user.setId(4);
         user.setUsername("testuser");
         user.setEmail("test@test.test");
         assertTrue(repository.update(user));
@@ -72,7 +72,7 @@ class UserJdbcTemplateRepositoryTest {
 
     @Test
     void shouldDeleteById() {
-        assertTrue(repository.deleteById(3));
+        assertTrue(repository.deleteById(4));
     }
 
     @Test

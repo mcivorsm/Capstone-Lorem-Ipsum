@@ -3,6 +3,7 @@ package learn.ligr.models;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.util.Date;
+import java.util.Objects;
 
 public class Profile {
     @NotNull(message = "Need Profile ID.")
@@ -68,5 +69,19 @@ public class Profile {
         this.preferredGenre = preferredGenre;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Profile)) return false;
+        Profile profile = (Profile) o;
+        return getProfileId() == profile.getProfileId() && Objects.equals(getFavoriteGame(), profile.getFavoriteGame())
+                && Objects.equals(getDateJoined(), profile.getDateJoined()) && getRegion() == profile.getRegion()
+                && Objects.equals(getProfileDescription(), profile.getProfileDescription())
+                && Objects.equals(getPreferredGenre(), profile.getPreferredGenre());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProfileId(), getFavoriteGame(), getDateJoined(),
+                getRegion(), getProfileDescription(), getPreferredGenre());
+    }
 }
