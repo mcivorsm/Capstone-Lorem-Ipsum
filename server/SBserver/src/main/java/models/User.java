@@ -35,6 +35,17 @@ public class User implements UserDetails{
         this.isAdmin = isAdmin;
     }
 
+    //used for first user parse on login from JWT -> to user. We need to decide where the profile user union is happening.
+    //with our current setup have a Profile object as a dependency, i would have to either inject some profile service into a config file,
+    //or we perform another query at controller or service level to assign a profile, or profile is just null until something needs to change
+    public User( int userId, String username, String email, boolean isAdmin) {
+        this.userId = userId;
+
+        this.username = username;
+        this.email = email;
+        this.isAdmin = isAdmin;
+    }
+
     //Add user initally
     public User(String username, String passwordHash, String email){
         this.username = username;

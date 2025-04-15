@@ -33,6 +33,7 @@ public class JwtConverter {
         return Jwts.builder()
                 .setIssuer(ISSUER)
                 .setSubject(user.getUsername())
+              //  .claim("profileId", user.getProfile().getProfileId())
                 .claim("authorities", authorities)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_MILLIS))
                 .signWith(key)
@@ -58,6 +59,7 @@ public class JwtConverter {
             String username = jws.getBody().getSubject();
             String authStr = (String) jws.getBody().get("authorities");
             int userId = (int) jws.getBody().get("userId");
+           // do we want this?? int profileId = (int) jws.getBody().get("profileId");
 
             String email = (String) jws.getBody().get("email");
             List<GrantedAuthority> authorities = Arrays.stream(authStr.split(","))
