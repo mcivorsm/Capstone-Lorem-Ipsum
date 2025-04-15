@@ -1,8 +1,10 @@
 package security;
 
+import data.ProfileRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,9 @@ public class JwtConverter {
     private final String ISSUER = "bug-safari";
     private final int EXPIRATION_MINUTES = 15;
     private final int EXPIRATION_MILLIS = EXPIRATION_MINUTES * 60 * 1000;
+
+    @Autowired
+    ProfileRepository profileRepository;
 
     public String getTokenFromUser(User user) {
 
@@ -67,7 +72,9 @@ public class JwtConverter {
                     .collect(Collectors.toList());
 
           boolean adminFlag = authorities.get(0).equals("ROLE_ADMIN");
-            return new User(userId,username, email, adminFlag);
+
+          //START PROFILE ASSIGNMENT HERE?
+          return new User(userId, profileRepository.findById(profileId), username, email, adminFlag);
 
         } catch (JwtException e) {
             // 5. JWT failures are modeled as exceptions.

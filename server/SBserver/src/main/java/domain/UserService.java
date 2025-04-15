@@ -1,16 +1,21 @@
 package domain;
 
+import data.ProfileRepository;
 import data.UserRepository;
+import models.Profile;
 import models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder, ProfileRepository profileRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = bCryptPasswordEncoder;
+        this.profileRepository = profileRepository;
     }
 
     public Result<User> add(User user) {
@@ -26,6 +31,10 @@ public class UserService {
         result.setPayload(userRepository.add(user));
         return result;
     }
-
-
+    @Transactional
+    public boolean deleteById(int userId, int profileId){
+        try{
+            profileRepository.deleteById(profileId)
+        }
+    }
 }
