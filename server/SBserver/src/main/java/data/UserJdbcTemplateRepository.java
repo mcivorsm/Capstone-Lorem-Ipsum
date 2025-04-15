@@ -1,7 +1,9 @@
 package data;
 
+import data.mappers.UserMapper;
 import models.Profile;
 import models.User;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -25,12 +27,14 @@ public class UserJdbcTemplateRepository implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        return List.of();
+        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user";
+        return jdbcTemplate.query(sql, new UserMapper());
     }
 
     @Override
     public User findById(int userId) {
-        return null;
+        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user where user_id = ?";
+        return jdbcTemplate.queryForObject(sql, new UserMapper(), userId);
     }
 
     @Transactional
@@ -78,11 +82,18 @@ public class UserJdbcTemplateRepository implements UserRepository {
 
     @Override
     public boolean update(User user) {
-        return false;
+        final String sql = "update user set "
+                + "username = ?, email = ?, password = ? where user_id = ? ";
+
+        return jdbcTemplate.update(sql,
+                user.getUsername(), user.getEmail(), user.getPasswordHash(), user.getId()) > 0;
     }
 
-    @Override
-    public boolean deleteById(int userId) {
-        return false;
-    }
+
+        @Override
+        public boolean deleteById(int userId) throws DataIntegrityViolationException {
+            return jdbcTemplate.update(
+                    "delete from user where user_id = ?", userId) > 0;
+        }
+
 }
