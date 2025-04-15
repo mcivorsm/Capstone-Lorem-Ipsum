@@ -1,8 +1,10 @@
-package controllers;
+package learn.ligr.controllers;
 
-import domain.Result;
-import domain.UserService;
-import models.User;
+
+import learn.ligr.controllers.ErrorResponse;
+import learn.ligr.domain.Result;
+import learn.ligr.domain.UserService;
+import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

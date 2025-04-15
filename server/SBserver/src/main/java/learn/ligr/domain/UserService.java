@@ -1,9 +1,10 @@
-package domain;
+package learn.ligr.domain;
 
-import data.ProfileRepository;
-import data.UserRepository;
-import models.Profile;
-import models.User;
+
+import learn.ligr.data.UserRepository;
+import learn.ligr.data.ProfileRepository;
+import learn.ligr.models.Profile;
+import learn.ligr.models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 

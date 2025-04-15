@@ -1,7 +1,9 @@
 package learn.ligr.domain;
 
+import learn.ligr.models.User;
+
 import java.util.List;
-import models.User;
+
 
 public class DuplicateValidations {
     public static <T> boolean isDuplicate(T obj, List<T> listObj) {
