@@ -38,7 +38,7 @@ public class GameJdbcTemplateRepository implements GameRepository {
     @Override
     public Game findById(int gameId) {
         final String sql = "select game_id, title, developer, genre, " +
-                "year_released, platform, region from game where genre = ?;";
+                "year_released, platform, region from game where game_id = ?;";
 
         return jdbcTemplate.query(sql, new GameMapper(), gameId).stream()
                 .findFirst().orElse(null);
@@ -79,8 +79,8 @@ public class GameJdbcTemplateRepository implements GameRepository {
                 "genre = ?, " +
                 "year_released = ?, " +
                 "platform = ?, " +
-                "region = ?"
-                + "where game_id = ?;";
+                "region = ? " +
+                "where game_id = ?;";
 
         return jdbcTemplate.update(sql,
                 game.getTitle(),
@@ -88,13 +88,16 @@ public class GameJdbcTemplateRepository implements GameRepository {
                 game.getGenre(),
                 game.getYearReleased(),
                 game.getPlatform(),
-                game.getRegion()) > 0;
+                game.getRegion().getDisplayName(),
+                game.getGameId()) > 0;
     }
 
     @Override
     @Transactional
     public boolean deleteById(int gameId) {
 
+        jdbcTemplate.update("update profile set fav_game_id = 1 where fav_game_id = ?",gameId );
+        jdbcTemplate.update("delete from game_review where game_id = ?",gameId );
         return jdbcTemplate.update("delete from game where game_id = ?;", gameId) > 0;
     }
 }

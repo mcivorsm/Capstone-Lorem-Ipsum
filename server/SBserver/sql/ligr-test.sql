@@ -62,35 +62,45 @@ begin
     alter table game auto_increment = 1;
     
 	insert into game (title, developer, genre, year_released, platform, region) values
+	("Deleted Game", "N/A", "N/A", 0, "N/A", "OTHER");
+ 
+	insert into profile (fav_game_id, date_joined, region, profile_description, preferred_genre) values
+	(1, '2000-01-01', 'OTHER', 'Placeholder account for a deleted user!', 'None');
+    
+	insert into `user` (profile_id, username, email, `password`, isAdmin) values
+	(1, "Deleted_User", "deleted@user.com", "deleteduser", true);
+    
+	insert into game (title, developer, genre, year_released, platform, region) values
 	('Chrono Break', 'Square Enix', 'RPG', 2023, 'PC', 'JP'),
 	('Star Defender', 'NovaCore Studios', 'Shooter', 2022, 'Xbox', 'NA'),
 	('Mystic Hollow', 'DreamForge', 'Adventure', 2021, 'Switch', 'EU'),
 	('Cyber Rally X', 'Hyperbyte', 'Racing', 2024, 'PS5', 'NA'),
 	('Shadow Circuit', 'NebulaWorks', 'Action', 2020, 'PC', 'OTHER');
-
-        
+    
+    
 	insert into profile (fav_game_id, date_joined, region, profile_description, preferred_genre) values
-	(1, '2023-01-15', 'JP', 'Long-time JRPG fan, loves turn-based combat.', 'RPG'),
-	(2, '2022-07-08', 'NA', 'FPS enthusiast and streamer.', 'Shooter'),
-	(3, '2021-11-20', 'EU', 'Admin account for moderation purposes.', 'Strategy'),
-	(4, '2024-03-01', 'NA', 'Speedrunner who loves a challenge.', 'Platformer'),
-	(5, '2020-09-14', 'OTHER', 'Retro gamer with a passion for pixel art.', 'Action');
+	(2, '2023-01-15', 'JP', 'Long-time JRPG fan, loves turn-based combat.', 'RPG'),
+	(3, '2022-07-08', 'NA', 'FPS enthusiast and streamer.', 'Shooter'),
+	(4, '2021-11-20', 'EU', 'Admin account for moderation purposes.', 'Strategy'),
+	(5, '2024-03-01', 'NA', 'Speedrunner who loves a challenge.', 'Platformer'),
+	(6, '2020-09-14', 'OTHER', 'Retro gamer with a passion for pixel art.', 'Action');
 
         
 	insert into `user` (profile_id, username, email, `password`, isAdmin) values
-	(1, 'gamer_girl91', 'gg91@example.com', 'p@ssword123', false),
-	(2, 'noobmaster69', 'noob69@example.com', 'qwertyuiop', false),
-	(3, 'admin_one', 'admin@example.com', 'adminpass', true),
-	(4, 'speedrunner42', 'speed42@example.com', 'fastnfurious', false),
-	(5, 'retro_rex', 'rexretro@example.com', 'classicgames', false);
+	(2, 'gamer_girl91', 'gg91@example.com', 'p@ssword123', false),
+	(3, 'noobmaster69', 'noob69@example.com', 'qwertyuiop', false),
+	(4, 'admin_one', 'admin@example.com', 'adminpass', true),
+	(5, 'speedrunner42', 'speed42@example.com', 'fastnfurious', false),
+	(6, 'retro_rex', 'rexretro@example.com', 'classicgames', false);
 
         
 	insert into game_review (game_id, user_id, review, rating) values
-	(2, 1, 'Surprisingly addictive! Great controls and fast-paced action.', 4.5),
-	(3, 4, 'Not bad, but the puzzles felt a bit too easy.', 3.2),
-	(1, 5, 'Top-tier storytelling. This is how RPGs should be made.', 4.9);
+	(2, 2, 'Surprisingly addictive! Great controls and fast-paced action.', 4.5),
+	(3, 5, 'Not bad, but the puzzles felt a bit too easy.', 3.2),
+	(4, 6, 'Top-tier storytelling. This is how RPGs should be made.', 4.9);
+    
+
 
 end //
 delimiter ;
-
 
