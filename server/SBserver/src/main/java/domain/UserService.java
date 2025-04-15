@@ -26,4 +26,6 @@ public class UserService {
         result.setPayload(userRepository.add(user));
         return result;
     }
+
+
 }
