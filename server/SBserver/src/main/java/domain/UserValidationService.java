@@ -1,5 +1,7 @@
 package domain;
 
+import data.UserRepository;
+import data.mappers.UserMapper;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,14 +16,17 @@ import org.springframework.stereotype.Service;
 public class UserValidationService implements UserDetailsService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
+    private final UserRepository userRepository;
+    public UserValidationService(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Query the database to find the user by username
-        String sql = "SELECT * FROM users WHERE username = ?";
+        String sql = "SELECT * FROM user WHERE username = ?";
         try {
-            User user = jdbcTemplate.queryForObject(sql, new Object[]{username}, new BeanPropertyRowMapper<>(User.class));
+            User user = userRepository.findByUsername(username);
             if (user == null) {
                 throw new UsernameNotFoundException("User not found with username: " + username);
             }

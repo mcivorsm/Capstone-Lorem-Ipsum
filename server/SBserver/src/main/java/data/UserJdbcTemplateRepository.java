@@ -37,6 +37,11 @@ public class UserJdbcTemplateRepository implements UserRepository {
         return jdbcTemplate.queryForObject(sql, new UserMapper(), userId);
     }
 
+    public User findByUsername(String username){
+        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user where username = ?";
+        return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+    }
+
     @Transactional
     @Override
     public User add(User user) {

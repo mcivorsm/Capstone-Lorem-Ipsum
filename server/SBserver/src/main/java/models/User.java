@@ -4,11 +4,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails{
@@ -26,6 +28,8 @@ public class User implements UserDetails{
 
     String passwordHash;
     boolean isAdmin;
+    private static final String AUTHORITY_PREFIX = "ROLE_";
+    private List<SimpleGrantedAuthority> roles = new ArrayList<>();
 
     public User( int userId, Profile profile, String username, String email, boolean isAdmin) {
         this.userId = userId;
@@ -75,7 +79,13 @@ public class User implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        if (this.isAdmin) {
+            roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "ADMIN"));
+        }
+
+        // Always add the USER role, assuming every user is a USER
+        roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "USER"));
+        return roles;
     }
 
     @Override
