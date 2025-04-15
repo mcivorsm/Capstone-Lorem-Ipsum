@@ -92,12 +92,9 @@ public class UserJdbcTemplateRepository implements UserRepository {
         @Transactional
         @Override
         public boolean deleteById(int userId) throws DataIntegrityViolationException {
-        try{
+
             return jdbcTemplate.update(
                     "delete from user where user_id = ?", userId) > 0;
-        }catch(){
-
-        }
 
         }
 
