@@ -23,6 +23,11 @@ public class UserService {
         this.passwordEncoder = bCryptPasswordEncoder;
         this.profileRepository = profileRepository;
     }
+
+    public User findById(int userId) {
+        return userRepository.findById(userId);
+    }
+
     public Result<User> update(User user) {
         Result<User> result = new Result<>();
         List<User> allUsers = userRepository.findAll();
