@@ -15,19 +15,19 @@ public class GameService {
         this.repository = repository;
     }
 
-	List<Game> findAll() { // pass-through to repository
+	public List<Game> findAll() { // pass-through to repository
         return repository.findAll();
     }
 
-	List<Game> findByGenre(String genre) { // pass-through to repository
+    public List<Game> findByGenre(String genre) { // pass-through to repository
         return repository.findByGenre(genre);
     }
 
-	Game findById(int gameId) { // pass-through to repository
+    public Game findById(int gameId) { // pass-through to repository
         return repository.findById(gameId);
     }
 
-	Result<Game> add(Game game){ // pass-through to repository
+    public Result<Game> add(Game game){ // pass-through to repository
         Result<Game> result = new Result<>();
         int currentYear = Year.now().getValue();
         if (game.getYearReleased() > currentYear) {
@@ -45,7 +45,7 @@ public class GameService {
         return result;
     }
 
-	Result<Game> update(Game game){ // pass-through to repository
+    public Result<Game> update(Game game){ // pass-through to repository
         Result<Game> result = new Result<>();
         int currentYear = Year.now().getValue();
         if (game.getYearReleased() > currentYear) {
@@ -66,7 +66,7 @@ public class GameService {
         return result;
     }
 
-	boolean deleteById(int gameId){ // pass-through to repository
+    public boolean deleteById(int gameId){ // pass-through to repository
         return repository.deleteById(gameId);
     }
 }
