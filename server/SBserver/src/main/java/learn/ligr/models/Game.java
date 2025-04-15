@@ -83,7 +83,7 @@ public class Game {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return Objects.equals(title, game.title) && Objects.equals(developer, game.developer);
+        return title.equals(game.title) && developer.equals(game.developer);
     }
 
     @Override

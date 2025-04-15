@@ -1,10 +1,10 @@
 package learn.ligr.models;
 
 public enum Region {
-    NA("North America"),
-    EU("Europe"),
-    OTHER("Other"),
-    JP("Japan");
+    NA("NA"),
+    EU("EU"),
+    OTHER("OTHER"),
+    JP("JP");
 
     private final String displayName;
 

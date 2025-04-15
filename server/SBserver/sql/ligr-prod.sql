@@ -48,3 +48,11 @@ create table game_review (
 		foreign key (user_id) references `user` (user_id)
 );
 
+insert into game (title, developer, genre, year_released, platform, region) values
+ ("Deleted Game", "N/A", "N/A", 0, "N/A", "OTHER");
+ 
+ insert into profile (fav_game_id, date_joined, region, profile_description, preferred_genre) values
+(1, '2000-01-01', 'OTHER', 'Placeholder account for a deleted user!', 'None');
+    
+insert into `user` (profile_id, username, email, `password`, isAdmin) values
+(1, "Deleted_User", "deleted@user.com", "deleteduser", true);
