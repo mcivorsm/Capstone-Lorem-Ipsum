@@ -112,9 +112,17 @@ public class UserJdbcTemplateRepository implements UserRepository {
         @Override
         public boolean deleteById(int userId) throws DataIntegrityViolationException {
 
-            jdbcTemplate.update("update GameReview set user_id = 1 where user_id = ?", userId); //set to "deleted user"
-            return jdbcTemplate.update(
-                    "delete from user where user_id = ?", userId) > 0;
+            jdbcTemplate.update("update game_review set user_id = 1 where user_id = ?", userId); //set to "deleted user"
+
+            User delete = findById(userId);
+
+            boolean result = jdbcTemplate.update("delete from user where user_id = ?", userId) > 0; //needs to be deleted first
+
+            if(result){
+                jdbcTemplate.update("delete from profile where profile_id = ?", delete.getProfile().getProfileId());
+            }
+
+            return result;
 
         }
 

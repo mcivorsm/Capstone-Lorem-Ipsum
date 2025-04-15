@@ -1,6 +1,5 @@
 package learn.ligr.data;
 
-import learn.ligr.models.Game;
 import learn.ligr.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,11 +55,29 @@ class UserJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void update() {
+    void shouldUpdate() {
+        User user = makeUser();
+        user.setId(3);
+        user.setUsername("testuser");
+        user.setEmail("test@test.test");
+        assertTrue(repository.update(user));
     }
 
     @Test
-    void deleteById() {
+    void shouldNotUpdate() {
+        User user = makeUser();
+        user.setId(100);
+        assertFalse(repository.update(user));
+    }
+
+    @Test
+    void shouldDeleteById() {
+        assertTrue(repository.deleteById(3));
+    }
+
+    @Test
+    void shouldNotDeleteById() {
+        assertFalse(repository.deleteById(100));
     }
 
     public static User makeUser(){
