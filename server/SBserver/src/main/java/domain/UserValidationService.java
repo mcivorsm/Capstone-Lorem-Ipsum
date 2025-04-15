@@ -23,8 +23,7 @@ public class UserValidationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Query the database to find the user by username
-        String sql = "SELECT * FROM user WHERE username = ?";
+
         try {
             User user = userRepository.findByUsername(username);
             if (user == null) {

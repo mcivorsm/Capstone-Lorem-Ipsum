@@ -1,7 +1,9 @@
 package controllers;
 
+import domain.Result;
 import domain.UserService;
 import models.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,10 +25,17 @@ public class UserController {
         String email = credentials.get("email");
         String rawPassword = credentials.get("password");
 
-        // 1. Hash the password
-        String hashedPassword = passwordEncoder.encode(rawPassword);
-        User user = new User(username, hashedPassword, email);
 
-        userService.add(user);
+
+        User user = new User(username, rawPassword, email);
+
+        Result<User> result = userService.add(user);
+
+        // Check if user was successfully added
+        if (result.isSuccess()) {
+            // Return a success response with the created user
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+        }
+        return ErrorResponse.build(result);
     }
 }
