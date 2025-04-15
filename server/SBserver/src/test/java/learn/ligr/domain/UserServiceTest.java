@@ -46,11 +46,31 @@ class UserServiceTest {
     }
 
     @Test
+    void shouldNotAddWhenUsernameTooLong() {
+        User user = makeUser();
+        user.setId(0);
+        user.setUsername("a".repeat(51));
+        user.setPasswordHash("abc123!@#");
+
+        assertThrows(ValidationException.class, () -> service.add(user));
+    }
+
+
+    @Test
     void shouldNotAddWhenUsernameInvalid() {
         User user = makeUser();
         user.setId(0);
-        user.setUsername(""); // invalid
+        user.setUsername(""); // invalid username
         user.setPasswordHash("abc123!@#"); // valid password
+        assertThrows(ValidationException.class, () -> service.add(user));
+    }
+
+    @Test
+    void shouldNotAddWhenPasswordTooShort() {
+        User user = makeUser();
+        user.setId(0);
+        user.setPasswordHash("a1!");
+
         assertThrows(ValidationException.class, () -> service.add(user));
     }
 
@@ -92,6 +112,74 @@ class UserServiceTest {
         assertEquals(ResultType.SUCCESS, result.getType());
 
         assertEquals(expected, result.getPayload());
+    }
+
+    @Test
+    void shouldNotUpdateWhenDuplicateUser() {
+        User user = makeUser();
+
+        when(repository.findAll()).thenReturn(List.of(user));
+
+        Result<User> result = service.update(user);
+        assertEquals(ResultType.INVALID, result.getType());
+        assertTrue(result.getMessages().get(0).toLowerCase().contains("no change"));
+    }
+
+    @Test
+    void shouldNotUpdateWhenUsernameTaken() {
+        User user = makeUser();
+        user.setUsername("taken_user");
+
+        User other = makeUser();
+        other.setId(99); // simulate different user with same username
+        other.setUsername("taken_user");
+        other.setEmail("different@email.com");
+
+        when(repository.findAll()).thenReturn(List.of(other));
+
+        Result<User> result = service.update(user);
+        assertEquals(ResultType.INVALID, result.getType());
+        assertTrue(result.getMessages().get(0).toLowerCase().contains("username"));
+    }
+
+    @Test
+    void shouldNotUpdateWhenEmailTaken() {
+        User user = makeUser();
+        user.setEmail("used@email.com");
+
+        User other = makeUser();
+        other.setId(99);
+        other.setEmail("used@email.com");
+        other.setUsername("different_username");
+
+        when(repository.findAll()).thenReturn(List.of(other));
+
+        Result<User> result = service.update(user);
+        assertEquals(ResultType.INVALID, result.getType());
+        assertTrue(result.getMessages().get(0).toLowerCase().contains("email"));
+    }
+
+    @Test
+    void shouldNotUpdateWhenUserNotFound() {
+        User user = makeUser();
+
+        when(repository.findAll()).thenReturn(List.of());
+        when(repository.update(user)).thenReturn(false);
+
+        Result<User> result = service.update(user);
+        assertEquals(ResultType.NOT_FOUND, result.getType());
+        assertTrue(result.getMessages().get(0).toLowerCase().contains("not found"));
+    }
+
+    @Test
+    void shouldUpdateWhenValid() {
+        User user = makeUser();
+
+        when(repository.findAll()).thenReturn(List.of());
+        when(repository.update(user)).thenReturn(true);
+
+        Result<User> result = service.update(user);
+        assertEquals(ResultType.SUCCESS, result.getType());
     }
 
     User makeUser(){
