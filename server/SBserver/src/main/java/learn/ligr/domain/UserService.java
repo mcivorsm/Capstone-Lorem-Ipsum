@@ -6,11 +6,13 @@ import learn.ligr.data.ProfileRepository;
 import learn.ligr.models.Profile;
 import learn.ligr.models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.ValidationException;
 import java.util.List;
 
+@Service
 public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
