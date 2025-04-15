@@ -1,5 +1,7 @@
 package data;
 
+import data.mappers.ProfileMapper;
+import data.mappers.UserMapper;
 import models.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -22,12 +24,15 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
 
     @Override
     public List<Profile> findAll() {
-        return List.of();
+        final String sql = "select profile_id, fav_game_id,date_joined, region, profile_description, preferredGenre from profile";
+        return jdbcTemplate.query(sql, new ProfileMapper());
     }
 
     @Override
     public Profile findById(int profileId) {
-        return null;
+        final String sql = "select profile_id, fav_game_id,date_joined, region, profile_description, " +
+                "preferredGenre from profile where profile_id = ?";
+        return jdbcTemplate.queryForObject(sql,new ProfileMapper(),profileId);
     }
 
     @Transactional
@@ -57,11 +62,16 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
 
     @Override
     public boolean update(Profile profile) {
-        return false;
+        final String sql = "update profile set "
+                + "fav_game_id = ?, region = ?, profile_description = ?, preferred_genre = ? where profile_id = ? ";
+
+        return jdbcTemplate.update(sql,
+                profile.getFavoriteGame().getGameId(), profile.getRegion(), profile.getProfileDescription(), profile.getPreferredGenre(), profile.getProfileId()) > 0;
     }
 
     @Override
     public boolean deleteById(int profileId) {
-        return false;
+        return jdbcTemplate.update(
+                "delete from profile where profile_id = ?", profileId) > 0;
     }
 }
