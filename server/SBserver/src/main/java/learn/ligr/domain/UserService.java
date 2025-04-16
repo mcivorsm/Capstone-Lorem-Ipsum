@@ -40,7 +40,7 @@ public class UserService {
         }
 
         if (DuplicateValidations.isUsernameDuplicate(user,allUsers)) {
-            result.addMessage("Username taken.", ResultType.INVALID);
+            result.addMessage("Username already in use.", ResultType.INVALID);
             return result;
         }
 
@@ -70,7 +70,7 @@ public class UserService {
             return result;
         }
         if (DuplicateValidations.isDuplicate(user, userRepository.findAll())) {
-            result.addMessage("User already exists.", ResultType.INVALID);
+            result.addMessage("Username already in use.", ResultType.INVALID);
             return result;
         }
 
@@ -114,17 +114,17 @@ public class UserService {
 
     private void validate(String username) {
         if (username == null || username.isBlank()) {
-            throw new ValidationException("username is required");
+            throw new ValidationException("Username is required");
         }
 
         if (username.length() > 50) {
-            throw new ValidationException("username must be less than 50 characters");
+            throw new ValidationException("Username must be less than 50 characters");
         }
     }
 
     private void validatePassword(String password) {
         if (password == null || password.length() < 8) {
-            throw new ValidationException("password must be at least 8 characters");
+            throw new ValidationException("Password must be at least 8 characters");
         }
 
         int digits = 0;
@@ -141,7 +141,7 @@ public class UserService {
         }
 
         if (digits == 0 || letters == 0 || others == 0) {
-            throw new ValidationException("password must contain a digit, a letter, and a non-digit/non-letter");
+            throw new ValidationException("Password must contain a digit, a letter, and a non-digit/non-letter");
         }
     }
 
