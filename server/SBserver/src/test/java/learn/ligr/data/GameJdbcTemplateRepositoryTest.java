@@ -37,13 +37,13 @@ class GameJdbcTemplateRepositoryTest {
 
     @Test
     void shouldNotFindByGenre() {
-        List<Game> games = repository.findByGenre("Puzzle");
+        List<Game> games = repository.findByGenre("Bad Genre");
         assertEquals(0, games.size());
     }
 
     @Test
     void shouldFindById() {
-        Game game = repository.findById(2);
+        Game game = repository.findById(3);
         assertEquals(makeGame(), game);
     }
 
@@ -57,13 +57,14 @@ class GameJdbcTemplateRepositoryTest {
     void shouldAdd() {
         assertEquals(makeGame(), repository.add(makeGame()));
 
-        assertTrue(repository.findAll().size() >= 6 && repository.findAll().size() <= 7);
+        assertTrue(repository.findAll().size() >= 7 && repository.findAll().size() <= 8);
     }
 
     @Test
     void shouldUpdate() {
         Game update = makeGame();
         update.setTitle("Test Game");
+        update.setGenre("Puzzle");
 
         assertTrue(repository.update(update));
     }
@@ -89,7 +90,7 @@ class GameJdbcTemplateRepositoryTest {
 
     public static Game makeGame(){
         Game game = new Game();
-        game.setGameId(2);
+        game.setGameId(3);
         game.setTitle("Chrono Break");
         game.setDeveloper("Square Enix");
         game.setGenre("RPG");

@@ -46,9 +46,9 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement preparedStatement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            preparedStatement.setNull(1,java.sql.Types.INTEGER);
-            preparedStatement.setDate(2,  new java.sql.Date(profile.getDateJoined().getTime()));
-            preparedStatement.setString(3,null);
+            preparedStatement.setInt(1,profile.getFavoriteGame().getGameId());
+            preparedStatement.setDate(2, new java.sql.Date(profile.getDateJoined().getTime()));
+            preparedStatement.setString(3, profile.getRegion().getDisplayName());
             preparedStatement.setString(4,null);
             preparedStatement.setString(5,null);
 

@@ -2,6 +2,7 @@ package learn.ligr.data;
 
 import learn.ligr.data.mappers.UserMapper;
 import learn.ligr.models.Profile;
+import learn.ligr.models.Region;
 import learn.ligr.models.User;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -63,8 +64,8 @@ public class UserJdbcTemplateRepository implements UserRepository {
     public User add(User user) {
         try {
             // Create and attempt to add a new profile
-            Profile profile = new Profile();
-            Profile savedProfile = profileRepository.add(profile);
+
+            Profile savedProfile = profileRepository.add(addUserProfile());
             // Throw exception on profile fail exit method
             if (savedProfile == null) {
                 throw new RuntimeException("Failed to add profile.");
@@ -110,21 +111,28 @@ public class UserJdbcTemplateRepository implements UserRepository {
                 user.getUsername(), user.getEmail(), user.getPasswordHash(), user.getId()) > 0;
     }
 
-        @Override
-        public boolean deleteById(int userId) throws DataIntegrityViolationException {
+    @Override
+    public boolean deleteById(int userId) throws DataIntegrityViolationException {
 
-            jdbcTemplate.update("update game_review set user_id = 1 where user_id = ?", userId); //set to "deleted user"
+        jdbcTemplate.update("update game_review set user_id = 1 where user_id = ?", userId); //set to "deleted user"
 
-            User delete = findById(userId);
+        User delete = findById(userId);
 
-            boolean result = jdbcTemplate.update("delete from user where user_id = ?", userId) > 0; //needs to be deleted first
+        boolean result = jdbcTemplate.update("delete from user where user_id = ?", userId) > 0; //needs to be deleted first
 
-            if(result){
-                jdbcTemplate.update("delete from profile where profile_id = ?", delete.getProfile().getProfileId());
-            }
-
-            return result;
-
+        if(result){
+            jdbcTemplate.update("delete from profile where profile_id = ?", delete.getProfile().getProfileId());
         }
+
+        return result;
+
+    }
+
+    private Profile addUserProfile(){
+        Profile profile = new Profile();
+        profile.setFavoriteGame(GameJdbcTemplateRepository.DEFAULT_GAME);
+        profile.setRegion(Region.OTHER);
+        return profile;
+    }
 
 }

@@ -50,7 +50,8 @@ create table game_review (
 );
 
 insert into game (title, developer, genre, year_released, platform, region) values
- ("Deleted Game", "N/A", "N/A", 0, "N/A", "OTHER");
+ ("Deleted Game", "N/A", "N/A", 0, "N/A", "OTHER"),
+ ("Default Game", "N/A", "N/A", 0, "N/A", "OTHER");
  
  insert into profile (fav_game_id, date_joined, region, profile_description, preferred_genre) values
 (1, '2000-01-01', 'OTHER', 'Placeholder account for a deleted user!', 'None');
