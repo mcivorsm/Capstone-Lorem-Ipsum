@@ -4,7 +4,6 @@ function Home() {
   const [games, setGames] = useState([]);
   const url = "http://localhost:8080/game";
 
-  // useEffect fetches data when component mounts
   useEffect(() => {
     fetch(url)
       .then((response) => {
