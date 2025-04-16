@@ -27,19 +27,34 @@ public class UserJdbcTemplateRepository implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user";
+        final String sql = "select u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, " +
+                "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region " +
+                "from user u join profile p on u.profile_id = p.profile_id join game g on p.fav_game_id = g.game_id";
         return jdbcTemplate.query(sql, new UserMapper());
     }
 
     @Override
     public User findById(int userId) {
-        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user where user_id = ?";
-        return jdbcTemplate.queryForObject(sql, new UserMapper(), userId);
+        final String sql = "select u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, " +
+                "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region " +
+                "from user u join profile p on u.profile_id = p.profile_id join game g on p.fav_game_id = g.game_id " +
+                "where u.user_id = ?";
+
+        return jdbcTemplate.query(sql, new UserMapper(), userId).stream()
+                .findFirst().orElse(null);
     }
 
     public User findByUsername(String username){
-        final String sql = "select user_id, profile_id, username, email, password, isAdmin from user where username = ?";
-        return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+        final String sql = "select u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, " +
+                "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region " +
+                "from user u join profile p on u.profile_id = p.profile_id join game g on p.fav_game_id = g.game_id " +
+                "where u. username = ?";
+
+        return jdbcTemplate.query(sql, new UserMapper(), username).stream()
+                .findFirst().orElse(null);
     }
 
     @Transactional
@@ -97,8 +112,17 @@ public class UserJdbcTemplateRepository implements UserRepository {
         @Override
         public boolean deleteById(int userId) throws DataIntegrityViolationException {
 
-            return jdbcTemplate.update(
-                    "delete from user where user_id = ?", userId) > 0;
+            jdbcTemplate.update("update game_review set user_id = 1 where user_id = ?", userId); //set to "deleted user"
+
+            User delete = findById(userId);
+
+            boolean result = jdbcTemplate.update("delete from user where user_id = ?", userId) > 0; //needs to be deleted first
+
+            if(result){
+                jdbcTemplate.update("delete from profile where profile_id = ?", delete.getProfile().getProfileId());
+            }
+
+            return result;
 
         }
 

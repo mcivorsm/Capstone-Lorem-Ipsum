@@ -16,13 +16,14 @@ create table game (
 
 create table `profile`(
 	profile_id int primary key auto_increment,
-    fav_game_id int not null,
+    fav_game_id int null,
     date_joined date,
     region varchar(5),
     profile_description text,
     preferred_genre varchar(20),
 	constraint fk_fav_game_id
-		foreign key (fav_game_id) references game(game_id)
+		foreign key (fav_game_id) references game(game_id) 
+        on delete set null
 );
 
 create table `user`(

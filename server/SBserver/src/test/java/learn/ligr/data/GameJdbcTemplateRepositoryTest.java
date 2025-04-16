@@ -26,7 +26,7 @@ class GameJdbcTemplateRepositoryTest {
     @Test
     void shouldFindAll() {
         List<Game> games = repository.findAll();
-        assertNotNull(games);
+        assertTrue(games.size() > 0);
     }
 
     @Test
@@ -87,7 +87,7 @@ class GameJdbcTemplateRepositoryTest {
         assertFalse(repository.deleteById(100));
     }
 
-    Game makeGame(){
+    public static Game makeGame(){
         Game game = new Game();
         game.setGameId(2);
         game.setTitle("Chrono Break");

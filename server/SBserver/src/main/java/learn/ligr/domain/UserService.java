@@ -3,7 +3,6 @@ package learn.ligr.domain;
 
 import learn.ligr.data.UserRepository;
 import learn.ligr.data.ProfileRepository;
-import learn.ligr.models.Profile;
 import learn.ligr.models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -56,6 +55,11 @@ public class UserService {
 
     public Result<User> add(User user) {
         Result<User> result = new Result<>();
+
+        if (user.getId() != 0) {
+            result.addMessage("userId cannot be set for 'add' operation", ResultType.INVALID);
+            return result;
+        }
         if (DuplicateValidations.isDuplicate(user, userRepository.findAll())) {
             result.addMessage("User already exists.", ResultType.INVALID);
             return result;

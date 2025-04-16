@@ -22,15 +22,20 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
 
     @Override
     public List<Profile> findAll() {
-        final String sql = "select profile_id, fav_game_id,date_joined, region, profile_description, preferredGenre from profile";
+        final String sql = "select p.profile_id, p.fav_game_id,date_joined, p.region, p.profile_description, p.preferred_genre, " +
+                "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region from profile p " +
+                "join game g on p.fav_game_id = g.game_id ;";
         return jdbcTemplate.query(sql, new ProfileMapper());
     }
 
     @Override
     public Profile findById(int profileId) {
-        final String sql = "select profile_id, fav_game_id,date_joined, region, profile_description, " +
-                "preferredGenre from profile where profile_id = ?";
-        return jdbcTemplate.queryForObject(sql,new ProfileMapper(),profileId);
+        final String sql = "select p.profile_id, p.fav_game_id,date_joined, p.region, p.profile_description, p.preferred_genre, " +
+                "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region from profile p " +
+                "join game g on p.fav_game_id = g.game_id where profile_id = ?;";
+
+        return jdbcTemplate.query(sql,new ProfileMapper(),profileId).stream()
+                .findFirst().orElse(null);
     }
 
     @Transactional
@@ -64,11 +69,13 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
                 + "fav_game_id = ?, region = ?, profile_description = ?, preferred_genre = ? where profile_id = ? ";
 
         return jdbcTemplate.update(sql,
-                profile.getFavoriteGame().getGameId(), profile.getRegion(), profile.getProfileDescription(), profile.getPreferredGenre(), profile.getProfileId()) > 0;
+                profile.getFavoriteGame().getGameId(), profile.getRegion().getDisplayName(), profile.getProfileDescription(), profile.getPreferredGenre(), profile.getProfileId()) > 0;
     }
 
     @Override
     public boolean deleteById(int profileId) {
+        jdbcTemplate.update("delete from user where profile_id = ?;", profileId);
+
         return jdbcTemplate.update(
                 "delete from profile where profile_id = ?", profileId) > 0;
     }
