@@ -8,9 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
@@ -25,10 +23,19 @@ public class ProfileController {
     public ResponseEntity<?> edit(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
-       Result<Profile> result = profileService.update(user.getProfile());
+        Result<Profile> result = profileService.update(user.getProfile());
         if(result.isSuccess()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return ErrorResponse.build(result);
+    }
+
+    @GetMapping("/{profileId}")
+    public Profile viewProfile(@PathVariable(required = false) Integer profileId){
+
+        if(profileId != null){
+            return profileService.findById(profileId);
+        }
+        return profileService.findById(0);
     }
 }
