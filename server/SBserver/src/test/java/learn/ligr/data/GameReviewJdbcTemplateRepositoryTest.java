@@ -104,7 +104,7 @@ class GameReviewJdbcTemplateRepositoryTest {
     private GameReview makeReview(){
         GameReview gr = new GameReview();
         gr.setGameReviewId(1);
-        gr.setGame(GameJdbcTemplateRepositoryTest.makeGame());
+        gr.setGame(GameJdbcTemplateRepository.DEFAULT_GAME);
         gr.setUser(UserJdbcTemplateRepositoryTest.makeUser());
         gr.setReviewText("Surprisingly addictive! Great controls and fast-paced action.");
         gr.setRating(4.5);

@@ -34,6 +34,7 @@ class ProfileJdbcTemplateRepositoryTest {
     void shouldFindById() {
         Profile profile = makeProfile();
         profile.setProfileId(2);
+        Profile exp = repository.findById(2);
         assertEquals(profile, repository.findById(2));
     }
 
@@ -46,13 +47,13 @@ class ProfileJdbcTemplateRepositoryTest {
     void shouldAdd() {
         assertEquals(makeProfile(), repository.add(makeProfile()));
 
-        assertTrue(repository.findAll().size() >= 4 && repository.findAll().size() <= 6);
+        assertTrue(repository.findAll().size() >= 6 && repository.findAll().size() <= 7);
     }
 
     @Test
     void shouldUpdate() {
         Profile profile = makeProfile();
-        profile.setProfileId(2);
+        profile.setProfileId(3);
         profile.setPreferredGenre("Rhythm Games");
 
         assertTrue(repository.update(profile));
@@ -79,7 +80,7 @@ class ProfileJdbcTemplateRepositoryTest {
     public static Profile makeProfile(){
         Profile profile = new Profile();
         profile.setProfileId(7);
-        profile.setFavoriteGame(GameJdbcTemplateRepositoryTest.makeGame());
+        profile.setFavoriteGame(GameJdbcTemplateRepository.DEFAULT_GAME);
         profile.setDateJoined(Date.valueOf("2023-01-15"));
         profile.setRegion(Region.JP);
         profile.setProfileDescription("Long-time JRPG fan, loves turn-based combat.");

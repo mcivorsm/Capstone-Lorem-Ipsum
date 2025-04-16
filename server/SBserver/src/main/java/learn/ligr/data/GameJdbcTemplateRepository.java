@@ -2,6 +2,7 @@ package learn.ligr.data;
 
 import learn.ligr.data.mappers.GameMapper;
 import learn.ligr.models.Game;
+import learn.ligr.models.Region;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -17,8 +18,18 @@ public class GameJdbcTemplateRepository implements GameRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
+    public final static Game DEFAULT_GAME = new Game();
+
     public GameJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+
+        DEFAULT_GAME.setGameId(2);
+        DEFAULT_GAME.setTitle("Default Game");
+        DEFAULT_GAME.setDeveloper("N/A");
+        DEFAULT_GAME.setGenre("N/A");
+        DEFAULT_GAME.setYearReleased(0);
+        DEFAULT_GAME.setPlatform("N/A");
+        DEFAULT_GAME.setRegion(Region.OTHER);
     }
 
     @Override
