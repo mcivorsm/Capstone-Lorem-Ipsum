@@ -41,6 +41,8 @@ public class JwtConverter {
                 .setSubject(user.getUsername())
                 .claim("profileId", user.getProfile().getProfileId())
                 .claim("authorities", authorities)
+                .claim("userId", user.getId())
+                .claim("email", user.getEmail())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_MILLIS))
                 .signWith(key)
                 .compact();
