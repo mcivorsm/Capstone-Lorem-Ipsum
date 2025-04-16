@@ -11,19 +11,14 @@ import RegisterLoginBar from "./RegisterLoginBar";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
-
-  // set token
-  useEffect(() => {
-    setToken(localStorage.getItem("jwtToken"));
-  }, []);
   
   return (
     <div className="App">
       <Router>
-      { token ? (<Navbar/>) : (<RegisterLoginBar/>)}
+      { token ? (<Navbar setToken={setToken}/>) : (<RegisterLoginBar/>)}
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login setToken={setToken}/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/game/:gameId" element={<Game />} />

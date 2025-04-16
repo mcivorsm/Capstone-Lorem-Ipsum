@@ -14,7 +14,7 @@ const USER_DEFAULT = {
   password: ""
 };
 
-function Login() {
+const Login = ({ setToken }) => {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
   const url = "http://localhost:8080/login/authenticate";
@@ -50,6 +50,7 @@ function Login() {
     .then(data => {
         if(data){ // Happy path
             localStorage.setItem("jwtToken", data.jwt_token); // save token
+            setToken(data.jwt_token);
             // navigate to home page
             navigate("/");
         }

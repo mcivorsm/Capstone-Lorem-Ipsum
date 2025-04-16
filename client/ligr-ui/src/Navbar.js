@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-function NavBar() {
+const NavBar = ({ setToken }) => {
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
   const [games, setGames] = useState([]); // State for all games
   const [filteredGames, setFilteredGames] = useState([]); // State for filtered games
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch all games only once when the component mounts
@@ -47,7 +48,12 @@ function NavBar() {
           zIndex: 100
         }}>
           <p>Are you sure you want to log out?</p>
-          <button onClick={() => localStorage.removeItem("jwtToken")}>Yes</button>
+          <button onClick={() => {
+            localStorage.removeItem("jwtToken");
+            setToken(null);
+            navigate("/");
+          }
+            }>Yes</button>
           <button onClick={() => setShowLogoutPopup(false)}>Cancel</button>
         </div>
       )}
