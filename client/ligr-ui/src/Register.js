@@ -10,15 +10,15 @@ import { useNavigate, Link } from "react-router-dom";
 // }
 
 const USER_DEFAULT = {
-  email: "",
   username: "",
-  password: ""
+  password: "",
+  email: ""
 };
 
 function Register() {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
-  const url = "http://localhost:8080/api/register";
+  const url = "http://localhost:8080/user/register";
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {

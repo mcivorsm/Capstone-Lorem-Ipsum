@@ -17,7 +17,7 @@ const USER_DEFAULT = {
 function Login() {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
-  const url = "http://localhost:8080/api/authenticate";
+  const url = "http://localhost:8080/login/authenticate";
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {

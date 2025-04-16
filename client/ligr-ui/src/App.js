@@ -4,6 +4,7 @@ import NotFound from "./NotFound";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import Register from "./Register";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
