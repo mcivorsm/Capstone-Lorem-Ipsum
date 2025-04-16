@@ -5,6 +5,7 @@ function NavBar() {
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
   const [games, setGames] = useState([]); // State for all games
   const [filteredGames, setFilteredGames] = useState([]); // State for filtered games
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   useEffect(() => {
     // Fetch all games only once when the component mounts
@@ -33,7 +34,23 @@ function NavBar() {
     <nav style={{ position: "relative" }}>
       <Link to={"/"}>Home</Link>
       <Link to={"/profile"}>Profile</Link>
-      <Link to={"/logout"}>Logout</Link>
+      <button onClick={() => setShowLogoutPopup(true)}>Logout</button>
+
+      {showLogoutPopup && (
+        <div style={{
+          position: "absolute",
+          top: "100%",
+          right: 0,
+          background: "#fff",
+          border: "1px solid #ccc",
+          padding: "1rem",
+          zIndex: 100
+        }}>
+          <p>Are you sure you want to log out?</p>
+          <button onClick={() => localStorage.removeItem("jwtToken")}>Yes</button>
+          <button onClick={() => setShowLogoutPopup(false)}>Cancel</button>
+        </div>
+      )}
 
       {/* Search Bar */}
       <div style={{ position: "relative" }}>

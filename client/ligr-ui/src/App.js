@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
 import Game from "./Game";
+import RegisterLoginBar from "./RegisterLoginBar";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      { token ? (<Navbar/>) : {}}
+      { token ? (<Navbar/>) : (<RegisterLoginBar/>)}
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
