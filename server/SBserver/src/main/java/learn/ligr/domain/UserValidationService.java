@@ -12,8 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserValidationService implements UserDetailsService {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+
     private final UserRepository userRepository;
     public UserValidationService(UserRepository userRepository){
         this.userRepository = userRepository;
@@ -23,7 +22,7 @@ public class UserValidationService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     System.out.println("ENTER LOAD BY USERNAME ****");
         try {
-
+           System.out.println("Size: " + userRepository.findAll().size());
             User user = userRepository.findByUsername(username);
             System.out.println("USER NAME at load after find by : " + user.getUsername());
             System.out.println("Hashed password from DB: " + user.getPassword());
