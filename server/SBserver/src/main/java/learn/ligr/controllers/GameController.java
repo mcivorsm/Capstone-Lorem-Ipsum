@@ -70,7 +70,7 @@ public class GameController {
 
     @DeleteMapping("/{gameId}")
     public ResponseEntity<Void> deleteById(@PathVariable int gameId) { // handles delete route
-        if (service.deleteById(gameId)) {
+        if (service.deleteById(gameId).isSuccess()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

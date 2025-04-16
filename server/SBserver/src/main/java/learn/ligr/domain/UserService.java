@@ -49,6 +49,11 @@ public class UserService {
             return result;
         }
 
+        if(user.getId() == 1){
+            String msg = String.format("UserID: %s is a reserved ID, and cannot be deleted.", user.getId());
+            result.addMessage(msg, ResultType.INVALID);
+        }
+
         if (!userRepository.update(user)) {
             String msg = String.format("userId: %s, not found", user.getId());
             result.addMessage(msg, ResultType.NOT_FOUND);
@@ -78,17 +83,33 @@ public class UserService {
         return result;
     }
     @Transactional
-    public boolean deleteById(int userId, int profileId) {
+    public Result<User> deleteById(int userId, int profileId) {
+        Result<User> result = new Result<>();
+
+        if(userId == 1){
+            String msg = String.format("UserID: %s is a reserved ID, and cannot be deleted.", userId);
+            result.addMessage(msg, ResultType.INVALID);
+        }
+        if(profileId == 1){
+            String msg = String.format("ProfileID: %s is a reserved ID, and cannot be deleted.", profileId);
+            result.addMessage(msg, ResultType.INVALID);
+        }
+
+        if(!result.isSuccess()){
+            return result;
+        }
+
         try {
             // Delete profile first if there are foreign key constraints
+            result.setPayload(userRepository.findById(userId));
             profileRepository.deleteById(profileId);
             userRepository.deleteById(userId);
-            return true;
         } catch (Exception ex) {
             // Log the exception if needed
-            System.err.println("Error deleting user/profile: " + ex.getMessage());
-            return false;
+            String msg = String.format("Error deleting user/profile: " + ex.getMessage());
+            result.addMessage(msg, ResultType.INVALID);
         }
+        return result;
     }
 
     private void validate(String username) {
