@@ -68,14 +68,14 @@ function Game() {
 
       {/* Reviews */}
       <div style={{ maxWidth: "600px", margin: "2rem auto", textAlign: "left" }}>
-        <h2 style={{ borderBottom: "1px solid #ccc", paddingBottom: "0.5rem" }}>Reviews</h2>
+        <h2 style={{ borderBottom: "1px solid #ccc", paddingBottom: "0.5rem" }}>Reviews ({reviews.length})</h2>
         {reviews.length === 0 ? (
           <p style={{ fontStyle: "italic", marginTop: "1rem" }}>No reviews yet for this game.</p>
         ) : (
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {reviews.map((review) => (
               <li
-                key={review.reviewId}
+                key={review.gameReviewId}
                 style={{
                   backgroundColor: "#f9f9f9",
                   padding: "1rem",
@@ -84,9 +84,9 @@ function Game() {
                   boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 }}
               >
-                <p><strong>User:</strong> {review.username}</p>
+                <p><strong>User:</strong> {review.user.username}</p>
                 <p><strong>Rating:</strong> {review.rating} / 5</p>
-                <p><strong>Comment:</strong> {review.comment}</p>
+                <p><strong>Review:</strong> {review.reviewText}</p>
               </li>
             ))}
           </ul>
