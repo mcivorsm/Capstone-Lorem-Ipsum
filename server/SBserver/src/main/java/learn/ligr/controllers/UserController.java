@@ -61,7 +61,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
 
-        boolean deleted = userService.deleteById(user.getId(),user.getProfile().getProfileId());
+        boolean deleted = userService.deleteById(user.getId(),user.getProfile().getProfileId()).isSuccess();
 
         if (!deleted) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

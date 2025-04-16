@@ -77,7 +77,7 @@ class GameServiceTest {
     @Test
     void shouldReturnNotFoundWhenUpdateFails() {
         Game game = makeGame();
-        game.setGameId(1);
+        game.setGameId(100);
 
         when(repository.update(game)).thenReturn(false);
 
@@ -87,14 +87,27 @@ class GameServiceTest {
     }
 
     @Test
+    void shouldNotUpdateReservedGameId(){
+        Game update = makeGame();
+        update.setGameId(2);
+        assertFalse(repository.update(update));
+    }
+
+    @Test
     void shouldUpdateWhenValid() {
         Game game = makeGame();
-        game.setGameId(1);
+        game.setGameId(3);
 
         when(repository.update(game)).thenReturn(true);
 
         Result<Game> result = service.update(game);
         assertEquals(ResultType.SUCCESS, result.getType());
+    }
+
+    @Test
+    void shouldNotDeleteReservedGames(){
+        assertFalse(service.deleteById(1).isSuccess());
+        assertFalse(service.deleteById(2).isSuccess());
     }
 
     Game makeGame(){

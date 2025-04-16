@@ -172,6 +172,14 @@ class UserServiceTest {
     }
 
     @Test
+    void shouldNotUpdateReservedUserId(){
+        User user = makeUser();
+        user.setId(1);
+
+        assertFalse(service.update(user).isSuccess());
+    }
+
+    @Test
     void shouldUpdateWhenValid() {
         User user = makeUser();
 
@@ -180,6 +188,11 @@ class UserServiceTest {
 
         Result<User> result = service.update(user);
         assertEquals(ResultType.SUCCESS, result.getType());
+    }
+
+    @Test
+    void shouldNotDeleteReservedUserId(){
+        assertFalse(service.deleteById(1, 1).isSuccess());
     }
 
     User makeUser(){

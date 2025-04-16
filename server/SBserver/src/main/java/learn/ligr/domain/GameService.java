@@ -54,6 +54,12 @@ public class GameService {
         if (game.getGameId() <= 0) {
             result.addMessage("gameId must be set for `update` operation", ResultType.INVALID);
         }
+
+        if(game.getGameId() == 1 || game.getGameId() == 2){
+            String msg = String.format("gameId: %s is a reserved game, and cannot be edited.", game.getGameId());
+            result.addMessage(msg, ResultType.INVALID);
+        }
+
         if (!result.isSuccess()) {
             return result;
         }
@@ -66,7 +72,17 @@ public class GameService {
         return result;
     }
 
-    public boolean deleteById(int gameId){ // pass-through to repository
-        return repository.deleteById(gameId);
+    public Result<Game> deleteById(int gameId){
+        Result<Game> result = new Result<>();
+        if(gameId == 1 || gameId == 2){
+            String msg = String.format("gameId: %s is a reserved game, and cannot be deleted.", gameId);
+            result.addMessage(msg, ResultType.INVALID);
+        }
+
+        if(result.isSuccess()){
+            result.setPayload(repository.findById(gameId));
+            repository.deleteById(gameId);
+        }
+        return result;
     }
 }
