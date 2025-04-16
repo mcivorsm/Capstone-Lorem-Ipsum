@@ -14,4 +14,5 @@ public interface GameReviewRepository {
 	GameReview add(GameReview gameReview); // create a review
 	boolean update(GameReview gameReview); // update a review
 	boolean deleteById(int gameReviewId); // delete a review by id
+	double findGameReviewAverage(int gameId); //return the average rating of a game
 }

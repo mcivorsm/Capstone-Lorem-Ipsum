@@ -97,7 +97,7 @@ begin
 
         
 	insert into game_review (game_id, user_id, review, rating) values
-	(2, 2, 'Surprisingly addictive! Great controls and fast-paced action.', 4.5),
+	(3, 2, 'Surprisingly addictive! Great controls and fast-paced action.', 4.5),
 	(3, 5, 'Not bad, but the puzzles felt a bit too easy.', 3.2),
 	(4, 6, 'Top-tier storytelling. This is how RPGs should be made.', 4.9);
     

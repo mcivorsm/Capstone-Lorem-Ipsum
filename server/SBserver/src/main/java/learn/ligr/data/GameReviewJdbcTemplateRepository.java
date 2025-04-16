@@ -138,4 +138,14 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     public boolean deleteById(int gameReviewId) {
         return jdbcTemplate.update("delete from game_review where review_id = ?;", gameReviewId) > 0;
     }
+
+    @Override
+    public double findGameReviewAverage(int gameId){
+        final String sql = "select round(avg(rating), 1) from game_review where game_id = ?";
+        double result = 0;
+        try{
+            result = jdbcTemplate.queryForObject(sql, new Object[]{gameId}, Double.class);
+        } catch(NullPointerException e){}
+        return result;
+    }
 }
