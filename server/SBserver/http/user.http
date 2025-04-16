@@ -1,0 +1,47 @@
+@url = http://localhost:8080
+
+GET {{url}} HTTP/1.1
+
+###
+
+GET {{url}}/2 HTTP/1.1
+
+###
+
+POST {{url}}/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "mcivorsm",
+    "password": "PhiDelt2219!",
+    "email": "mcivorst@hotmail.com"
+}
+
+###
+
+POST {{url}}/login/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "mcivorsm",
+    "password": "PhiDelt2219!"
+}
+
+###
+
+PUT {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "agentId": 2,
+    "firstName": "Claudian",
+    "middleName": "C",
+    "lastName": "O'Lynn",
+    "dob": "1956-11-09",
+    "heightInInches": 41,
+    "agencies": []
+}
+
+###
+
+DELETE {{url}}/6 HTTP/1.1

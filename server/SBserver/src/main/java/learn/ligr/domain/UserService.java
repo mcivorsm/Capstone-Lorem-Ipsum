@@ -27,6 +27,10 @@ public class UserService {
         return userRepository.findById(userId);
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public Result<User> update(User user) {
         Result<User> result = new Result<>();
         List<User> allUsers = userRepository.findAll();
@@ -118,5 +122,9 @@ public class UserService {
         if (digits == 0 || letters == 0 || others == 0) {
             throw new ValidationException("password must contain a digit, a letter, and a non-digit/non-letter");
         }
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }

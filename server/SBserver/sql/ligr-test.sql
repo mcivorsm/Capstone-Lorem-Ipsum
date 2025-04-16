@@ -31,7 +31,7 @@ create table `user`(
     profile_id int not null,
     username varchar(25),
     email varchar(50) unique,
-    password varchar(50),
+    password varchar(100),
     isAdmin boolean,
 	constraint fk_profile_id
         foreign key (profile_id) references `profile` (profile_id)
