@@ -47,11 +47,12 @@ public class UserJdbcTemplateRepository implements UserRepository {
     }
 
     public User findByUsername(String username){
+
         final String sql = "select u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, " +
                 "p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, " +
                 "g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region " +
                 "from user u join profile p on u.profile_id = p.profile_id join game g on p.fav_game_id = g.game_id " +
-                "where u. username = ?";
+                "where u.username = ?";
 
         return jdbcTemplate.query(sql, new UserMapper(), username).stream()
                 .findFirst().orElse(null);

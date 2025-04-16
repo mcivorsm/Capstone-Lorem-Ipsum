@@ -90,7 +90,7 @@ public class User implements UserDetails{
 
     @Override
     public String getPassword() {
-        return "";
+        return passwordHash;
     }
 
     public String getUsername() {

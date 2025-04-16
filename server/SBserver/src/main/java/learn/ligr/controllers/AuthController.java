@@ -43,9 +43,13 @@ public class AuthController {
                 new UsernamePasswordAuthenticationToken(credentials.get("username"), credentials.get("password"));
 
         try {
-            Authentication authentication = authenticationManager.authenticate(authToken);
+            System.out.println("Start authentication****: " );
+            System.out.println("Auth Token Values: " + authToken.getCredentials().toString());
+           Authentication authentication = authenticationManager.authenticate(authToken);
+
 
             if (authentication.isAuthenticated()) {
+                System.out.println("HIIII");
                 String jwtToken = converter.getTokenFromUser((User) authentication.getPrincipal());
 
                 HashMap<String, String> map = new HashMap<>();

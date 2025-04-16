@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable(); // 1
 
         http.authorizeRequests() // 2
-                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/login/authenticate").permitAll()
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.GET, "/sighting", "/sighting/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/sighting").hasAnyRole("USER", "ADMIN")
@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userValidationService)  // Set UserDetailsService
-                .passwordEncoder(new BCryptPasswordEncoder());  // Set PasswordEncoder
+                .passwordEncoder(passwordEncoder());  // Set PasswordEncoder
     }
 
 
