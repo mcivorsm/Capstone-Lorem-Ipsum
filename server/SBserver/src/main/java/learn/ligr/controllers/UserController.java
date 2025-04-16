@@ -4,6 +4,7 @@ package learn.ligr.controllers;
 import learn.ligr.controllers.ErrorResponse;
 import learn.ligr.domain.Result;
 import learn.ligr.domain.UserService;
+import learn.ligr.models.Game;
 import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -20,6 +22,18 @@ public class UserController {
 
     public UserController(UserService service){
         this.userService = service;
+    }
+
+    @GetMapping()
+    public ResponseEntity<?> findAll() { // handles get route find by username
+        List<User> users = userService.findAll();
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/username/{username}")
+    public ResponseEntity<?> findById(@PathVariable String username) { // handles get route find by username
+        User user = userService.findByUsername(username);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PostMapping("/register")
