@@ -62,5 +62,5 @@ public class GameReviewService {
     public boolean deleteById(int gameReviewId) { // pass-through to repository
         return repository.deleteById(gameReviewId);
     }
-
+    public double findGameReviewAverage(int gameId){ return repository.findGameReviewAverage(gameId); }
 }

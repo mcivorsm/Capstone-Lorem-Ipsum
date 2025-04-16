@@ -13,6 +13,21 @@ function Home() {
           return Promise.reject(`Unexpected Status Code: ${response.status}`);
         }
       })
+      .then((data) => {
+        // Once you have the games, get their average ratings
+        return Promise.all(
+          data.map(async (game) => {
+            try {
+              const res = await fetch(`http://localhost:8080/gameReview/game/${game.gameId}/avg`);
+              const avg = await res.json();
+              return { ...game, rating: avg.toFixed(1) };
+            } catch (error) {
+              console.error("Failed to fetch rating for game", game.title, error);
+              return { ...game, rating: "N/A" }; // fallback if rating fails
+            }
+          })
+        );
+      })
       .then((data) => setGames(data))
       .catch(console.log);
   }, []);
@@ -40,6 +55,7 @@ function Home() {
                 <td>{game.developer}</td>
                 <td>{game.yearReleased}</td>
                 <td>{game.region}</td>
+                <td>{game.rating}</td>
              </tr>
             ))}
         </tbody>
