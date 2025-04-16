@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
+import Game from "./Game";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/game/:gameId" element={<Game />} />
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Router>
