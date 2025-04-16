@@ -40,6 +40,7 @@ function Register() {
       },
       body: JSON.stringify(user)
     };
+    console.log(`this is the body: ${JSON.stringify(user)}`)
     fetch(url, init)
     .then(response => {
         if(response.status === 201 || response.status === 400){

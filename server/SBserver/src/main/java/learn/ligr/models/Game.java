@@ -20,7 +20,7 @@ public class Game {
     @NotBlank(message = "Platform is required.")
     String platform;
 
-    @NotBlank(message = "Region is required.")
+    @NotNull(message = "Region is required.")
     Region region;
 
     public int getGameId() {

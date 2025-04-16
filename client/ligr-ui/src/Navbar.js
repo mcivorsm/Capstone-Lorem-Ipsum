@@ -1,37 +1,81 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-function Navbar() {
-  const [searchTerm, setSearchTerm] = useState("");
+function NavBar() {
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
+  const [games, setGames] = useState([]); // State for all games
+  const [filteredGames, setFilteredGames] = useState([]); // State for filtered games
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Searching for game:", searchTerm);
-    // You can redirect or trigger a search function here
-  };
+  useEffect(() => {
+    // Fetch all games only once when the component mounts
+    fetch("http://localhost:8080/game") // Adjust this URL if necessary
+      .then((response) => response.json())
+      .then((data) => {
+        setGames(data);
+        setFilteredGames(data); // Initialize filtered games with all games
+      })
+      .catch((error) => console.error("Error fetching games:", error));
+  }, []);
+
+  useEffect(() => {
+    // Filter the games based on search query
+    if (searchQuery.trim() === "") {
+      setFilteredGames(games); // If the search query is empty, show all games
+    } else {
+      const filtered = games.filter((game) =>
+        game.title.toLowerCase().includes(searchQuery.toLowerCase()) // Case-insensitive search
+      );
+      setFilteredGames(filtered);
+    }
+  }, [searchQuery, games]); // Re-run the filter whenever the search query or games change
 
   return (
-    <nav style={{ padding: "1rem" }}>
-      <div style={{ marginBottom: "1rem" }}>
-        <Link to={"/"} style={{ marginRight: "1rem" }}>Home</Link>
-        <Link to={"/login"} style={{ marginRight: "1rem" }}>Login</Link>
-        <Link to={"/register"}>Register</Link>
-      </div>
-      
-      <form onSubmit={handleSearch}>
+    <nav style={{ position: "relative" }}>
+      <Link to={"/"}>Home</Link>
+      <Link to={"/profile"}>Profile</Link>
+      <Link to={"/logout"}>Logout</Link>
+
+      {/* Search Bar */}
+      <div style={{ position: "relative" }}>
         <label htmlFor="gameSearch">Find a Game: </label>
         <input
-          id="gameSearch"
           type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ marginRight: "0.5rem" }}
+          id="gameSearch"
+          placeholder="Search games..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)} // Update the search query state
         />
-        <button type="submit">Search</button>
-      </form>
+
+        {/* Conditionally render the list of filtered games */}
+        {filteredGames.length > 0 && searchQuery && (
+          <ul
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              width: "100%",
+              backgroundColor: "#fff",
+              border: "1px solid #ccc",
+              zIndex: 1,
+              maxHeight: "200px",
+              overflowY: "auto", // To make it scrollable if the list is long
+              padding: "0",
+              margin: "0",
+            }}
+          >
+            {filteredGames.map((game) => (
+              <li key={game.game_id} style={{ padding: "8px" }}>
+                {/* Link to the game details page using the game's ID */}
+                <Link to={`/game/${game.gameId}`} style={{ textDecoration: "none", color: "black" }}>
+                  {game.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </nav>
   );
 }
 
-export default Navbar;
+export default NavBar;
