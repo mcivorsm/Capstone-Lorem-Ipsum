@@ -49,10 +49,10 @@ function Register() {
         }
     })
     .then(data => {
-        if(data && data.jwtToken){ // Happy path
-            localStorage.setItem("token", data.jwtToken); // save token
+        if(data.id){ // Happy path - we got a user object back
             // navigate to home page
-            navigate("/");
+            window.alert("Account Created! Please Log In.");
+            navigate("/login");
         } else { // Unhappy path
             setErrors(data)
         }
