@@ -1,16 +1,14 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Profile() {
-  const [user, setUser] = useState();
+const Profile = ({ user }) => {
   const [errors, setErrors] = useState([]);
-  const url = "http://localhost:8080";
+  const url = "http://localhost:8080/user";
   const navigate = useNavigate();
-
 
   return (
     <div>
-      <h2>Profile</h2>
+      <h2>{user.username}</h2>
       <p>This is your profile.</p>
     </div>
   );

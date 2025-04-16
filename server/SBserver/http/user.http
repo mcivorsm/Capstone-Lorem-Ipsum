@@ -4,7 +4,7 @@ GET {{url}}/user HTTP/1.1
 
 ###
 
-GET {{url}}/user/username/Deleted_User HTTP/1.1
+GET {{url}}/user/username/noobmaster69 HTTP/1.1
 
 ###
 

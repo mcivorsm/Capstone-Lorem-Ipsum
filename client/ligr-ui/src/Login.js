@@ -41,19 +41,17 @@ function Login() {
     };
     fetch(url, init)
     .then(response => {
-        if(response.status === 201 || response.status === 400){
+        if(response.status === 200){
             return response.json();
         } else {
             return Promise.reject(`Unexpected Status Code: ${response.status}`);
         }
     })
     .then(data => {
-        if(data && data.jwtToken){ // Happy path
-            localStorage.setItem("token", data.jwtToken); // save token
+        if(data){ // Happy path
+            localStorage.setItem("jwtToken", data.jwt_token); // save token
             // navigate to home page
             navigate("/");
-        } else { // Unhappy path
-            setErrors(data)
         }
     })
     .catch(console.log);
