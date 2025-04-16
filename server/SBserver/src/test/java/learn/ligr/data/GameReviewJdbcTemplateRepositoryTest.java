@@ -101,6 +101,16 @@ class GameReviewJdbcTemplateRepositoryTest {
         assertFalse(repository.deleteById(100));
     }
 
+    @Test
+    void shouldReturnRatingAverage(){
+        assertTrue(repository.findGameReviewAverage(3) == 3.2 || repository.findGameReviewAverage(3) == 3.9 );
+    }
+
+    @Test
+    void shouldNotReturnRatingAverage(){
+        assertEquals(0, repository.findGameReviewAverage(100));
+    }
+
     private GameReview makeReview(){
         GameReview gr = new GameReview();
         gr.setGameReviewId(1);
