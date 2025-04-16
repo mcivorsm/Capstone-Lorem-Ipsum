@@ -32,10 +32,11 @@ public class ProfileController {
 
     @GetMapping("/{profileId}")
     public Profile viewProfile(@PathVariable(required = false) Integer profileId){
-
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
         if(profileId != null){
             return profileService.findById(profileId);
         }
-        return profileService.findById(0);
+        return profileService.findById(user.getProfile().getProfileId());
     }
 }
