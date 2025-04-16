@@ -12,7 +12,6 @@ function NavBar() {
       .then((response) => response.json())
       .then((data) => {
         setGames(data);
-        console.log(data);
         setFilteredGames(data); // Initialize filtered games with all games
       })
       .catch((error) => console.error("Error fetching games:", error));
@@ -31,13 +30,13 @@ function NavBar() {
   }, [searchQuery, games]); // Re-run the filter whenever the search query or games change
 
   return (
-    <nav>
+    <nav style={{ position: "relative" }}>
       <Link to={"/"}>Home</Link>
-      <Link to={"/login"}>Login</Link>
-      <Link to={"/register"}>Register</Link>
+      <Link to={"/profile"}>Profile</Link>
+      <Link to={"/logout"}>Logout</Link>
 
       {/* Search Bar */}
-      <div>
+      <div style={{ position: "relative" }}>
         <label htmlFor="gameSearch">Find a Game: </label>
         <input
           type="text"
@@ -49,11 +48,27 @@ function NavBar() {
 
         {/* Conditionally render the list of filtered games */}
         {filteredGames.length > 0 && searchQuery && (
-          <ul>
+          <ul
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              width: "100%",
+              backgroundColor: "#fff",
+              border: "1px solid #ccc",
+              zIndex: 1,
+              maxHeight: "200px",
+              overflowY: "auto", // To make it scrollable if the list is long
+              padding: "0",
+              margin: "0",
+            }}
+          >
             {filteredGames.map((game) => (
-              <li key={game.game_id}>
+              <li key={game.game_id} style={{ padding: "8px" }}>
                 {/* Link to the game details page using the game's ID */}
-                <Link to={`/game/${game.game_id}`}>{game.title}</Link>
+                <Link to={`/game/${game.gameId}`} style={{ textDecoration: "none", color: "black" }}>
+                  {game.title}
+                </Link>
               </li>
             ))}
           </ul>
