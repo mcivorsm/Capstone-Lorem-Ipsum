@@ -7,11 +7,19 @@ const USER_DEFAULT = {
 };
 
 function Profile() {
+  console.log("asdadas");
   const [user, setUser] = useState(USER_DEFAULT);
-  const url = "http://localhost:8080/user";
 
   useEffect(() => {
-    const token = localStorage.getItem('jwtToken'); // Retrieve token from localStorage
+
+    const token = localStorage.getItem('jwtToken'); 
+    let userId = null;
+    if (token) {
+      const decodedToken = JSON.parse(atob(token.split('.')[1])); 
+      userId = decodedToken.userId; 
+    }
+    const url = userId ? `http://localhost:8080/profile/${userId}` : `http://localhost:8080/profile`;
+
     if (token) {
       fetch(url, {
         method: 'GET',
@@ -20,21 +28,19 @@ function Profile() {
         }
       })
         .then((response) => {
-          if (!response.ok) throw new Error("Failed to load profile");
-          return response.json();
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+          }
         })
         .then((data) => {
           setProfile(data);
           setLoading(false);
         })
-        .catch((err) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } else {
-      setLoading(false); // Handle case where there's no token
-    }
-  }, [url]);
+        .catch(console.log);
+    } 
+  }, []);
   
   const setProfile = () => {};
 
