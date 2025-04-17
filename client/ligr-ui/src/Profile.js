@@ -15,8 +15,6 @@ function Profile() {
       ? `http://localhost:8080/profile/${profileId}`
       : `http://localhost:8080/profile/`;
 
-    console.log("url: " + url);
-
     if (token) {
       fetch(url, {
         method: "GET",

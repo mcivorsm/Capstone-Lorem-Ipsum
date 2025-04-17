@@ -54,8 +54,9 @@ const NavBar = ({ setToken, authUser }) => {
     <nav style={{ position: "relative" }}>
       {authUser?.roles.includes("ROLE_ADMIN") ? (<Link to={"/admin"}>Admin Page</Link>) : null}
       <Link to={"/"}>Home</Link>
+      <Link to={"/userlist"}>Users</Link>
       <Link to={"/profile"}>Profile</Link>
-      <button onClick={() => setShowLogoutPopup(true)}>Logout</button>
+      <button className="btn logout" onClick={() => setShowLogoutPopup(true)}>Logout</button>
 
       {showLogoutPopup && (
         <div

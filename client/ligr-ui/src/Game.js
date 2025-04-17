@@ -126,7 +126,6 @@ function Game({ authUser }) {
                     marginTop: "0.5rem",
                     padding: "0.4rem 0.8rem",
                     backgroundColor: "#dc3545",
-                    color: "#fff",
                     border: "none",
                     borderRadius: "4px",
                     cursor: "pointer",

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function AdminPage() {
-  const [showGames, setShowGames] = useState(false);
   const [games, setGames] = useState([]);
   const [users, setUsers] = useState([]);
   const url = "http://localhost:8080";
 
+  // fetch all games on component load
   useEffect(() => {
     fetch(`${url}/game`)
       .then((response) => {
@@ -16,10 +16,46 @@ function AdminPage() {
           return Promise.reject(`Unexpected Status Code: ${response.status}`);
         }
       })
+      .then((data) => {
+        // Once you have the games, get their average ratings
+        return Promise.all(
+          data.map(async (game) => {
+            try {
+              const res = await fetch(
+                `http://localhost:8080/gameReview/game/${game.gameId}/avg`
+              );
+              const avg = await res.json();
+              return { ...game, rating: avg.toFixed(1) };
+            } catch (error) {
+              console.error(
+                "Failed to fetch rating for game",
+                game.title,
+                error
+              );
+              return { ...game, rating: "N/A" }; // fallback if rating fails
+            }
+          })
+        );
+      })
       .then((data) => setGames(data))
       .catch(console.log);
   }, []);
 
+  // fetch all users on component load
+  useEffect(() => {
+    fetch(`${url}/user`)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          return Promise.reject(`Unexpected Status Code: ${response.status}`);
+        }
+      })
+      .then((data) => setUsers(data))
+      .catch(console.log);
+  }, []);
+
+  // handle deleting a game
   const handleDeleteGame = (gameId) => {
     const token = localStorage.getItem("jwtToken");
     const game = games.find((game) => game.gameId === gameId);
@@ -46,12 +82,38 @@ function AdminPage() {
     }
   };
 
+  // handle deleting a user
+  const handleDeleteUser = (userId) => {
+    const token = localStorage.getItem("jwtToken");
+    const user = users.find((user) => user.id === userId);
+    if (window.confirm(`Delete Game: ${user.username}?`)) {
+      const init = {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      fetch(`${url}/user/delete/${userId}`, init)
+        .then((response) => {
+          if (response.status === 204) {
+            // create a copy of the array
+            // remove the user
+            const newUsers = users.filter((user) => user.id !== userId);
+            // update the users state
+            setUsers(newUsers);
+          } else {
+            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+          }
+        })
+        .catch(console.log);
+    }
+  };
+
+
   return (
     <div>
       <h2>Admin Page</h2>
       <div>
-        <button onClick={() => setShowGames(!showGames)}>{showGames ? "Show Users" : "Show Games"}</button>
-        {showGames ? (
         <section>
           <h3 className="mb-4">All Games</h3>
           <Link className="btn btn-outline-success mb-4" to={"/game/add"}>
@@ -95,51 +157,6 @@ function AdminPage() {
             </tbody>
           </table>
         </section>
-        ) : (
-          <section>
-          <h3 className="mb-4">All Users</h3>
-          <Link className="btn btn-outline-success mb-4" to={"/game/add"}>
-            Add Game
-          </Link>
-          <table className="table table-striped table-hover">
-            <thead className="thead-dark">
-              <tr>
-                <th>Name</th>
-                <th>Developer</th>
-                <th>Year Released</th>
-                <th>Top Sale Region</th>
-                <th>Rating</th>
-                <th>&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody>
-              {games.map((game) => (
-                <tr key={game.gameId}>
-                  <td>{game.title}</td>
-                  <td>{game.developer}</td>
-                  <td>{game.yearReleased}</td>
-                  <td>{game.region}</td>
-                  <td>{game.rating}</td>
-                  <td>
-                    <Link
-                      className="btn btn-outline-warning mr-4"
-                      to={`/game/edit/${game.gameId}`}
-                    >
-                      Update
-                    </Link>
-                    <button
-                      className="btn btn-outline-danger"
-                      onClick={() => handleDeleteGame(game.gameId)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-        )}
       </div>
     </div>
   );
