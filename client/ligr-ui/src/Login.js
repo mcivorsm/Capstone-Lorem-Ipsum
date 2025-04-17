@@ -14,7 +14,7 @@ const USER_DEFAULT = {
   password: ""
 };
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, setAuthUser }) => {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
   const url = "http://localhost:8080/login/authenticate";
@@ -54,6 +54,17 @@ const Login = ({ setToken }) => {
         if(data.jwt_token){ // Happy path
             localStorage.setItem("jwtToken", data.jwt_token); // save token
             setToken(data.jwt_token);
+            const decodedToken = parseJwt(data.jwt_token);
+            if (decodedToken) {
+              const authUser = {
+                id: decodedToken.userId,
+                username: decodedToken.sub,
+                email: decodedToken.email,
+                isAdmin: decodedToken.isAdmin,
+                roles: decodedToken.authorities?.split(",") || [],
+              };
+              setAuthUser(authUser);
+            }
             // navigate to home page
             navigate("/");
         } else {
@@ -123,6 +134,22 @@ const Login = ({ setToken }) => {
       </Link>
     </>
   );
+}
+
+function parseJwt(token) {
+  try {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    return null;
+  }
 }
 
 export default Login;
