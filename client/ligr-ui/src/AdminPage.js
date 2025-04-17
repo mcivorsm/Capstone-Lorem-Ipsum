@@ -23,6 +23,7 @@ function AdminPage() {
     if (window.confirm(`Delete Game: ${game.title}?`)) {
       const init = {
         method: "DELETE",
+        
       };
       fetch(`${url}/${gameId}`, init)
         .then((response) => {

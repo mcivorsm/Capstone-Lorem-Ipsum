@@ -9,13 +9,21 @@ const NavBar = ({ setToken, authUser }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+  const token = localStorage.getItem("jwtToken");
 
   useEffect(() => {
     // Fetch all games only once when the component mounts
-    fetch("http://localhost:8080/game")
+    if (token) {
+      fetch("http://localhost:8080/game", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`, // Attach token to request
+        },
+      })
       .then((response) => response.json())
       .then((data) => setGames(data))
       .catch((error) => console.error("Error fetching games:", error));
+    }
   }, []);
 
   useEffect(() => {
