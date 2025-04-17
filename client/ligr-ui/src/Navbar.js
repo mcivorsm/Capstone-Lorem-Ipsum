@@ -86,7 +86,7 @@ const NavBar = ({ setToken, authUser }) => {
 
       {/* Search Bar */}
       <div style={{ position: "relative" }} ref={dropdownRef}>
-        <label htmlFor="gameSearch">Find a Game: </label>
+      <label htmlFor="gameSearch" style= {{marginRight: "6px", marginTop: "22px"}}>Find a Game: </label>
         <input
           type="text"
           id="gameSearch"

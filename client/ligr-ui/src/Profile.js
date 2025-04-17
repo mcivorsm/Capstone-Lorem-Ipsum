@@ -1,10 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [preferredGenre, setPreferredGenre] = useState(false);
+  const [region, setRegion] = useState(false);
+  const [editingProfile, setEditingProfile] = useState(false);
+  const dropdownRef = useRef(null);
+  const [inputValue, setInputValue] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [games, setGames] = useState([]); // State for all games
+  const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
 
   const { profileId } = useParams();
   const token = localStorage.getItem("jwtToken");
@@ -14,6 +25,8 @@ function Profile() {
     const url = profileId
       ? `http://localhost:8080/profile/${profileId}`
       : `http://localhost:8080/profile/`;
+
+    console.log("url: " + url);
 
     if (token) {
       fetch(url, {
@@ -81,6 +94,80 @@ function Profile() {
     }
   }, [token, userId]);
 
+  //PROFILE EDITING
+
+  useEffect(() => {
+    if (editMode && profile) {
+      setEditingProfile({ ...profile });
+    }
+  }, [editMode, profile]);
+
+  const handleChangeProfile = (event) => {
+    const { name, value } = event.target;
+    setEditingProfile((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmitProfile = (event) => {
+    event.preventDefault();
+
+    editingProfile.profileId = profileId;
+    const init = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(editingProfile),
+    };
+    fetch(`http://localhost:8080/profile/edit`, init)
+      .then((response) => {
+        if (response.status === 204) {
+          return null;
+        } else if (response.status === 400) {
+          return response.json();
+        } else {
+          return Promise.reject(`Unexpected status code: ${response.status}`);
+        }
+      })
+      .then((data) => {
+        if (!data) {
+          navigate("http://localhost:8080/profile/");
+        } else {
+          setErrors(data);
+        }
+      })
+      .catch(console.log);
+  };
+
+  //find games
+  useEffect(() => {
+    if (token) {
+      fetch("http://localhost:8080/game", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setGames(data))
+        .catch((error) => console.error("Error fetching games:", error));
+    }
+  }, []);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(inputValue);
+    }, 300);
+    return () => clearTimeout(handler);
+  }, [inputValue]);
+
+  const filteredGames = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    return games.filter((game) =>
+      game.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, games]);
+
   return (
     <>
       <section
@@ -97,22 +184,123 @@ function Profile() {
         </div>
 
         <div style={{ display: "flex", gap: "1rem" }}>
-          <button> Account Settings</button>
-          <button> Edit Profile</button>
+          <button
+            onClick={() =>
+              editMode ? (event) => handleSubmitProfile(event) : {}
+            }
+          >
+            {" "}
+            {editMode ? "Save Changes" : "Account Settings"}
+          </button>
+          <button onClick={() => setEditMode(!editMode)}>
+            {editMode ? "Cancel Edit" : "Edit Profile"}
+          </button>
         </div>
       </section>
 
       <section style={{ marginTop: "2rem", display: "flex", gap: "10rem" }}>
         <div>
-          <p>Favorite Game: {profile?.favoriteGame.title}</p>
+          <div>
+            {editMode ? (
+              <div style={{ position: "relative" }} ref={dropdownRef}>
+                <label htmlFor="gameSearch" style={{ marginRight: "6px" }}>
+                  Favorite Game:
+                </label>
+                <input
+                  type="text"
+                  id="gameSearch"
+                  placeholder="Search games..."
+                  value={inputValue}
+                  onChange={(e) => {
+                    setInputValue(e.target.value);
+                    setShowDropdown(true);
+                  }}
+                />
+
+                {showDropdown && inputValue.trim() && (
+                  <ul
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: 0,
+                      width: "100%",
+                      backgroundColor: "#fff",
+                      border: "1px solid #ccc",
+                      zIndex: 1,
+                      maxHeight: "200px",
+                      overflowY: "auto",
+                      padding: "0",
+                      margin: "0",
+                      listStyle: "none",
+                    }}
+                  >
+                    {filteredGames.length > 0 ? (
+                      filteredGames.map((game) => (
+                        <li
+                          key={game.gameId}
+                          style={{ padding: "8px", cursor: "pointer" }}
+                          onClick={() => {
+                            setEditingProfile((prev) => ({
+                              ...prev,
+                              favoriteGameId: game.gameId,
+                            }));
+                            setInputValue(game.title);
+                            setShowDropdown(false);
+                          }}
+                        >
+                          {game.title}
+                        </li>
+                      ))
+                    ) : (
+                      <li style={{ padding: "8px", color: "#888" }}>
+                        No matches found.
+                      </li>
+                    )}
+                  </ul>
+                )}
+              </div>
+            ) : (
+              // Show the favorite game as plain text if not editing
+              <p>Favorite Game: {profile?.favoriteGame.title || "None"}</p>
+            )}
+          </div>
           <p>
             Favorite Genre:{" "}
-            {profile?.preferredGenre ? profile?.preferredGenre : "None"}
+            {editMode ? (
+              <input
+                type="text"
+                name="preferredGenre"
+                value={
+                  editingProfile.preferredGenre
+                    ? editingProfile.preferredGenre
+                    : "None"
+                }
+                onChange={handleChangeProfile}
+              />
+            ) : (
+              profile?.preferredGenre || "None"
+            )}
           </p>
         </div>
 
         <div>
-          <p>Region: {profile?.region}</p>
+          <p>
+            Region:{" "}
+            {editMode ? (
+              <select
+                name="region"
+                value={editingProfile.region}
+                onChange={handleChangeProfile}
+              >
+                <option value="NA">NA</option>
+                <option value="EU">EU</option>
+                <option value="JP">JP</option>
+                <option value="OTHER">OTHER</option>
+              </select>
+            ) : (
+              profile?.region || "None"
+            )}
+          </p>
           <p>Date Joined: {profile?.dateJoined}</p>
         </div>
       </section>
@@ -129,25 +317,36 @@ function Profile() {
         <h4> Reviews({reviews?.length}) </h4>
 
         <section>
-          {reviews?.map((review) => (
-            <div
-              key={review.gameReviewId}
-              className="mb-4 p-3 border rounded bg-light"
-            >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  alignItems: "center",
-                }}
-              >
-                <p>Game: {review.game.title}</p>
-                <p>Rating: {review.rating.toFixed(1)} / 5.0</p>
-              </div>
-
-              <p className="mb-0">{review.reviewText}</p>
-            </div>
-          ))}
+          {reviews?.length > 0 ? (
+            <section>
+              {reviews.map((review) => (
+                <div
+                  key={review.gameReviewId}
+                  className="mb-4 p-3 border rounded bg-light"
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <p>Game: {review.game.title}</p>
+                    <p>
+                      Rating:{" "}
+                      {Number.isInteger(review.rating)
+                        ? review.rating.toFixed(1)
+                        : review.rating.toFixed(1)}{" "}
+                      / 5.0
+                    </p>
+                  </div>
+                  <p className="mb-0">{review.reviewText}</p>
+                </div>
+              ))}
+            </section>
+          ) : (
+            <p>No reviews from this user.</p>
+          )}
         </section>
       </section>
     </>
