@@ -30,7 +30,12 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @GetMapping("/username/{username}")
+    @GetMapping("/id/{userId}")
+    public User findById(@PathVariable int userId) {
+        return userService.findById(userId);
+    }
+
+        @GetMapping("/username/{username}")
     public ResponseEntity<?> findById(@PathVariable String username) { // handles get route find by username
         User user = userService.findByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);

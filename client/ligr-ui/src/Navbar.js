@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const NavBar = ({ setToken }) => {
+const NavBar = ({ setToken, user }) => {
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
   const [inputValue, setInputValue] = useState(""); // for debounced input
   const [games, setGames] = useState([]); // State for all games
@@ -44,6 +44,7 @@ const NavBar = ({ setToken }) => {
 
   return (
     <nav style={{ position: "relative" }}>
+      {user?.roles.includes("ROLE_ADMIN") ? (<Link to={"/admin"}>Admin Page</Link>) : null}
       <Link to={"/"}>Home</Link>
       <Link to={"/profile"}>Profile</Link>
       <button onClick={() => setShowLogoutPopup(true)}>Logout</button>
