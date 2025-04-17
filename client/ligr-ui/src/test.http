@@ -20,3 +20,10 @@ Content-Type: application/json
 
 ### register
 GET http://localhost:8080/profile HTTP/1.1
+
+
+### get by id
+GET http://localhost:8080/user/username/admin_one HTTP/1.1
+
+### get game by id
+GET http://localhost:8080/game/4 HTTP/1.1

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 // example token after decoding: {
 //   "sub": "johndoe",   // Subject: the username
@@ -14,11 +14,13 @@ const USER_DEFAULT = {
   password: ""
 };
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, setAuthUser }) => {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
   const url = "http://localhost:8080/login/authenticate";
   const navigate = useNavigate();
+  const location = useLocation();
+  const message = location.state?.message;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,6 +56,14 @@ const Login = ({ setToken }) => {
         if(data.jwt_token){ // Happy path
             localStorage.setItem("jwtToken", data.jwt_token); // save token
             setToken(data.jwt_token);
+            const decodedToken = JSON.parse(atob(data.jwt_token.split('.')[1])); 
+            setAuthUser({
+              id: decodedToken.userId,
+              username: decodedToken.sub,
+              email: decodedToken.email,
+              isAdmin: decodedToken.isAdmin,
+              roles: decodedToken.authorities?.split(",") || [],
+            });
             // navigate to home page
             navigate("/");
         } else {
@@ -77,6 +87,7 @@ const Login = ({ setToken }) => {
             </ul>
           </div>
         )}
+        {message && <div className="alert alert-warning">{message}</div>}
         <form onSubmit={handleSubmit}>
           <fieldset className="form-group">
             <label htmlFor="username">Username</label>
