@@ -40,27 +40,14 @@ function SelfProfile() {
     } 
   }, []);
 
-  const token = localStorage.getItem("jwtToken");
-  const decoded = parseJwt(token);
-  const usernameForProfile = decoded?.username;
+
   return (
     <div>
-      <h2>{usernameForProfile}</h2>
+      <h2>{user.username}</h2>
       <h3>{profile.dateJoined}</h3>
       <p>This is your profile.</p>
     </div>
   );
 }
-function parseJwt(token) {
-  try {
-    const base64Url = token.split('.')[1]; // Get payload
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    return JSON.parse(jsonPayload);
-  } catch (e) {
-    return null;
-  }
-}
+
 export default SelfProfile;
