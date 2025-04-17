@@ -4,6 +4,7 @@ import learn.ligr.data.ProfileRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import learn.ligr.domain.ProfileService;
+import learn.ligr.models.Profile;
 import learn.ligr.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -49,39 +50,43 @@ public class JwtConverter {
     }
 
     public User getUserFromToken(String token) {
-
         if (token == null || !token.startsWith("Bearer ")) {
             return null;
         }
 
         try {
-            // 4. Use JJWT classes to read a token.
+            // Parse JWT token
             Jws<Claims> jws = Jwts.parserBuilder()
                     .requireIssuer(ISSUER)
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token.substring(7));
 
-
-            //JWT TOKEN CONTENTS
+            // Extract JWT token contents
             String username = jws.getBody().getSubject();
             String authStr = (String) jws.getBody().get("authorities");
             int userId = (int) jws.getBody().get("userId");
             int profileId = (int) jws.getBody().get("profileId");
-
             String email = (String) jws.getBody().get("email");
+
+            // Convert the authorities string into a list of GrantedAuthorities
             List<GrantedAuthority> authorities = Arrays.stream(authStr.split(","))
-                    .map(i -> new SimpleGrantedAuthority(i))
+                    .map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
 
-          boolean adminFlag = authorities.get(0).equals("ROLE_ADMIN");
+            // Check if the user has admin privileges
+            boolean isAdmin = authorities.stream()
+                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
 
-          //START PROFILE ASSIGNMENT HERE?
-          return new User(userId, profileService.findById(profileId), username, email, adminFlag);
+            // Fetch profile details using profileId (ensure ProfileService is working as expected)
+            Profile profile = profileService.findById(profileId);
+
+            // Return the User object with the necessary information
+            return new User(userId, profile, username, email, isAdmin);
 
         } catch (JwtException e) {
-            // 5. JWT failures are modeled as exceptions.
-            System.out.println(e);
+            // Handle JWT parsing exceptions
+            System.out.println("Error parsing JWT: " + e.getMessage());
         }
 
         return null;

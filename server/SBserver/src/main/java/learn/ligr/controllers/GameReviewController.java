@@ -9,6 +9,8 @@ import learn.ligr.models.GameReview;
 import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,6 +54,9 @@ public class GameReviewController {
 
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid GameReview gameReview, BindingResult bindingResult) { // handles post route
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        gameReview.setUser(user);
         // automatic validation
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);

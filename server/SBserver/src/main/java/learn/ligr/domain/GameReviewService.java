@@ -13,6 +13,7 @@ import java.util.List;
 public class GameReviewService {
     private final GameReviewRepository repository;
 
+
     public GameReviewService(GameReviewRepository repository) {
         this.repository = repository;
     }
