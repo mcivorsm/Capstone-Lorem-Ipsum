@@ -107,11 +107,9 @@ function Profile() {
     setEditingProfile((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmitProfile = (event) => {
-    event.preventDefault();
-
-    console.log("aaaa");
-    editingProfile.profileId = profileId;
+  const handleSubmitProfile = () => {
+    editingProfile.profileId = userId;
+    console.log(userId);
     const init = {
       method: "PUT",
       headers: {
@@ -123,10 +121,8 @@ function Profile() {
     fetch(`http://localhost:8080/profile/edit`, init)
       .then((response) => {
         if (response.status === 204) {
-          console.log(":)");
           return null;
         } else if (response.status === 400) {
-          console.log(":(");
           return response.json();
         } else {
           return Promise.reject(`Unexpected status code: ${response.status}`);
@@ -134,7 +130,8 @@ function Profile() {
       })
       .then((data) => {
         if (!data) {
-          navigate("http://localhost:8080/profile/");
+          setProfile(editingProfile);
+          setEditMode(false);   
         } else {
           setErrors(data);
         }
@@ -188,9 +185,9 @@ function Profile() {
 
         <div style={{ display: "flex", gap: "1rem" }}>
           <button
-            onClick={() => 
-              editMode ? {handleSubmitProfile} : {}
-            }
+            onClick={() => {
+              if (editMode) handleSubmitProfile();
+            }}
           >
             {" "}
             {editMode ? "Save Changes" : "Account Settings"}
@@ -245,7 +242,7 @@ function Profile() {
                           onClick={() => {
                             setEditingProfile((prev) => ({
                               ...prev,
-                              favoriteGameId: game.gameId,
+                              favoriteGame: game,
                             }));
                             setInputValue(game.title);
                             setShowDropdown(false);
