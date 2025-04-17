@@ -93,12 +93,14 @@ function GameForm() {
 
   // updateGame
   const updateGame = () => {
+    const token = localStorage.getItem("jwtToken");
     // Assign gameId
     game.gameId = id;
     const init = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(game),
     };

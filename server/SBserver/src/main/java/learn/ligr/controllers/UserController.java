@@ -78,6 +78,19 @@ public class UserController {
 
     }
 
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity<?> delete(@PathVariable int userId){
+        User user = userService.findById(userId);
+
+        boolean deleted = userService.deleteById(userId,user.getProfile().getProfileId()).isSuccess();
+
+        if (!deleted) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     @PutMapping("/edit")
     public ResponseEntity<?>update(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

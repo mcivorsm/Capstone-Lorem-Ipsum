@@ -39,14 +39,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable(); // 1
 
         http.authorizeRequests() // 2
+                // anyone
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/login/authenticate").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/register").permitAll()
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers(HttpMethod.GET, "/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/game", "/gameReview").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.PUT, "/game/*", "/gameReview/*", "/profile/edit").hasAnyRole("USER", "ADMIN")
+
+                // authenticated users only
+                .antMatchers(HttpMethod.POST, "/gameReview").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT, "/gameReview/*", "/profile/edit").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE,  "/gameReview/*", "/user/delete").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/game/*", "/gameReview/*", "/user/delete").hasRole("ADMIN")
+
+                // admin only
+                .antMatchers(HttpMethod.POST, "/game").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/game/*").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/game/*", "/user/delete/*").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtRequestFilter(authenticationManager(), converter), JwtRequestFilter.class) // 3
