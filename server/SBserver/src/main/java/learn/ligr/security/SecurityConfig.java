@@ -14,12 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.List;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,27 +30,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http
-                .cors().and() // enable Spring Security CORS
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll() // allow preflight
+        http.csrf().disable(); // 1
+
+        http.authorizeRequests() // 2
                 .antMatchers("/login/authenticate").permitAll()
                 .antMatchers("/refresh_token").authenticated()
-                .antMatchers(HttpMethod.GET, "/sighting", "/sighting/*").permitAll()
-                .antMatchers(HttpMethod.POST, "/sighting").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.PUT, "/sighting/*").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/sighting/*").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/game", "/gameReview").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT, "/game/*", "/gameReview/*", "/profile/edit").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.DELETE,  "/gameReview/*", "/user/delete").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/game/*", "/gameReview/*", "/user/delete").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new JwtRequestFilter(authenticationManagerBean(), converter), UsernamePasswordAuthenticationFilter.class)
-                .sessionManagement()
+                .addFilterBefore(new JwtRequestFilter(authenticationManager(), converter), JwtRequestFilter.class) // 3
+                .sessionManagement() // 4
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManager();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager(); // Automatically wires with your UserDetailsService
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -64,18 +57,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());  // Set PasswordEncoder
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-        return source;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

@@ -3,16 +3,9 @@ import { useEffect, useState } from "react";
 function Home() {
   const [games, setGames] = useState([]);
   const url = "http://localhost:8080/game";
-  const token = localStorage.getItem("jwtToken");
 
   useEffect(() => {
-    if (token) {
-      fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`, // Attach token to request
-        },
-      })
+    fetch(url)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -25,14 +18,9 @@ function Home() {
         return Promise.all(
           data.map(async (game) => {
             try {
-              
-    
-              const res = await fetch(`http://localhost:8080/gameReview/game/${game.gameId}/avg`, {
-                  method: "GET",
-                  headers: {
-                    Authorization: `Bearer ${token}`, // Attach token to request
-                  },
-                });
+              const res = await fetch(
+                `http://localhost:8080/gameReview/game/${game.gameId}/avg`
+              );
               const avg = await res.json();
               return { ...game, rating: avg.toFixed(1) };
             } catch (error) {
@@ -48,7 +36,6 @@ function Home() {
       })
       .then((data) => setGames(data))
       .catch(console.log);
-    }
   }, []);
 
   return (
