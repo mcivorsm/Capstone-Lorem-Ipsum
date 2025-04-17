@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // For accessing URL parameters
 import WriteReview from "./WriteReview";
 
-function Game() {
+function Game({ authUser }) {
   const { gameId } = useParams(); // Get the gameId from the URL
   const [gameDetails, setGameDetails] = useState(null); 
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null); // Store any errors
-  const [showReviewForm, setShowReviewForm] = useState(false); 
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const url = "http://localhost:8080";
 
   useEffect(() => {
     // Fetch game details
-    fetch(`http://localhost:8080/game/${gameId}`) 
+    fetch(`${url}/game/${gameId}`) 
       .then((response) => {
         if (!response.ok) {
           throw new Error("Game not found");
@@ -26,7 +27,7 @@ function Game() {
       });
 
     // Fetch reviews for the game
-    fetch(`http://localhost:8080/gameReview/game/${gameId}`)
+    fetch(`${url}/gameReview/game/${gameId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Reviews not found");
@@ -40,6 +41,28 @@ function Game() {
         console.error("Error fetching reviews:", error);
       });
   }, [gameId]);
+
+  const handleDeleteReview = (gameReviewId) => {
+    const gameReview = reviews.find((review) => review.gameReviewId === gameReviewId);
+    if (window.confirm(`Delete Review?`)) {
+      const init = {
+        method: "DELETE"
+      };
+      fetch(`${url}/gameReview/${gameReviewId}`, init)
+        .then((response) => {
+          if (response.status === 204) {
+            // create a copy of the array
+            // remove the game review
+            const newReviews = reviews.filter((review) => review.gameReviewId !== gameReviewId);
+            // update the reviews state
+            setReviews(newReviews);
+          } else {
+            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+          }
+        })
+        .catch(console.log);
+    }
+  };
 
   if (error) {
     return <div style={{ textAlign: "center", marginTop: "2rem" }}>{error}</div>;
@@ -95,6 +118,24 @@ function Game() {
                 <p><strong>User:</strong> {review.user.username}</p>
                 <p><strong>Rating:</strong> {review.rating} / 5</p>
                 <p><strong>Review:</strong> {review.reviewText}</p>
+
+                {/* if user is an admin, or is the author of the review, show delete button */}
+                {(authUser?.id === review.user.id || authUser?.roles.includes("ROLE_ADMIN")) && (
+                  <button
+                  style={{
+                    marginTop: "0.5rem",
+                    padding: "0.4rem 0.8rem",
+                    backgroundColor: "#dc3545",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleDeleteReview(review.gameReviewId)}
+                >
+                  Delete
+                </button>
+                )}
               </li>
             ))}
           </ul>
