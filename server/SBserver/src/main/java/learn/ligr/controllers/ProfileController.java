@@ -41,6 +41,7 @@ public class ProfileController {
     public Profile viewProfile(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
+        System.out.println("Username = " + user.getUsername());
         return profileService.findById(user.getProfile().getProfileId());
     }
 }
