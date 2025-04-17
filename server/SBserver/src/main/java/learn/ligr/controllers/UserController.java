@@ -85,9 +85,12 @@ public class UserController {
     public ResponseEntity<?> delete(@PathVariable int userId){
         User user = userService.findById(userId);
 
-        boolean deleted = userService.deleteById(userId,user.getProfile().getProfileId()).isSuccess();
+        Result<User> result = userService.deleteById(userId,user.getProfile().getProfileId());
+
+        boolean deleted = result.isSuccess();
 
         if (!deleted) {
+            result.getMessages().forEach(System.out::println);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

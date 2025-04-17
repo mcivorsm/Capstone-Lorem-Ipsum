@@ -45,7 +45,6 @@ public class AuthController {
         try {
            Authentication authentication = authenticationManager.authenticate(authToken);
 
-
             if (authentication.isAuthenticated()) {
                 String jwtToken = converter.getTokenFromUser((User) authentication.getPrincipal());
 

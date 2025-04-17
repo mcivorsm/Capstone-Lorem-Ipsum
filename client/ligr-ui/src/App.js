@@ -48,11 +48,14 @@ function App() {
 
           <Route path="/profile" element={
             <ProtectedRoute token={token} user={authUser}>
-              <Profile/>
+              <Profile authUser={authUser}/>
             </ProtectedRoute>
           } />
 
-          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
+          <Route path="/profile/:profileId" element={
+            <ProtectedRoute token={token}>
+              <Profile authUser={authUser}/>
+            </ProtectedRoute>}/>
 
           <Route path="/register" element={<Register/>}/>
 

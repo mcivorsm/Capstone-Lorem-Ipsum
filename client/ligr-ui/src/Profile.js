@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Profile() {
+const Profile = ({ authUser }) => {
   const [profile, setProfile] = useState(null);
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState(null);
@@ -47,7 +47,7 @@ function Profile() {
         })
         .catch(console.log);
     }
-  }, []);
+  }, [profileId]);
 
   const userId = (() => {
     if (profileId) {
@@ -193,6 +193,8 @@ function Profile() {
           <p>{user?.email}</p>
         </div>
 
+        {/* if user is an admin, or is the owner of the profile, show buttons */}
+        {(authUser?.id === user?.id || authUser?.roles.includes("ROLE_ADMIN")) && (
         <div style={{ display: "flex", gap: "1rem" }}>
           <button
             onClick={() => {
@@ -210,6 +212,7 @@ function Profile() {
             {editMode ? "Cancel Edit" : "Edit Profile"}
           </button>
         </div>
+        )}
       </section>
 
       <section>
