@@ -110,20 +110,23 @@ function Profile() {
   const handleSubmitProfile = (event) => {
     event.preventDefault();
 
+    console.log("aaaa");
     editingProfile.profileId = profileId;
     const init = {
       method: "PUT",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify(editingProfile),
     };
     fetch(`http://localhost:8080/profile/edit`, init)
       .then((response) => {
         if (response.status === 204) {
+          console.log(":)");
           return null;
         } else if (response.status === 400) {
+          console.log(":(");
           return response.json();
         } else {
           return Promise.reject(`Unexpected status code: ${response.status}`);
@@ -185,8 +188,8 @@ function Profile() {
 
         <div style={{ display: "flex", gap: "1rem" }}>
           <button
-            onClick={() =>
-              editMode ? (event) => handleSubmitProfile(event) : {}
+            onClick={() => 
+              editMode ? {handleSubmitProfile} : {}
             }
           >
             {" "}
