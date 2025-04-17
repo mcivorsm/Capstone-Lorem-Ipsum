@@ -19,7 +19,7 @@ function Profile() {
       userId = decodedToken.userId; 
     }
     const url = userId ? `http://localhost:8080/profile/${userId}` : `http://localhost:8080/profile`;
-
+    console.log(url);
     if (token) {
       fetch(url, {
         method: 'GET',

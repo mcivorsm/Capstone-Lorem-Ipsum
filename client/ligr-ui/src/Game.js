@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // For accessing URL parameters
+import WriteReview from "./WriteReview";
 
 function Game() {
   const { gameId } = useParams(); // Get the gameId from the URL
   const [gameDetails, setGameDetails] = useState(null); 
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null); // Store any errors
+  const [showReviewForm, setShowReviewForm] = useState(false); 
 
   useEffect(() => {
     // Fetch game details
@@ -51,12 +53,18 @@ function Game() {
     <div style={{ padding: "2rem" }}>
       <h1 style={{ textAlign: "center", marginBottom: "1rem" }}>{gameDetails.title}</h1>
       
-      {/* Review button */}
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <button style={{ padding: "0.5rem 1rem", fontSize: "1rem", cursor: "pointer" }}>
-          Review this game
+     {/* Review Button */}
+     <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+        <button
+          onClick={() => setShowReviewForm(!showReviewForm)}
+          style={{ padding: "0.5rem 1rem", fontSize: "1rem", cursor: "pointer" }}
+        >
+          {showReviewForm ? "Cancel" : "Review this game"}
         </button>
       </div>
+
+      {/* Conditional Form */}
+      {showReviewForm && <WriteReview gameId={gameId} onClose={() => setShowReviewForm(false)} />}
 
       <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "left" }}>
         <p><strong>Developer:</strong> {gameDetails.developer}</p>

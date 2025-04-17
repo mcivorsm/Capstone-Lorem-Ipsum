@@ -16,3 +16,7 @@ Content-Type: application/json
     "password": "PhiDelt2219!",
     "email": "mcivorst@hotmail.com"
 }
+
+
+### register
+GET http://localhost:8080/profile HTTP/1.1
