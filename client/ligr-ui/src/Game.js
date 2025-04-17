@@ -86,7 +86,7 @@ function Game() {
               >
                 <p><strong>User:</strong> {review.username}</p>
                 <p><strong>Rating:</strong> {review.rating} / 5</p>
-                <p><strong>Comment:</strong> {review.comment}</p>
+                <p><strong>Comment:</strong> {review.reviewText}</p>
               </li>
             ))}
           </ul>
