@@ -83,8 +83,6 @@ function Profile() {
     }
   }, [token, userId]);
 
-  console.log(reviews);
-
   return (
     <>
       <section

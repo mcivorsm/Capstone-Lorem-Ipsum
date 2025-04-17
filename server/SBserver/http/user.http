@@ -44,9 +44,18 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/profile/2 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIzLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIzLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDg1MzU2OH0.QZdS-UCwU9L7X5Qeyrperrdg2aqhRuCOKl_MBz_KS5Y
+GET http://localhost:8080/profile/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIzLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIzLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDg1OTY1NX0.4ngl1mFHi1Q0JfXOXUXcyqVETg_UuZlrGACZP5Izg_I
 
 ###
 
 DELETE {{url}}/6 HTTP/1.1
+
+###
+
+GET http://localhost:8080/gameReview/user/2 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIyLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDg2OTE1NX0.Aq9jXi8YoUV6fVZq9AWJRZ0mEveW4gDY7hXQhQ7lKDI
+
+###
+
+GET http://localhost:8080/gameReview/testerino HTTP/1.1
