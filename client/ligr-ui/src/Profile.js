@@ -109,7 +109,6 @@ function Profile() {
 
   const handleSubmitProfile = () => {
     editingProfile.profileId = userId;
-    console.log(userId);
     const init = {
       method: "PUT",
       headers: {
@@ -196,6 +195,27 @@ function Profile() {
             {editMode ? "Cancel Edit" : "Edit Profile"}
           </button>
         </div>
+      </section>
+
+      <section>
+        <h3 style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>About Me</h3>
+
+        <p>
+            {editMode ? (
+              <input
+                type="text"
+                name="profileDescription"
+                value={
+                  editingProfile.profileDescription
+                    ? editingProfile.profileDescription
+                    : ""
+                }
+                onChange={handleChangeProfile}
+              />
+            ) : (
+              profile?.profileDescription || "This user has not created a description yet."
+            )}
+          </p>
       </section>
 
       <section style={{ marginTop: "2rem", display: "flex", gap: "10rem" }}>
