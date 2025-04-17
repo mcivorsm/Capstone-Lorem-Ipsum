@@ -64,9 +64,10 @@ const NavBar = ({ setToken, authUser }) => {
             position: "absolute",
             top: "100%",
             right: 0,
-            background: "#fff",
+            background: "aliceblue",
             border: "1px solid #ccc",
             padding: "1rem",
+            borderRadius: "7px 7px",
             zIndex: 100,
           }}
         >
