@@ -14,19 +14,9 @@ function Profile() {
   useEffect(() => {
 
     const token = localStorage.getItem('jwtToken'); 
-<<<<<<< HEAD
-    let userId = null;
-    if (token) {
-      const decodedToken = JSON.parse(atob(token.split('.')[1])); 
-      userId = decodedToken.userId; 
-    }
-    const url = userId ? `http://localhost:8080/profile/${userId}` : `http://localhost:8080/profile`;
-    console.log(url);
-=======
 
     const url = profileId ? `http://localhost:8080/profile/${profileId}` : `http://localhost:8080/profile`;
 
->>>>>>> 920a7d7372a1dfc4bec58ed5547db42053cca720
     if (token) {
       fetch(url, {
         method: 'GET',
