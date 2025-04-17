@@ -2,16 +2,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-// {
-//   "gameId": 4,
-//   "title": "Star Defender",
-//   "developer": "NovaCore Studios",
-//   "genre": "Shooter",
-//   "yearReleased": 2022,
-//   "platform": "Xbox",
-//   "region": "NA"
-// }
-
 const GAME_DEFAULT = {
   title: "",
   developer: "",

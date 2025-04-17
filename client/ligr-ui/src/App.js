@@ -21,7 +21,8 @@ function App() {
     const t = localStorage.getItem("jwtToken");
     if (!t) return null;
     try {
-      const decodedToken = JSON.parse(atob(token.split('.')[1])); 
+      const decodedToken = parseJwt(t);
+      if (!decodedToken) return null;
       return {
         id: decodedToken.userId,
         username: decodedToken.sub,
@@ -37,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      { token ? (<Navbar setToken={setToken} user={authUser}/>) : (<RegisterLoginBar/>)}
+      { token ? (<Navbar setToken={setToken} authUser={authUser}/>) : (<RegisterLoginBar/>)}
         <Routes>
           <Route path="/" element={<Home/>}/>
 
@@ -55,7 +56,7 @@ function App() {
 
           <Route path="/game/:gameId" element={
             <ProtectedRoute token={token} user={authUser}>
-              <Game/>
+              <Game authUser={authUser} />
             </ProtectedRoute>
           } />
 
@@ -82,6 +83,22 @@ function App() {
       </Router>
     </div>
   );
+}
+
+function parseJwt(token) {
+  try {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    return null;
+  }
 }
 
 export default App;
