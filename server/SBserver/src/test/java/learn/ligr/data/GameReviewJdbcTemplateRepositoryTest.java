@@ -61,6 +61,8 @@ class GameReviewJdbcTemplateRepositoryTest {
 
     @Test
     void shouldFindById() {
+        GameReview expected = makeReview();
+        GameReview actual = repository.findById(1);
         assertEquals(makeReview(), repository.findById(1));
     }
 
@@ -117,7 +119,7 @@ class GameReviewJdbcTemplateRepositoryTest {
         gr.setGame(GameJdbcTemplateRepository.DEFAULT_GAME);
         gr.setUser(UserJdbcTemplateRepositoryTest.makeUser());
         gr.setReviewText("Surprisingly addictive! Great controls and fast-paced action.");
-        gr.setRating(4.5);
+        gr.setRating(4.0);
 
         return gr;
     }

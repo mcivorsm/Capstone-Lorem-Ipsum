@@ -42,7 +42,8 @@ class UserServiceTest {
 
         Result<User> result = service.add(user);
         assertEquals(ResultType.INVALID, result.getType());
-        assertTrue(result.getMessages().get(0).toLowerCase().contains("exists"));
+        System.out.println(result.getMessages().get(0).toLowerCase());
+        assertTrue(result.getMessages().get(0).toLowerCase().contains("username already in use."));
     }
 
     @Test

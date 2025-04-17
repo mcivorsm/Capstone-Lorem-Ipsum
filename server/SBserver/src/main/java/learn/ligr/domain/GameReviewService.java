@@ -5,6 +5,7 @@ import learn.ligr.models.Game;
 import learn.ligr.models.GameReview;
 import learn.ligr.models.User;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.Year;
 import java.util.List;
@@ -12,7 +13,6 @@ import java.util.List;
 @Service
 public class GameReviewService {
     private final GameReviewRepository repository;
-
 
     public GameReviewService(GameReviewRepository repository) {
         this.repository = repository;

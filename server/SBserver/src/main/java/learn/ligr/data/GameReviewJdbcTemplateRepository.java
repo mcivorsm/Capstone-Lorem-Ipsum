@@ -24,15 +24,15 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
 
     @Override
     public List<GameReview> findAll() {
-        final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
-                +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
-                +"from game_review gr "
-                +"join user u on gr.user_id = u.user_id "
-                +"join profile p on u.profile_id = p.profile_id "
-                +"join game g on p.fav_game_id = g.game_id "
-                +"limit 1000;";
+        final String sql = "select gr.review_id, gr.game_id as gr_game_id, gr.user_id as gr_writer_id, gr.review, gr.rating, " +
+                "u.user_id, u.profile_id as user_profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region as profile_region, p.profile_description, p.preferred_genre, " +
+                "rg.game_id as reviewed_game_id, rg.title as reviewed_game_title, rg.developer as reviewed_game_developer, rg.genre as reviewed_game_genre, " +
+                "rg.year_released as reviewed_game_year_released, rg.platform as reviewed_game_platform, rg.region as reviewed_game_release_region," +
+                "fg.game_id as fav_game_id, fg.title as fav_game_title, fg.developer as fav_game_developer, fg.genre as fav_game_genre, " +
+                "fg.year_released as fav_game_year_released, fg.platform as fav_game_platform, fg.region as fav_game_release_region " +
+                "from game_review gr join `user` u on gr.user_id = u.user_id join `profile` p on u.profile_id = p.profile_id " +
+                "join game rg on gr.game_id = rg.game_id join game fg on fg.game_id = p.fav_game_id limit 1000;";
 
         return jdbcTemplate.query(sql, new GameReviewMapper());
     }
@@ -40,16 +40,16 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     @Override
     public List<GameReview> findByGame(Game game) {
 
-        final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
-                +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
-                +"from game_review gr "
-                +"join user u on gr.user_id = u.user_id "
-                +"join profile p on u.profile_id = p.profile_id "
-                +"join game g on p.fav_game_id = g.game_id "
-                +"where gr.game_id = ? "
-                +"limit 1000;";
+        final String sql = "select gr.review_id, gr.game_id as gr_game_id, gr.user_id as gr_writer_id, gr.review, gr.rating, " +
+                "u.user_id, u.profile_id as user_profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region as profile_region, p.profile_description, p.preferred_genre, " +
+                "rg.game_id as reviewed_game_id, rg.title as reviewed_game_title, rg.developer as reviewed_game_developer, rg.genre as reviewed_game_genre, " +
+                "rg.year_released as reviewed_game_year_released, rg.platform as reviewed_game_platform, rg.region as reviewed_game_release_region," +
+                "fg.game_id as fav_game_id, fg.title as fav_game_title, fg.developer as fav_game_developer, fg.genre as fav_game_genre, " +
+                "fg.year_released as fav_game_year_released, fg.platform as fav_game_platform, fg.region as fav_game_release_region " +
+                "from game_review gr join `user` u on gr.user_id = u.user_id join `profile` p on u.profile_id = p.profile_id " +
+                "join game rg on gr.game_id = rg.game_id join game fg on fg.game_id = p.fav_game_id " +
+                "where gr.game_id = ? limit 1000;";
 
         List<GameReview> games = jdbcTemplate.query(sql, new GameReviewMapper(), game.getGameId());
 
@@ -58,16 +58,16 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
 
     @Override
     public List<GameReview> findByUser(User user) {
-        final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
-                +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
-                +"from game_review gr "
-                +"join user u on gr.user_id = u.user_id "
-                +"join profile p on u.profile_id = p.profile_id "
-                +"join game g on p.fav_game_id = g.game_id "
-                +"where gr.user_id = ? "
-                +"limit 1000;";
+        final String sql = "select gr.review_id, gr.game_id as gr_game_id, gr.user_id as gr_writer_id, gr.review, gr.rating, " +
+                "u.user_id, u.profile_id as user_profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region as profile_region, p.profile_description, p.preferred_genre, " +
+                "rg.game_id as reviewed_game_id, rg.title as reviewed_game_title, rg.developer as reviewed_game_developer, rg.genre as reviewed_game_genre, " +
+                "rg.year_released as reviewed_game_year_released, rg.platform as reviewed_game_platform, rg.region as reviewed_game_release_region," +
+                "fg.game_id as fav_game_id, fg.title as fav_game_title, fg.developer as fav_game_developer, fg.genre as fav_game_genre, " +
+                "fg.year_released as fav_game_year_released, fg.platform as fav_game_platform, fg.region as fav_game_release_region " +
+                "from game_review gr join `user` u on gr.user_id = u.user_id join `profile` p on u.profile_id = p.profile_id " +
+                "join game rg on gr.game_id = rg.game_id join game fg on fg.game_id = p.fav_game_id " +
+                "where gr.user_id = ? limit 1000;";
 
         List<GameReview> games = jdbcTemplate.query(sql, new GameReviewMapper(), user.getId());
 
@@ -77,16 +77,16 @@ public class GameReviewJdbcTemplateRepository implements GameReviewRepository {
     @Override
     public GameReview findById(int gameReviewId) {
 
-        final String sql = "select gr.review_id, gr.game_id, gr.user_id, gr.review, gr.rating, "
-                +"u.user_id, u.profile_id, u.username, u.email, u.password, u.isAdmin, "
-                +"p.profile_id, p.fav_game_id, p.date_joined, p.region, p.profile_description, p.preferred_genre, "
-                +"g.game_id, g.title, g.developer, g.genre, g.year_released, g.platform, g.region "
-                +"from game_review gr "
-                +"join user u on gr.user_id = u.user_id "
-                +"join profile p on u.profile_id = p.profile_id "
-                +"join game g on p.fav_game_id = g.game_id "
-                +"where gr.review_id = ? "
-                +"limit 1000;";
+        final String sql = "select gr.review_id, gr.game_id as gr_game_id, gr.user_id as gr_writer_id, gr.review, gr.rating, " +
+                "u.user_id, u.profile_id as user_profile_id, u.username, u.email, u.password, u.isAdmin, " +
+                "p.profile_id, p.fav_game_id, p.date_joined, p.region as profile_region, p.profile_description, p.preferred_genre, " +
+                "rg.game_id as reviewed_game_id, rg.title as reviewed_game_title, rg.developer as reviewed_game_developer, rg.genre as reviewed_game_genre, " +
+                "rg.year_released as reviewed_game_year_released, rg.platform as reviewed_game_platform, rg.region as reviewed_game_release_region," +
+                "fg.game_id as fav_game_id, fg.title as fav_game_title, fg.developer as fav_game_developer, fg.genre as fav_game_genre, " +
+                "fg.year_released as fav_game_year_released, fg.platform as fav_game_platform, fg.region as fav_game_release_region " +
+                "from game_review gr join `user` u on gr.user_id = u.user_id join `profile` p on u.profile_id = p.profile_id " +
+                "join game rg on gr.game_id = rg.game_id join game fg on fg.game_id = p.fav_game_id " +
+                "where gr.review_id = ? limit 1000;";
 
         return jdbcTemplate.query(sql, new GameReviewMapper(), gameReviewId).stream()
                 .findFirst().orElse(null);

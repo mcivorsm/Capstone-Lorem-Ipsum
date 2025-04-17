@@ -95,4 +95,12 @@ public class GameReviewController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/testerino")
+    public List<GameReview> test(){
+        User user = userService.findById(2);
+
+        List<GameReview> result = gameReviewService.findByUser(user);
+        return result;
+    }
 }
