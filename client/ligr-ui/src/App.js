@@ -11,8 +11,7 @@ import RegisterLoginBar from "./RegisterLoginBar";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminPage from "./AdminPage";
 import GameForm from "./GameForm";
-import SelfProfile from "./SelfProfile";
-import OtherProfile from "./OtherProfile";
+import Profile from "./Profile";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
@@ -46,11 +45,12 @@ function App() {
 
           <Route path="/profile" element={
             <ProtectedRoute token={token} user={authUser}>
-              <SelfProfile/>
+              <Profile/>
             </ProtectedRoute>
           } />
 
-          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <OtherProfile/> </ProtectedRoute>}/>
+          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
+
           <Route path="/register" element={<Register/>}/>
 
           <Route path="/game/:gameId" element={
