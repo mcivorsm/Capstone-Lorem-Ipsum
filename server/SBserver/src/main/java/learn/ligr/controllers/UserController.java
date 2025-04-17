@@ -5,13 +5,16 @@ import learn.ligr.controllers.ErrorResponse;
 import learn.ligr.domain.Result;
 import learn.ligr.domain.UserService;
 import learn.ligr.models.Game;
+import learn.ligr.models.Profile;
 import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -92,9 +95,14 @@ public class UserController {
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<?>update(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
+    public ResponseEntity<?>update(@RequestBody @Valid User user, BindingResult bindingResult){
+        System.out.println("EDIT EDIT EDIT");
+        // automatic validation
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
+        }
+
+        System.out.println(user);
 
         Result<User> result = userService.update(user);
 

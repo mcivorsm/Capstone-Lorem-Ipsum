@@ -1,0 +1,160 @@
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+function Settings() {
+  const [user, setUser] = useState(null);
+  const token = localStorage.getItem("jwtToken");
+  const [errors, setErrors] = useState([]);
+
+  const userId = (() => {
+    const decodedToken = JSON.parse(atob(token.split(".")[1]));
+    const userId = decodedToken.userId;
+    return userId;
+  })();
+
+  //USER RETRIEVAL FOR USERNAME
+  useEffect(() => {
+    if (token) {
+      fetch(`http://localhost:8080/user/id/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+          }
+        })
+        .then((data) => setUser(data))
+        .catch(console.error);
+    }
+  }, [token, userId]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmitUser = () => {
+    console.log(user);
+    const init = {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      };
+    fetch(`http://localhost:8080/user/edit`, init)
+    .then((response) => {
+        if (response.status === 204) {
+          return null;
+        } else if (response.status === 400) {
+          return response.json();
+        } else {
+          return Promise.reject(`Unexpected status code: ${response.status}`);
+        }
+      })
+      .then((data) => {
+        if (!data) {
+          setUser(user);
+        } else {
+          setErrors(data);
+        }
+      })
+      .catch(console.log);
+  };
+
+  return (
+    <>
+      <section className="container mt-4" style={{ border: "2px solid #0056b3"}}>
+
+      {errors.length > 0 && (
+          <div className="alert alert-danger d-flex flex-column align-items-center w-25 mx-auto">
+            <p className="mb-3">The following errors were found:</p>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>- {error}.</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <h2 className="text-center mb-4 mt-4">Account Settings</h2>
+
+        <div >
+          <form className="w-50 mx-auto " style = {{ marginTop: "2rem"}}>
+            <div className="form-group row mb-3">
+              <label
+                htmlFor="username"
+                className="col-sm-4 col-form-label text-info"
+              >
+                Update Username:
+              </label>
+              <div className="col-sm-8">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  name="username"
+                  value={user?.username ?? ""}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="form-group row mb-3">
+              <label
+                htmlFor="password"
+                className="col-sm-4 col-form-label text-info"
+              >
+                Update Password:
+              </label>
+              <div className="col-sm-8">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={user?.password ?? ""}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="form-group row mb-3">
+              <label
+                htmlFor="email"
+                className="col-sm-4 col-form-label text-info"
+              >
+                Update Email:
+              </label>
+              <div className="col-sm-8">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={user?.email ?? ""}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="text-center mt-4">
+              <button type="button" className="btn btn-outline-success" onClick={handleSubmitUser}>
+                Save Changes
+              </button>
+            </div>
+          </form>
+
+          <div style={{ marginTop: "350px", marginBottom: "50px" }} className="text-center">
+            <button className="btn btn-outline-danger">Delete Account</button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Settings;

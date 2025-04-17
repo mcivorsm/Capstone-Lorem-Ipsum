@@ -130,7 +130,7 @@ function Profile() {
       .then((data) => {
         if (!data) {
           setProfile(editingProfile);
-          setEditMode(false);   
+          setEditMode(false);
         } else {
           setErrors(data);
         }
@@ -177,6 +177,17 @@ function Profile() {
           alignItems: "center",
         }}
       >
+        {errors.length > 0 && (
+          <div className="alert alert-danger d-flex flex-column align-items-center w-25 mx-auto">
+            <p className="mb-3">The following errors were found:</p>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>- {error}.</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div>
           <h1>{user?.username}</h1>
           <p>{user?.email}</p>
@@ -185,7 +196,11 @@ function Profile() {
         <div style={{ display: "flex", gap: "1rem" }}>
           <button
             onClick={() => {
-              if (editMode) handleSubmitProfile();
+              if (editMode) {
+                handleSubmitProfile();
+              } else {
+                navigate("/settings");
+              }
             }}
           >
             {" "}
@@ -198,24 +213,27 @@ function Profile() {
       </section>
 
       <section>
-        <h3 style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>About Me</h3>
+        <h3 style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+          About Me
+        </h3>
 
         <p>
-            {editMode ? (
-              <input
-                type="text"
-                name="profileDescription"
-                value={
-                  editingProfile.profileDescription
-                    ? editingProfile.profileDescription
-                    : ""
-                }
-                onChange={handleChangeProfile}
-              />
-            ) : (
-              profile?.profileDescription || "This user has not created a description yet."
-            )}
-          </p>
+          {editMode ? (
+            <input
+              type="text"
+              name="profileDescription"
+              value={
+                editingProfile.profileDescription
+                  ? editingProfile.profileDescription
+                  : ""
+              }
+              onChange={handleChangeProfile}
+            />
+          ) : (
+            profile?.profileDescription ||
+            "This user has not created a description yet."
+          )}
+        </p>
       </section>
 
       <section style={{ marginTop: "2rem", display: "flex", gap: "10rem" }}>

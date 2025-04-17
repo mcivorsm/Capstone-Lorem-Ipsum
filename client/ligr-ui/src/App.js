@@ -13,6 +13,7 @@ import AdminPage from "./AdminPage";
 import GameForm from "./GameForm";
 import Profile from "./Profile";
 import UserList from "./UserList";
+import Settings from "./Settings";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
@@ -80,6 +81,8 @@ function App() {
           } />
 
           <Route path="/userlist" element={<UserList authUser={authUser}/>}/>
+          
+          <Route path="/settings" element={<Settings user={authUser}/>}/>
 
           <Route path="*" element={<NotFound/>}/>
         </Routes>

@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/gameReview").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/gameReview/*", "/profile/edit").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE,  "/gameReview/*", "/user/delete").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT,  "/user/edit").hasAnyRole("USER", "ADMIN")
 
                 // admin only
                 .antMatchers(HttpMethod.POST, "/game").hasRole("ADMIN")
