@@ -38,7 +38,7 @@ public class JwtRequestFilter extends BasicAuthenticationFilter {
 
                 // 4. Confirmed. Set auth for this single request.
                 UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                        user.getUsername(), null, user.getAuthorities());
+                        user, null, user.getAuthorities());
 
                 SecurityContextHolder.getContext().setAuthentication(token);
             }

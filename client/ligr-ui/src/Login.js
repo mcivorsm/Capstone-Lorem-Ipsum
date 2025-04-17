@@ -14,7 +14,7 @@ const USER_DEFAULT = {
   password: ""
 };
 
-function Login() {
+const Login = ({ setToken }) => {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
   const url = "http://localhost:8080/login/authenticate";
@@ -44,14 +44,20 @@ function Login() {
         if(response.status === 200){
             return response.json();
         } else {
+            if (response.status === 403) { // incorrect credentials
+              setErrors(["Username or password is incorrect."]);
+            }
             return Promise.reject(`Unexpected Status Code: ${response.status}`);
         }
     })
     .then(data => {
-        if(data){ // Happy path
+        if(data.jwt_token){ // Happy path
             localStorage.setItem("jwtToken", data.jwt_token); // save token
+            setToken(data.jwt_token);
             // navigate to home page
             navigate("/");
+        } else {
+          setErrors(data);
         }
     })
     .catch(console.log);

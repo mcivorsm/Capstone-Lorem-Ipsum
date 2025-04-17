@@ -45,6 +45,11 @@ public class GameReviewController {
         return gameReviewService.findByUser(user);
     }
 
+    @GetMapping("/game/{gameId}/avg")
+    public double findGameReviewAverage(@PathVariable int gameId){
+        return gameReviewService.findGameReviewAverage(gameId);
+    }
+
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid GameReview gameReview, BindingResult bindingResult) { // handles post route
         // automatic validation

@@ -8,8 +8,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.validation.ValidationException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @ControllerAdvice
@@ -28,6 +30,12 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<List<String>> handleValidationException(ValidationException ex) {
+        return new ResponseEntity<>(List.of(ex.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
 
     // 2. SQL/Database Errors (general SQL + Spring DAO exceptions)
     @ExceptionHandler({SQLException.class, DataAccessException.class})

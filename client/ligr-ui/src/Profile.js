@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Profile = ({ user }) => {
-  const [errors, setErrors] = useState([]);
+const USER_DEFAULT = {
+  username: "Placeholder username",
+  password: ""
+};
+
+function Profile() {
+  const [user, setUser] = useState(USER_DEFAULT);
   const url = "http://localhost:8080/user";
   const navigate = useNavigate();
 
