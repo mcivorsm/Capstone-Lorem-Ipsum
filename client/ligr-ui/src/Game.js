@@ -43,10 +43,14 @@ function Game({ authUser }) {
   }, [gameId]);
 
   const handleDeleteReview = (gameReviewId) => {
+    const token = localStorage.getItem("jwtToken");
     const gameReview = reviews.find((review) => review.gameReviewId === gameReviewId);
     if (window.confirm(`Delete Review?`)) {
       const init = {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       };
       fetch(`${url}/gameReview/${gameReviewId}`, init)
         .then((response) => {

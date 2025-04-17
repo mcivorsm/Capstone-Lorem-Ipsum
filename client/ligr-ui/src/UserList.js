@@ -113,7 +113,7 @@ useEffect(() => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.filter((user) => (user.id != 1)).map((user) => (
             <tr key={user.id}>
               <td>{user.username}</td>
               <td>
