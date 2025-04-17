@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/sighting/*").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/sighting/*").hasRole("ADMIN")
                 .and()
-                .addFilter(new JwtRequestFilter(authenticationManager(), converter)) // 3
+                .addFilterBefore(new JwtRequestFilter(authenticationManager(), converter), JwtRequestFilter.class) // 3
                 .sessionManagement() // 4
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

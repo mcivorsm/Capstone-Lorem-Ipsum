@@ -20,12 +20,8 @@ public class UserValidationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    System.out.println("ENTER LOAD BY USERNAME ****");
         try {
-           System.out.println("Size: " + userRepository.findAll().size());
             User user = userRepository.findByUsername(username);
-            System.out.println("USER NAME at load after find by : " + user.getUsername());
-            System.out.println("Hashed password from DB: " + user.getPassword());
             if (user == null) {
                 throw new UsernameNotFoundException("User not found with username: " + username);
             }

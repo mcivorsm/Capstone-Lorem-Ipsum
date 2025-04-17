@@ -11,7 +11,6 @@ public class UserMapper implements RowMapper<User> {
     public User mapRow(ResultSet resultSet, int i) throws SQLException {
 
         User user = new User();
-        System.out.println("User Mapper...Username here: " + user.getUsername());
         user.setId(resultSet.getInt("user_id"));
 
         ProfileMapper profileMapper = new ProfileMapper();
@@ -21,7 +20,6 @@ public class UserMapper implements RowMapper<User> {
         user.setEmail(resultSet.getString("email"));
         user.setPasswordHash(resultSet.getString("password"));
         user.setAdmin(resultSet.getBoolean("isAdmin"));
-        System.out.println("User Mapper...Username here: " + user.getUsername());
 
         return user;
     }

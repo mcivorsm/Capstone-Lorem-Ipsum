@@ -31,12 +31,16 @@ public class ProfileController {
     }
 
     @GetMapping("/{profileId}")
-    public Profile viewProfile(@PathVariable(required = false) Integer profileId){
+    public Profile viewProfile(@PathVariable int profileId){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
-        if(profileId != null){
-            return profileService.findById(profileId);
-        }
+        return profileService.findById(profileId);
+    }
+
+    @GetMapping("/")
+    public Profile viewProfile(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
         return profileService.findById(user.getProfile().getProfileId());
     }
 }
