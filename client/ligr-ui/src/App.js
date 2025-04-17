@@ -21,6 +21,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login setToken={setToken}/>}/>
           <Route path="/profile" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
+          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/game/:gameId" element={<ProtectedRoute token={token}> <Game/> </ProtectedRoute>} />
           <Route path="*" element={<NotFound/>}/>
