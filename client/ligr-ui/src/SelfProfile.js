@@ -6,16 +6,14 @@ const USER_DEFAULT = {
   password: ""
 };
 
-function Profile() {
-  console.log("asdadas");
+function SelfProfile() {
   const [user, setUser] = useState(USER_DEFAULT);
-  const { profileId } = useParams();
+  const [profile, setProfile] = useState();
 
   useEffect(() => {
 
-    const token = localStorage.getItem('jwtToken'); 
-
-    const url = profileId ? `http://localhost:8080/profile/${profileId}` : `http://localhost:8080/profile`;
+    const token = localStorage.getItem('jwtToken');
+    const url = `http://localhost:8080/profile/`;
 
     if (token) {
       fetch(url, {
@@ -37,8 +35,6 @@ function Profile() {
         .catch(console.log);
     } 
   }, []);
-  
-  const setProfile = () => {};
 
   return (
     <div>
@@ -48,4 +44,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default SelfProfile;
