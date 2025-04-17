@@ -15,7 +15,9 @@ function SelfProfile() {
     const token = localStorage.getItem('jwtToken');
     const url = `http://localhost:8080/profile/`;
 
+    console.log("token = " + token);
     if (token) {
+      console.log("HITTT**");
       fetch(url, {
         method: 'GET',
         headers: {
@@ -23,7 +25,9 @@ function SelfProfile() {
         }
       })
         .then((response) => {
+          
           if (response.status === 200) {
+            console.log("Getting response");
             return response.json();
           } else {
             return Promise.reject(`Unexpected Status Code: ${response.status}`);
@@ -36,9 +40,11 @@ function SelfProfile() {
     } 
   }, []);
 
+
   return (
     <div>
       <h2>{user.username}</h2>
+      <h3>{profile.dateJoined}</h3>
       <p>This is your profile.</p>
     </div>
   );

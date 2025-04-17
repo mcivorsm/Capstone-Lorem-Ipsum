@@ -5,10 +5,12 @@ import NotFound from "./NotFound";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import Register from "./Register";
-import Profile from "./Profile";
+
 import Game from "./Game";
 import RegisterLoginBar from "./RegisterLoginBar";
 import ProtectedRoute from "./ProtectedRoute";
+import SelfProfile from "./SelfProfile";
+import OtherProfile from "./OtherProfile";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
@@ -20,8 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login setToken={setToken}/>}/>
-          <Route path="/profile" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
-          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <Profile/> </ProtectedRoute>}/>
+          <Route path="/profile" element={<ProtectedRoute token={token}> <SelfProfile/> </ProtectedRoute>}/>
+          <Route path="/profile/:profileId" element={<ProtectedRoute token={token}> <OtherProfile/> </ProtectedRoute>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/game/:gameId" element={<ProtectedRoute token={token}> <Game/> </ProtectedRoute>} />
           <Route path="*" element={<NotFound/>}/>
