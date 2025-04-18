@@ -83,7 +83,9 @@ public class JwtConverter {
             Profile profile = profileService.findById(profileId);
 
             // Return the User object with the necessary information
-            return new User(userId, profile, username, email, isAdmin);
+            User user = new User(userId, profile, username, email, isAdmin);
+            user.setAuthorities(authorities);
+            return user;
 
         } catch (JwtException e) {
             // Handle JWT parsing exceptions

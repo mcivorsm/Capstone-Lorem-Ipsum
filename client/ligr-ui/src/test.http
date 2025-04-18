@@ -30,3 +30,8 @@ GET http://localhost:8080/game/4 HTTP/1.1
 
 ### get game review by id
 GET http://localhost:8080/gameReview/4 HTTP/1.1
+
+### delete user by id
+DELETE http://localhost:8080/user/delete/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoidGVzdHVzZXIiLCJwcm9maWxlSWQiOjcsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIsUk9MRV9BRE1JTixST0xFX1VTRVIiLCJ1c2VySWQiOjcsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImV4cCI6MTc0NDkzMTQ4NH0.z6nhpJ8xOXQmQDcpWhW6NGFNOJJMHnc46LsvbPt9dJw
+

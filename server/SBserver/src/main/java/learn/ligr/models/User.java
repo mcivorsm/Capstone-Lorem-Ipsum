@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -78,14 +79,22 @@ public class User implements UserDetails{
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.isAdmin) {
-            roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "ADMIN"));
+        if (roles.isEmpty()) {
+            if (this.isAdmin) {
+                roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "ADMIN"));
+            }
+            roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "USER"));
         }
-
-        // Always add the USER role, assuming every user is a USER
-        roles.add(new SimpleGrantedAuthority(AUTHORITY_PREFIX + "USER"));
         return roles;
+    }
+
+    public void setAuthorities(List<GrantedAuthority> authorities) {
+        this.roles = new ArrayList<>();
+        for (GrantedAuthority authority : authorities) {
+            this.roles.add(new SimpleGrantedAuthority(authority.getAuthority()));
+        }
     }
 
     @Override
