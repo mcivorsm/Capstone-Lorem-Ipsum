@@ -57,7 +57,7 @@ public class UserService {
         User oldUser = findById(user.getId());
         String rawPassword = user.getPasswordHash();
 
-        if(!oldUser.getPasswordHash().equals(rawPassword)){
+        if(oldUser != null && !oldUser.getPasswordHash().equals(rawPassword)){
             validate(user.getUsername());
             validatePassword(rawPassword);
             user.setPasswordHash(passwordEncoder.encode(rawPassword));
