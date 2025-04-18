@@ -54,6 +54,13 @@ public class UserService {
             result.addMessage(msg, ResultType.INVALID);
         }
 
+        String rawPassword = user.getPasswordHash();
+        System.out.println(rawPassword);
+        validate(user.getUsername());
+        validatePassword(rawPassword);
+        user.setPasswordHash(passwordEncoder.encode(rawPassword));
+        System.out.println(passwordEncoder.encode(rawPassword));
+
         if (!userRepository.update(user)) {
             String msg = String.format("userId: %s, not found", user.getId());
             result.addMessage(msg, ResultType.NOT_FOUND);

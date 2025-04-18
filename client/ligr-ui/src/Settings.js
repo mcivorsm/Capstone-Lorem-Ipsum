@@ -118,7 +118,6 @@ function Settings() {
                   className="form-control"
                   id="passwordHash"
                   name="passwordHash"
-                  value={user?.passwordHash ?? ""}
                   onChange={handleChange}
                 />
               </div>
