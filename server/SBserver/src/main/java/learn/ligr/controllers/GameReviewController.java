@@ -89,7 +89,7 @@ public class GameReviewController {
         return ErrorResponse.build(result);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+
     @DeleteMapping("/{gameReviewId}")
     public ResponseEntity<Void> deleteById(@PathVariable int gameReviewId) { // handles delete route
         if (gameReviewService.deleteById(gameReviewId)) {

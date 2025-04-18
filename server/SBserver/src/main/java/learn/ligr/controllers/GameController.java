@@ -36,7 +36,7 @@ public class GameController {
         return service.findByGenre(genre);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid Game game, BindingResult bindingResult) { // handles post route
         // automatic validation
@@ -51,7 +51,7 @@ public class GameController {
         return ErrorResponse.build(result);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+
     @PutMapping("/{gameId}")
     public ResponseEntity<Object> update(@PathVariable int gameId, @RequestBody @Valid Game game, BindingResult bindingResult) { // handles put route
         // if url gameId doesn't match request body game's gameId
