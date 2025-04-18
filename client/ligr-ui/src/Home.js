@@ -34,8 +34,10 @@ function Home() {
           })
         );
       })
-      .then((data) => setGames(data.filter((game) => game.gameId != 1 && game.gameId != 2)) // take out deleted and default game
-    )
+      .then(
+        (data) =>
+          setGames(data.filter((game) => game.gameId != 1 && game.gameId != 2)) // take out deleted and default game
+      )
       .catch(console.log);
   }, []);
 
@@ -45,7 +47,7 @@ function Home() {
       <section>
         <h3 className="mb-4">Top 10 Games</h3>
         <table className="table table-striped table-hover">
-          <thead className="thead-dark">
+          <thead style={{ backgroundColor: "#003366", color: "white" }}>
             <tr>
               <th>Name</th>
               <th>Developer</th>
@@ -60,13 +62,20 @@ function Home() {
               .filter((game) => game.rating !== "N/A")
               .sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
               .slice(0, 10)
-              .map((game) => (
-                <tr key={game.gameId}>
+              .map((game, index) => (
+                <tr
+                  key={game.gameId}
+                  style={{
+                    backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
+                    
+                  }}
+                >
                   <td>{game.title}</td>
                   <td>{game.developer}</td>
                   <td>{game.yearReleased}</td>
                   <td>{game.region}</td>
                   <td>{game.rating}</td>
+                  <td>&nbsp;</td>
                 </tr>
               ))}
           </tbody>
