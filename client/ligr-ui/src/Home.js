@@ -30,14 +30,7 @@ function Home() {
           })
         );
       })
-<<<<<<< HEAD
       .then((data) => setGames(data.filter((game) => game.gameId !== 1 && game.gameId !== 2)))
-=======
-      .then(
-        (data) =>
-          setGames(data.filter((game) => game.gameId != 1 && game.gameId != 2)) // take out deleted and default game
-      )
->>>>>>> 28c273383cc1e1b85e2e440024c6d13cd89b8b90
       .catch(console.log);
   }, []);
 
@@ -57,7 +50,6 @@ function Home() {
 
   return (
     <div>
-<<<<<<< HEAD
       <img
         src={MasterChiefImg}
         alt="Master Chief"
@@ -97,46 +89,6 @@ function Home() {
           </table>
         </section>
       </div>
-=======
-      <h1>Lorem Ipsum Game Reviews</h1>
-      <section>
-        <h3 className="mb-4">Top 10 Games</h3>
-        <table className="table table-striped table-hover">
-          <thead style={{ backgroundColor: "#003366", color: "white" }}>
-            <tr>
-              <th>Name</th>
-              <th>Developer</th>
-              <th>Year Released</th>
-              <th>Top Sale Region</th>
-              <th>Rating</th>
-              <th>&nbsp;</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...games]
-              .filter((game) => game.rating !== "N/A")
-              .sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
-              .slice(0, 10)
-              .map((game, index) => (
-                <tr
-                  key={game.gameId}
-                  style={{
-                    backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
-                    
-                  }}
-                >
-                  <td>{game.title}</td>
-                  <td>{game.developer}</td>
-                  <td>{game.yearReleased}</td>
-                  <td>{game.region}</td>
-                  <td>{game.rating}</td>
-                  <td>&nbsp;</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </section>
->>>>>>> 28c273383cc1e1b85e2e440024c6d13cd89b8b90
     </div>
   );
 }

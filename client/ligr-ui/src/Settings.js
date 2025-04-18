@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Settings() {
+function Settings({ authUser }) {
   const [user, setUser] = useState(null);
   const token = localStorage.getItem("jwtToken");
   const [errors, setErrors] = useState([]);
@@ -19,6 +19,11 @@ function Settings() {
 
   //USER RETRIEVAL FOR USERNAME
   useEffect(() => {
+    // if on someone else's profile settings, and not an admin
+    console.log(authUser.roles);
+    if (idFromURL && !authUser?.roles.includes("ROLE_ADMIN") && authUser?.id != user?.id) {
+      navigate("/");
+    }
     if (token) {
       fetch(`http://localhost:8080/user/id/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },

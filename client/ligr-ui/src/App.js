@@ -93,13 +93,13 @@ function App() {
           
           <Route path="/settings" element={
             <ProtectedRoute token={token}>
-              <Settings />
+              <Settings authUser={authUser}/>
             </ProtectedRoute>
           } />
 
           <Route path="/settings/:idFromURL" element={
             <ProtectedRoute token={token}>
-              <Settings />
+              <Settings authUser={authUser} />
             </ProtectedRoute>
           } />
 
