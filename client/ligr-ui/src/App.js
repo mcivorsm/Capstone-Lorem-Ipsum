@@ -87,6 +87,8 @@ function App() {
           
           <Route path="/settings" element={<Settings user={authUser}/>}/>
 
+          <Route path="/settings/:idFromURL" element={<Settings />} />
+
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Router>

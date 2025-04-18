@@ -6,8 +6,6 @@ const Profile = ({ authUser }) => {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [preferredGenre, setPreferredGenre] = useState(false);
-  const [region, setRegion] = useState(false);
   const [editingProfile, setEditingProfile] = useState(false);
   const dropdownRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
@@ -25,8 +23,6 @@ const Profile = ({ authUser }) => {
     const url = profileId
       ? `http://localhost:8080/profile/${profileId}`
       : `http://localhost:8080/profile/`;
-
-    console.log("url: " + url);
 
     if (token) {
       fetch(url, {
@@ -75,7 +71,7 @@ const Profile = ({ authUser }) => {
           }
         })
         .then((data) => setUser(data))
-        .catch(console.error);
+        .catch(console.log);
     }
   }, [token, userId]);
 
@@ -93,7 +89,7 @@ const Profile = ({ authUser }) => {
           }
         })
         .then((data) => setReviews(data))
-        .catch(console.error);
+        .catch(console.log);
     }
   }, [token, userId]);
 
@@ -152,7 +148,7 @@ const Profile = ({ authUser }) => {
       })
         .then((response) => response.json())
         .then((data) => setGames(data))
-        .catch((error) => console.error("Error fetching games:", error));
+        .catch(console.log);
     }
   }, []);
 

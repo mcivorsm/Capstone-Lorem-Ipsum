@@ -6,10 +6,15 @@ function Settings() {
   const token = localStorage.getItem("jwtToken");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
+  const { idFromURL } = useParams();
 
   const userId = (() => {
+    if (idFromURL) {
+      return idFromURL;
+    }
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     const userId = decodedToken.userId;
+
     return userId;
   })();
 
@@ -72,12 +77,15 @@ function Settings() {
 
   const handleDeleteUser = () => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete your account? This action cannot be undone."
+      "Are you sure you want to delete this account? This action cannot be undone."
     );
     if (!confirmed) return;
 
     if (token) {
-      fetch(`http://localhost:8080/user/delete`, {
+      const url = idFromURL
+        ? `http://localhost:8080/user/delete${idFromURL}`
+        : `http://localhost:8080/user/delete/`;
+      fetch(url, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`, // Attach token to request
@@ -93,7 +101,12 @@ function Settings() {
         .then((data) => {
           if (!data) {
             window.alert("Account deleted.");
-            navigate("/");
+
+            if (idFromURL) {
+              navigate("/userlist"); //admin
+            } else {
+              navigate("/");
+            }
           } else {
             setErrors(data);
           }
