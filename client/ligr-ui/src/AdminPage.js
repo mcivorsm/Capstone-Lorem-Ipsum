@@ -82,33 +82,6 @@ function AdminPage() {
     }
   };
 
-  // handle deleting a user
-  const handleDeleteUser = (userId) => {
-    const token = localStorage.getItem("jwtToken");
-    const user = users.find((user) => user.id === userId);
-    if (window.confirm(`Delete Game: ${user.username}?`)) {
-      const init = {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      fetch(`${url}/user/delete/${userId}`, init)
-        .then((response) => {
-          if (response.status === 204) {
-            // create a copy of the array
-            // remove the user
-            const newUsers = users.filter((user) => user.id !== userId);
-            // update the users state
-            setUsers(newUsers);
-          } else {
-            return Promise.reject(`Unexpected Status Code: ${response.status}`);
-          }
-        })
-        .catch(console.log);
-    }
-  };
-
   return (
     <div>
       <h2>Admin Page</h2>

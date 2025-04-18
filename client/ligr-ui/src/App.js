@@ -64,8 +64,9 @@ function App() {
             margin: "2rem auto",
             padding: "2rem",
             borderRadius: "10px",
-            width: "fit-content",
             minWidth: "1200px",
+            minHeight: "90vh",
+            width: "fit-content",
             boxShadow: "0 0 15px rgba(0,0,0,0.2)",
           }}
         >
