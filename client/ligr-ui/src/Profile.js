@@ -199,25 +199,28 @@ const Profile = ({ authUser }) => {
         </div>
 
         {/* if user is an admin, or is the owner of the profile, show buttons */}
-        {(authUser?.id === user?.id ||
-          authUser?.roles.includes("ROLE_ADMIN")) && (
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <button
-              onClick={() => {
-                if (editMode) {
-                  handleSubmitProfile();
+        {(authUser?.id === user?.id || authUser?.roles.includes("ROLE_ADMIN")) && (
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <button
+            onClick={() => {
+              if (editMode) {
+                handleSubmitProfile();
+              } else {
+                if (profileId && authUser?.roles.includes("ROLE_ADMIN")) { // if user is an admin and on someone else's profile
+                  navigate(`/settings/${profileId}`); // navigate to that someone else's account settings
                 } else {
-                  navigate("/settings");
+                  navigate("/settings"); // else navigate to user's settings
                 }
-              }}
-            >
-              {" "}
-              {editMode ? "Save Changes" : "Account Settings"}
-            </button>
-            <button onClick={() => setEditMode(!editMode)}>
-              {editMode ? "Cancel Edit" : "Edit Profile"}
-            </button>
-          </div>
+              }
+            }}
+          >
+            {" "}
+            {editMode ? "Save Changes" : "Account Settings"}
+          </button>
+          <button onClick={() => setEditMode(!editMode)}>
+            {editMode ? "Cancel Edit" : "Edit Profile"}
+          </button>
+        </div>
         )}
       </section>
 

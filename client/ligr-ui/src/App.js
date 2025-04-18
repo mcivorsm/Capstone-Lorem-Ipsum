@@ -40,54 +40,68 @@ function App() {
   return (
     <div className="App">
       <Router>
-      { token ? (<Navbar setToken={setToken} authUser={authUser}/>) : (<RegisterLoginBar/>)}
+      { token ? (<Navbar setToken={setToken} authUser={authUser} />) : (<RegisterLoginBar />)}
         <Routes>
           <Route path="/" element={<Home/>}/>
 
-          <Route path="/login" element={<Login setToken={setToken} setAuthUser={setAuthUser}/>}/>
+          <Route path="/login" element={<Login setToken={setToken} setAuthUser={setAuthUser} />}/>
 
           <Route path="/profile" element={
             <ProtectedRoute token={token} user={authUser}>
-              <Profile authUser={authUser}/>
+              <Profile authUser={authUser} />
             </ProtectedRoute>
           } />
 
           <Route path="/profile/:profileId" element={
             <ProtectedRoute token={token}>
-              <Profile authUser={authUser}/>
+              <Profile authUser={authUser} />
             </ProtectedRoute>}/>
 
           <Route path="/register" element={<Register/>}/>
 
           <Route path="/game/:gameId" element={
-            <ProtectedRoute token={token} user={authUser}>
+            <ProtectedRoute token={token}>
               <Game authUser={authUser} />
             </ProtectedRoute>
           } />
 
           <Route path="/game/add" element={
             <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <GameForm/>
+              <GameForm />
             </ProtectedRoute>
           } />
 
           <Route path="/game/edit/:id" element={
             <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <GameForm/>
+              <GameForm />
             </ProtectedRoute>
           } />
 
           <Route path="/admin" element={
             <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <AdminPage/>
+              <AdminPage />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/userlist" element={
+            <ProtectedRoute token={token}>
+              <UserList authUser={authUser} />
             </ProtectedRoute>
           } />
 
           <Route path="/userlist" element={<UserList authUser={authUser}/>}/>
           
-          <Route path="/settings" element={<Settings user={authUser}/>}/>
+          <Route path="/settings" element={
+            <ProtectedRoute token={token}>
+              <Settings authUser={authUser}/>
+            </ProtectedRoute>
+          } />
 
-          <Route path="/settings/:idFromURL" element={<Settings />} />
+          <Route path="/settings/:idFromURL" element={
+            <ProtectedRoute token={token}>
+              <Settings authUser={authUser} />
+            </ProtectedRoute>
+          } />
 
           <Route path="*" element={<NotFound/>}/>
         </Routes>

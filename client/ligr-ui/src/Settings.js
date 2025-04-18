@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Settings() {
+function Settings({ authUser }) {
   const [user, setUser] = useState(null);
   const token = localStorage.getItem("jwtToken");
   const [errors, setErrors] = useState([]);
@@ -14,12 +14,16 @@ function Settings() {
     }
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     const userId = decodedToken.userId;
-
     return userId;
   })();
 
   //USER RETRIEVAL FOR USERNAME
   useEffect(() => {
+    // if on someone else's profile settings, and not an admin
+    console.log(authUser.roles);
+    if (idFromURL && !authUser?.roles.includes("ROLE_ADMIN") && authUser?.id != user?.id) {
+      navigate("/");
+    }
     if (token) {
       fetch(`http://localhost:8080/user/id/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -67,7 +71,11 @@ function Settings() {
         if (!data) {
           setUser(user);
           window.alert("Account updated.");
-          navigate("/profile");
+          if (idFromURL) {
+            navigate(`/profile/${idFromURL}`);
+          } else {
+            navigate("/profile");
+          }
         } else {
           setErrors(data);
         }
@@ -83,7 +91,7 @@ function Settings() {
 
     if (token) {
       const url = idFromURL
-        ? `http://localhost:8080/user/delete${idFromURL}`
+        ? `http://localhost:8080/user/delete/${idFromURL}`
         : `http://localhost:8080/user/delete/`;
       fetch(url, {
         method: "DELETE",
@@ -204,7 +212,7 @@ function Settings() {
           </form>
 
           <div
-            style={{ marginTop: "350px", marginBottom: "50px" }}
+            style={{ marginTop: "350px", marginBottom: "10px" }}
             className="text-center"
           >
             <button
@@ -212,6 +220,22 @@ function Settings() {
               onClick={handleDeleteUser}
             >
               Delete Account
+            </button>
+          </div>
+          <div style={{ marginBottom: "10px" }}
+          className="text-center">
+            
+            <button
+              className="btn btn-outline-warning"
+              onClick={() => {
+                if (idFromURL) {
+                  navigate(`/profile/${idFromURL}`);
+                } else {
+                  navigate("/profile");
+                }
+              }}
+            >
+              Back
             </button>
           </div>
         </div>
