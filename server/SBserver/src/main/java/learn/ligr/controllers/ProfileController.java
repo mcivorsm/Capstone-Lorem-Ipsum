@@ -19,8 +19,6 @@ import javax.validation.Valid;
 public class ProfileController {
     ProfileService profileService;
 
-
-
     public ProfileController(ProfileService profileService){
         this.profileService = profileService;
     }
