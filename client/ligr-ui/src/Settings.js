@@ -14,7 +14,6 @@ function Settings() {
     }
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     const userId = decodedToken.userId;
-
     return userId;
   })();
 
@@ -67,7 +66,11 @@ function Settings() {
         if (!data) {
           setUser(user);
           window.alert("Account updated.");
-          navigate("/profile");
+          if (idFromURL) {
+            navigate(`/profile/${idFromURL}`);
+          } else {
+            navigate("/profile");
+          }
         } else {
           setErrors(data);
         }
@@ -83,7 +86,7 @@ function Settings() {
 
     if (token) {
       const url = idFromURL
-        ? `http://localhost:8080/user/delete${idFromURL}`
+        ? `http://localhost:8080/user/delete/${idFromURL}`
         : `http://localhost:8080/user/delete/`;
       fetch(url, {
         method: "DELETE",
@@ -204,7 +207,7 @@ function Settings() {
           </form>
 
           <div
-            style={{ marginTop: "350px", marginBottom: "50px" }}
+            style={{ marginTop: "350px", marginBottom: "10px" }}
             className="text-center"
           >
             <button
@@ -212,6 +215,22 @@ function Settings() {
               onClick={handleDeleteUser}
             >
               Delete Account
+            </button>
+          </div>
+          <div style={{ marginBottom: "10px" }}
+          className="text-center">
+            
+            <button
+              className="btn btn-outline-warning"
+              onClick={() => {
+                if (idFromURL) {
+                  navigate(`/profile/${idFromURL}`);
+                } else {
+                  navigate("/profile");
+                }
+              }}
+            >
+              Back
             </button>
           </div>
         </div>

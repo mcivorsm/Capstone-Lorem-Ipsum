@@ -200,7 +200,11 @@ const Profile = ({ authUser }) => {
               if (editMode) {
                 handleSubmitProfile();
               } else {
-                navigate("/settings");
+                if (profileId && authUser?.roles.includes("ROLE_ADMIN")) { // if user is an admin and on someone else's profile
+                  navigate(`/settings/${profileId}`); // navigate to that someone else's account settings
+                } else {
+                  navigate("/settings"); // else navigate to user's settings
+                }
               }
             }}
           >
