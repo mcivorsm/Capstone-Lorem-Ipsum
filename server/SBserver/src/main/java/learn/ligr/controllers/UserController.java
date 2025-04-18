@@ -9,6 +9,7 @@ import learn.ligr.models.Profile;
 import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
@@ -63,7 +64,7 @@ public class UserController {
         }
         return ErrorResponse.build(result);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete")
     public ResponseEntity<?> delete(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -81,6 +82,7 @@ public class UserController {
 
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<?> delete(@PathVariable int userId){
         User user = userService.findById(userId);
