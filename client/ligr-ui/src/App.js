@@ -53,22 +53,21 @@ function App() {
         }}
       />
       <Router>
-    {token ? (
-      <Navbar setToken={setToken} authUser={authUser} />
-    ) : (
-      <RegisterLoginBar />
-    )}
-      <div
-        style={{
-          backgroundColor: "rgba(255, 255, 255, 0.95)",
-          margin: "2rem auto",
-          padding: "2rem",
-          borderRadius: "10px",
-          maxWidth: "1200px",
-          minHeight: "90vh",
-          boxShadow: "0 0 15px rgba(0,0,0,0.2)",
-        }}
-      >
+        {token ? (
+          <Navbar setToken={setToken} authUser={authUser} />
+        ) : (
+          <RegisterLoginBar />
+        )}
+        <div
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            margin: "2rem auto",
+            padding: "2rem",
+            borderRadius: "10px",
+            width: "fit-content",
+            boxShadow: "0 0 15px rgba(0,0,0,0.2)",
+          }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
 
@@ -179,7 +178,7 @@ function App() {
 
             <Route path="*" element={<NotFound />} />
           </Routes>
-      </div>
+        </div>
       </Router>
     </div>
   );
