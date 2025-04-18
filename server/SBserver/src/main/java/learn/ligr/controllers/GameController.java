@@ -5,6 +5,7 @@ import learn.ligr.domain.Result;
 import learn.ligr.models.Game;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,7 @@ public class GameController {
         return service.findByGenre(genre);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid Game game, BindingResult bindingResult) { // handles post route
         // automatic validation
@@ -49,6 +51,7 @@ public class GameController {
         return ErrorResponse.build(result);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{gameId}")
     public ResponseEntity<Object> update(@PathVariable int gameId, @RequestBody @Valid Game game, BindingResult bindingResult) { // handles put route
         // if url gameId doesn't match request body game's gameId
@@ -68,6 +71,7 @@ public class GameController {
         return ErrorResponse.build(result);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{gameId}")
     public ResponseEntity<Void> deleteById(@PathVariable int gameId) { // handles delete route
         if (service.deleteById(gameId).isSuccess()) {

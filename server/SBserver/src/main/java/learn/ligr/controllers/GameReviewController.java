@@ -9,6 +9,7 @@ import learn.ligr.models.GameReview;
 import learn.ligr.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
@@ -88,6 +89,7 @@ public class GameReviewController {
         return ErrorResponse.build(result);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{gameReviewId}")
     public ResponseEntity<Void> deleteById(@PathVariable int gameReviewId) { // handles delete route
         if (gameReviewService.deleteById(gameReviewId)) {
