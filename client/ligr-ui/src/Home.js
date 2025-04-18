@@ -34,7 +34,8 @@ function Home() {
           })
         );
       })
-      .then((data) => setGames(data))
+      .then((data) => setGames(data.filter((game) => game.gameId != 1 && game.gameId != 2)) // take out deleted and default game
+    )
       .catch(console.log);
   }, []);
 

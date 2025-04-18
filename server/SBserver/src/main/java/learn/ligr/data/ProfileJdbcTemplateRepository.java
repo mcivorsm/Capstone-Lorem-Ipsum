@@ -74,7 +74,7 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
 
     @Override
     public boolean deleteById(int profileId) {
-
+        jdbcTemplate.update("update game_review set user_id = 1 where user_id = ?", profileId); //set to "deleted user"
         jdbcTemplate.update("delete from user where user_id = ?", profileId);
         return jdbcTemplate.update(
                 "delete from profile where profile_id = ?", profileId) > 0;
