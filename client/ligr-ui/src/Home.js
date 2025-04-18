@@ -54,7 +54,6 @@ function Home() {
               <th>Year Released</th>
               <th>Top Sale Region</th>
               <th>Rating</th>
-              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -67,15 +66,43 @@ function Home() {
                   key={game.gameId}
                   style={{
                     backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
-                    
                   }}
                 >
-                  <td>{game.title}</td>
-                  <td>{game.developer}</td>
-                  <td>{game.yearReleased}</td>
-                  <td>{game.region}</td>
-                  <td>{game.rating}</td>
-                  <td>&nbsp;</td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.title}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.developer}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.yearReleased}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.region}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.rating}
+                  </td>
                 </tr>
               ))}
           </tbody>

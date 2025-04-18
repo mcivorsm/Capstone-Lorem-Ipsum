@@ -189,28 +189,35 @@ const Profile = ({ authUser }) => {
 
         <div>
           <h1>{user?.username}</h1>
-          <p>{user?.email}</p>
+          <p
+            style={{
+              color: "#0056b3",
+            }}
+          >
+            {user?.email}
+          </p>
         </div>
 
         {/* if user is an admin, or is the owner of the profile, show buttons */}
-        {(authUser?.id === user?.id || authUser?.roles.includes("ROLE_ADMIN")) && (
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <button
-            onClick={() => {
-              if (editMode) {
-                handleSubmitProfile();
-              } else {
-                navigate("/settings");
-              }
-            }}
-          >
-            {" "}
-            {editMode ? "Save Changes" : "Account Settings"}
-          </button>
-          <button onClick={() => setEditMode(!editMode)}>
-            {editMode ? "Cancel Edit" : "Edit Profile"}
-          </button>
-        </div>
+        {(authUser?.id === user?.id ||
+          authUser?.roles.includes("ROLE_ADMIN")) && (
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <button
+              onClick={() => {
+                if (editMode) {
+                  handleSubmitProfile();
+                } else {
+                  navigate("/settings");
+                }
+              }}
+            >
+              {" "}
+              {editMode ? "Save Changes" : "Account Settings"}
+            </button>
+            <button onClick={() => setEditMode(!editMode)}>
+              {editMode ? "Cancel Edit" : "Edit Profile"}
+            </button>
+          </div>
         )}
       </section>
 
@@ -219,7 +226,11 @@ const Profile = ({ authUser }) => {
           About Me
         </h3>
 
-        <p>
+        <p
+          style={{
+            color: "#0056b3",
+          }}
+        >
           {editMode ? (
             <input
               type="text"
@@ -243,7 +254,10 @@ const Profile = ({ authUser }) => {
           <div>
             {editMode ? (
               <div style={{ position: "relative" }} ref={dropdownRef}>
-                <label htmlFor="gameSearch" style={{ marginRight: "6px" }}>
+                <label
+                  htmlFor="gameSearch"
+                  style={{ marginRight: "6px", color: "#0056b3" }}
+                >
                   Favorite Game:
                 </label>
                 <input
@@ -300,11 +314,20 @@ const Profile = ({ authUser }) => {
                 )}
               </div>
             ) : (
-              // Show the favorite game as plain text if not editing
-              <p>Favorite Game: {profile?.favoriteGame.title || "None"}</p>
+              <p
+                style={{
+                  color: "#0056b3",
+                }}
+              >
+                Favorite Game: {profile?.favoriteGame.title || "None"}
+              </p>
             )}
           </div>
-          <p>
+          <p
+            style={{
+              color: "#0056b3",
+            }}
+          >
             Favorite Genre:{" "}
             {editMode ? (
               <input
@@ -324,7 +347,11 @@ const Profile = ({ authUser }) => {
         </div>
 
         <div>
-          <p>
+          <p
+            style={{
+              color: "#0056b3",
+            }}
+          >
             Region:{" "}
             {editMode ? (
               <select
@@ -341,17 +368,24 @@ const Profile = ({ authUser }) => {
               profile?.region || "None"
             )}
           </p>
-          <p>Date Joined: {profile?.dateJoined}</p>
+          <p
+            style={{
+              color: "#0056b3",
+            }}
+          >
+            Date Joined: {profile?.dateJoined}
+          </p>
         </div>
       </section>
 
       <section
-        className="bg-light p-3"
+        className="p-3"
         style={{
           marginTop: "2rem",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
+          backgroundColor: "#e3f2fd",
         }}
       >
         <h4> Reviews({reviews?.length}) </h4>
@@ -391,6 +425,6 @@ const Profile = ({ authUser }) => {
       </section>
     </>
   );
-}
+};
 
 export default Profile;

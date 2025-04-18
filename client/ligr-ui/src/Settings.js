@@ -119,7 +119,7 @@ function Settings() {
     <>
       <section
         className="container mt-4"
-        style={{ border: "2px solid #0056b3" }}
+        style={{ border: "2px solid #0056b3", backgroundColor: "#e3f2fd" }}
       >
         {errors.length > 0 && (
           <div className="alert alert-danger d-flex flex-column align-items-center w-25 mx-auto">

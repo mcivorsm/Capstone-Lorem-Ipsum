@@ -5,74 +5,74 @@ function UserList({ authUser }) {
   const [users, setUsers] = useState([]);
   const url = "http://localhost:8080/user";
 
-// fetch all users on component load
-useEffect(() => {
-  fetch(`${url}`)
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json();
-      } else {
-        return Promise.reject(`Unexpected Status Code: ${response.status}`);
-      }
-    })
-    .then((data) => setUsers(data))
-    .catch(console.log);
-}, []);
+  // fetch all users on component load
+  useEffect(() => {
+    fetch(`${url}`)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          return Promise.reject(`Unexpected Status Code: ${response.status}`);
+        }
+      })
+      .then((data) => setUsers(data))
+      .catch(console.log);
+  }, []);
 
-// // game review retrieval
-// useEffect(() => {
-//   if (token) {
-//     fetch(`http://localhost:8080/gameReview/user/${userId}`, {
-//       headers: { Authorization: `Bearer ${token}` },
-//     })
-//       .then((response) => {
-//         if (response.status === 200) {
-//           return response.json();
-//         } else {
-//           return Promise.reject(`Unexpected Status Code: ${response.status}`);
-//         }
-//       })
-//       .then((data) => setReviews(data))
-//       .catch(console.error);
-//   }
-// }, []);
+  // // game review retrieval
+  // useEffect(() => {
+  //   if (token) {
+  //     fetch(`http://localhost:8080/gameReview/user/${userId}`, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           return response.json();
+  //         } else {
+  //           return Promise.reject(`Unexpected Status Code: ${response.status}`);
+  //         }
+  //       })
+  //       .then((data) => setReviews(data))
+  //       .catch(console.error);
+  //   }
+  // }, []);
 
-// {
-//   "profile": {
-//     "profileId": 4,
-//     "favoriteGame": {
-//       "gameId": 4,
-//       "title": "Star Defender",
-//       "developer": "NovaCore Studios",
-//       "genre": "Shooter",
-//       "yearReleased": 2022,
-//       "platform": "Xbox",
-//       "region": "EU"
-//     },
-//     "dateJoined": "2021-11-20",
-//     "region": "EU",
-//     "profileDescription": "Admin account for moderation purposes.",
-//     "preferredGenre": "Strategy"
-//   },
-//   "username": "admin_one",
-//   "email": "admin@example.com",
-//   "passwordHash": "adminpass",
-//   "password": "adminpass",
-//   "id": 4,
-//   "enabled": true,
-//   "accountNonExpired": true,
-//   "credentialsNonExpired": true,
-//   "admin": true,
-//   "authorities": [
-//     {
-//       "authority": "ROLE_ADMIN"
-//     },
-//     {
-//       "authority": "ROLE_USER"
-//     }
-//   ],
-//   "accountNonLocked": true
-// }
+  // {
+  //   "profile": {
+  //     "profileId": 4,
+  //     "favoriteGame": {
+  //       "gameId": 4,
+  //       "title": "Star Defender",
+  //       "developer": "NovaCore Studios",
+  //       "genre": "Shooter",
+  //       "yearReleased": 2022,
+  //       "platform": "Xbox",
+  //       "region": "EU"
+  //     },
+  //     "dateJoined": "2021-11-20",
+  //     "region": "EU",
+  //     "profileDescription": "Admin account for moderation purposes.",
+  //     "preferredGenre": "Strategy"
+  //   },
+  //   "username": "admin_one",
+  //   "email": "admin@example.com",
+  //   "passwordHash": "adminpass",
+  //   "password": "adminpass",
+  //   "id": 4,
+  //   "enabled": true,
+  //   "accountNonExpired": true,
+  //   "credentialsNonExpired": true,
+  //   "admin": true,
+  //   "authorities": [
+  //     {
+  //       "authority": "ROLE_ADMIN"
+  //     },
+  //     {
+  //       "authority": "ROLE_USER"
+  //     }
+  //   ],
+  //   "accountNonLocked": true
+  // }
 
   // handle deleting a user
   const handleDeleteUser = (userId) => {
@@ -105,34 +105,52 @@ useEffect(() => {
     <section>
       <h3 className="mb-4">All Users</h3>
       <table className="table table-striped table-hover">
-        <thead className="thead-dark">
+        <thead style={{ backgroundColor: "#003366", color: "white" }}>
           <tr>
             <th>Username</th>
             <th>Profile</th>
-            <th>&nbsp;</th>
+            {authUser?.roles.includes("ROLE_ADMIN") && <th>Delete User</th>}
+            {!authUser?.roles.includes("ROLE_ADMIN") && <th>&nbsp;</th>}
           </tr>
         </thead>
         <tbody>
-          {users.filter((user) => (user.id != 1)).map((user) => (
-            <tr key={user.id}>
-              <td>{user.username}</td>
-              <td>
-                <Link
-                  className="btn btn-outline-warning mr-4"
-                  to={`/profile/${user.profile.profileId}`}
+          {users
+            .filter((user) => user.id != 1)
+            .map((user, index) => (
+              <tr
+                key={user.id}
+                style={{
+                  backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
+                }}
+              >
+                <td
+                  style={{
+                    color: "#0056b3", 
+                  }}
                 >
-                  Profile
-                </Link>
-                {(authUser?.roles.includes("ROLE_ADMIN")) && (
-                <button
-                  className="btn btn-outline-danger"
-                  onClick={() => handleDeleteUser(user.id)}
-                >
-                  Delete
-                </button>)}
-              </td>
-            </tr>
-          ))}
+                  {user.username}
+                </td>
+                <td>
+                  <Link
+                    className="btn btn-outline-info mr-4"
+                    to={`/profile/${user.profile.profileId}`}
+                  >
+                    Profile
+                  </Link>
+                </td>
+
+                <td>
+                  {authUser?.roles.includes("ROLE_ADMIN") && (
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={() => handleDeleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </section>

@@ -109,7 +109,6 @@ function AdminPage() {
     }
   };
 
-
   return (
     <div>
       <h2>Admin Page</h2>
@@ -120,7 +119,7 @@ function AdminPage() {
             Add Game
           </Link>
           <table className="table table-striped table-hover">
-            <thead className="thead-dark">
+            <thead style={{ backgroundColor: "#003366", color: "white" }}>
               <tr>
                 <th>Name</th>
                 <th>Developer</th>
@@ -131,13 +130,48 @@ function AdminPage() {
               </tr>
             </thead>
             <tbody>
-              {games.map((game) => (
-                <tr key={game.gameId}>
-                  <td>{game.title}</td>
-                  <td>{game.developer}</td>
-                  <td>{game.yearReleased}</td>
-                  <td>{game.region}</td>
-                  <td>{game.rating}</td>
+              {games.map((game, index) => (
+                <tr
+                  key={game.gameId}
+                  style={{
+                    backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
+                  }}
+                >
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.title}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.developer}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.yearReleased}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.region}
+                  </td>
+                  <td
+                    style={{
+                      color: "#0056b3",
+                    }}
+                  >
+                    {game.rating}
+                  </td>
                   <td>
                     <Link
                       className="btn btn-outline-warning mr-4"
