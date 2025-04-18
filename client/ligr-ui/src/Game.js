@@ -164,20 +164,32 @@ function Game({ authUser }) {
               <li
                 key={review.gameReviewId}
                 style={{
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#e3f2fd",
                   padding: "1rem",
                   borderRadius: "8px",
                   marginBottom: "1rem",
                   boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 }}
               >
-                <p>
+                <p
+                  style={{
+                    color: "#0056b3",
+                  }}
+                >
                   <strong>User:</strong> {review.user.username}
                 </p>
-                <p>
+                <p
+                  style={{
+                    color: "#0056b3",
+                  }}
+                >
                   <strong>Rating:</strong> {review.rating} / 5
                 </p>
-                <p>
+                <p
+                  style={{
+                    color: "#0056b3",
+                  }}
+                >
                   <strong>Review:</strong> {review.reviewText}
                 </p>
 

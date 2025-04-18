@@ -14,6 +14,7 @@ import GameForm from "./GameForm";
 import Profile from "./Profile";
 import UserList from "./UserList";
 import Settings from "./Settings";
+import MasterChiefImg from "./Master_Chief_in_Halo_5.webp";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
@@ -39,6 +40,18 @@ function App() {
   
   return (
     <div className="App">
+      <img
+        src={MasterChiefImg}
+        alt="Master Chief"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100vh",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      />
       <Router>
       { token ? (<Navbar setToken={setToken} authUser={authUser} />) : (<RegisterLoginBar />)}
         <Routes>

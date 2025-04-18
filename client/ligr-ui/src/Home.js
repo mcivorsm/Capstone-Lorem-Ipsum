@@ -47,15 +47,10 @@ function Home() {
     marginRight: "20px", // Space between the image and the content
     marginTop: "50px", // Adjust the space at the top if needed
   };
-  
-  const contentStyle = {
-    overflow: "hidden", // Clears the float without using clear property
-  };
 
   return (
     <div>
-      <img src={MasterChiefImg} alt="Master Chief" style={imageStyle} />
-      <div style={contentStyle}>
+      <div>
         <h1>Lorem Ipsum Game Reviews</h1>
         <section>
           <h3 className="mb-4">Top 10 Games</h3>
