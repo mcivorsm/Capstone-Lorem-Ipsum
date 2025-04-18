@@ -38,7 +38,7 @@ const Profile = ({ authUser }) => {
         .then((response) => {
           if (response.status === 200) {
             return response.json();
-          } else if (response.status === 401) {
+          } else if (response.status === 401 || response.status === 403) {
             localStorage.removeItem("jwtToken");
             navigate("/login");
           } else {

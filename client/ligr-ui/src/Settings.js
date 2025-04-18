@@ -22,6 +22,9 @@ function Settings() {
         .then((response) => {
           if (response.status === 200) {
             return response.json();
+          } else if (response.status === 401 || response.status === 403) {
+            localStorage.removeItem("jwtToken");
+            navigate("/login");
           } else {
             return Promise.reject(`Unexpected Status Code: ${response.status}`);
           }
@@ -37,17 +40,16 @@ function Settings() {
   };
 
   const handleSubmitUser = () => {
-
     const init = {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      };
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    };
     fetch(`http://localhost:8080/user/edit`, init)
-    .then((response) => {
+      .then((response) => {
         if (response.status === 204) {
           return null;
         } else if (response.status === 400) {
@@ -68,11 +70,45 @@ function Settings() {
       .catch(console.log);
   };
 
+  const handleDeleteUser = () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    );
+    if (!confirmed) return;
+
+    if (token) {
+      fetch(`http://localhost:8080/user/delete`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`, // Attach token to request
+        },
+      })
+        .then((response) => {
+          if (response.status === 204) {
+            return null;
+          } else {
+            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+          }
+        })
+        .then((data) => {
+          if (!data) {
+            window.alert("Account deleted.");
+            navigate("/");
+          } else {
+            setErrors(data);
+          }
+        })
+        .catch(console.log);
+    }
+  };
+
   return (
     <>
-      <section className="container mt-4" style={{ border: "2px solid #0056b3"}}>
-
-      {errors.length > 0 && (
+      <section
+        className="container mt-4"
+        style={{ border: "2px solid #0056b3" }}
+      >
+        {errors.length > 0 && (
           <div className="alert alert-danger d-flex flex-column align-items-center w-25 mx-auto">
             <p className="mb-3">The following errors were found:</p>
             <ul>
@@ -85,8 +121,8 @@ function Settings() {
 
         <h2 className="text-center mb-4 mt-4">Account Settings</h2>
 
-        <div >
-          <form className="w-50 mx-auto " style = {{ marginTop: "2rem"}}>
+        <div>
+          <form className="w-50 mx-auto " style={{ marginTop: "2rem" }}>
             <div className="form-group row mb-3">
               <label
                 htmlFor="username"
@@ -144,14 +180,26 @@ function Settings() {
             </div>
 
             <div className="text-center mt-4">
-              <button type="button" className="btn btn-outline-success" onClick={handleSubmitUser}>
+              <button
+                type="button"
+                className="btn btn-outline-success"
+                onClick={handleSubmitUser}
+              >
                 Save Changes
               </button>
             </div>
           </form>
 
-          <div style={{ marginTop: "350px", marginBottom: "50px" }} className="text-center">
-            <button className="btn btn-outline-danger">Delete Account</button>
+          <div
+            style={{ marginTop: "350px", marginBottom: "50px" }}
+            className="text-center"
+          >
+            <button
+              className="btn btn-outline-danger"
+              onClick={handleDeleteUser}
+            >
+              Delete Account
+            </button>
           </div>
         </div>
       </section>
