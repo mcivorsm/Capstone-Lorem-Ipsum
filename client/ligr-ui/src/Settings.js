@@ -5,6 +5,7 @@ function Settings() {
   const [user, setUser] = useState(null);
   const token = localStorage.getItem("jwtToken");
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
   const userId = (() => {
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
@@ -29,8 +30,6 @@ function Settings() {
         .catch(console.error);
     }
   }, [token, userId]);
-
-  console.log(user);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,6 +59,8 @@ function Settings() {
       .then((data) => {
         if (!data) {
           setUser(user);
+          window.alert("Account updated.");
+          navigate("/profile");
         } else {
           setErrors(data);
         }
