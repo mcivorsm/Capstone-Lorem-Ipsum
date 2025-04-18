@@ -43,11 +43,6 @@ function Home() {
     zIndex: -1,
   };
 
-  const contentStyle = {
-    marginLeft: "300px", // Adjust based on your image width
-    padding: "20px",
-  };
-
   return (
     <div>
       <img
@@ -55,7 +50,7 @@ function Home() {
         alt="Master Chief"
         style={imageStyle}
       />
-      <div style={contentStyle}>
+      <div>
         <h1>Lorem Ipsum Game Reviews</h1>
         <section>
           <h3 className="mb-4">Top 10 Games</h3>
