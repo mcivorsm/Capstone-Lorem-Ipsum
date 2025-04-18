@@ -99,13 +99,10 @@ public class UserController {
 
     @PutMapping("/edit")
     public ResponseEntity<?>update(@RequestBody @Valid User user, BindingResult bindingResult){
-        System.out.println("EDIT EDIT EDIT");
         // automatic validation
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
-
-        System.out.println(user);
 
         Result<User> result = userService.update(user);
 

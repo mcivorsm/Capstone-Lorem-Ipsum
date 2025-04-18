@@ -35,17 +35,17 @@ public class UserService {
         Result<User> result = new Result<>();
         List<User> allUsers = userRepository.findAll();
         if(DuplicateValidations.isDuplicate(user,allUsers)){
-            result.addMessage("No change has been made", ResultType.INVALID);
-            return result;
+                result.addMessage("No change has been made", ResultType.INVALID);
+                return result;
         }
 
         if (DuplicateValidations.isUsernameDuplicate(user,allUsers)) {
-            result.addMessage("Username already in use.", ResultType.INVALID);
+            result.addMessage("Username already in use", ResultType.INVALID);
             return result;
         }
 
         if (DuplicateValidations.isEmailDuplicate(user,allUsers)) {
-            result.addMessage("Email already in use.", ResultType.INVALID);
+            result.addMessage("Email already in use", ResultType.INVALID);
             return result;
         }
 

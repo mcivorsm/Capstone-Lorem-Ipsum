@@ -4,7 +4,7 @@ GET {{url}}/user HTTP/1.1
 
 ###
 
-GET {{url}}/user/username/noobmaster69 HTTP/1.1
+GET {{url}}/user/username/birbtest HTTP/1.1
 
 ###
 
@@ -24,22 +24,70 @@ Content-Type: application/json
 
 {
     "username": "birbtest",
-    "password": "!Birbtest1"
+    "password": "!NewPass1"
 }
 
 ###
 
-PUT {{url}} HTTP/1.1
+PUT http://localhost:8080/profile/edit HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIyLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDkzMTE2OH0.i-r9GAj3aoUEUGMrOJbxrg7mUxH3Jp_xZmvmaaIu50M
 Content-Type: application/json
 
 {
-    "agentId": 2,
-    "firstName": "Claudian",
-    "middleName": "C",
-    "lastName": "O'Lynn",
-    "dob": "1956-11-09",
-    "heightInInches": 41,
-    "agencies": []
+  "profileId": 4,
+  "favoriteGame": {
+    "gameId": 3,
+    "title": "Mario Kart Wii",
+    "developer": "Nintendo",
+    "genre": "Racing",
+    "yearReleased": 2008,
+    "platform": "Wii",
+    "region": "JP"
+  },
+  "dateJoined": "2023-07-11",
+  "region": "JP",
+  "profileDescription": "Enjoys cozy games and story-rich titles",
+  "preferredGenre": "Adventure"
+}
+
+###
+
+PUT http://localhost:8080/user/edit HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIyLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDkzNDA0NX0.qrDJOiQ7cLKzd5Narq3aKI5AK6F3P9JJfXLCjMmZ_8o
+Content-Type: application/json
+
+{
+  "profile": {
+    "profileId": 22,
+    "favoriteGame": {
+      "gameId": 2,
+      "title": "Default Game",
+      "developer": "N/A",
+      "genre": "N/A",
+      "yearReleased": 0,
+      "platform": "N/A",
+      "region": "NA"
+    },
+    "dateJoined": "2025-04-17",
+    "region": "NA",
+    "profileDescription": "\\o<o/",
+    "preferredGenre": ""
+  },
+  "username": "wanderingAviator",
+  "email": "birbtest@test.test",
+  "passwordHash": "$2a$10$.8LByTsUIlS/8FgOqCMDLOaBq5s0HxLbdNNf92ygUgZN9pUwa1uMW",
+  "enabled": true,
+  "id": 22,
+  "admin": false,
+  "authorities": [
+    {
+      "authority": "ROLE_USER"
+    }
+  ],
+  "credentialsNonExpired": true,
+  "accountNonExpired": true,
+  "accountNonLocked": true,
+  "password": "$2a$10$.8LByTsUIlS/8FgOqCMDLOaBq5s0HxLbdNNf92ygUgZN9pUwa1uMW"
 }
 
 ###
@@ -53,8 +101,8 @@ DELETE {{url}}/6 HTTP/1.1
 
 ###
 
-GET http://localhost:8080/gameReview/user/2 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIyLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDg2OTE1NX0.Aq9jXi8YoUV6fVZq9AWJRZ0mEveW4gDY7hXQhQ7lKDI
+GET http://localhost:8080/profile/4 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidWctc2FmYXJpIiwic3ViIjoiYmlyYnRlc3QiLCJwcm9maWxlSWQiOjIyLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUixST0xFX1VTRVIiLCJ1c2VySWQiOjIyLCJlbWFpbCI6ImJpcmJ0ZXN0QHRlc3QudGVzdCIsImV4cCI6MTc0NDkxMDEyOX0.eGDxNaCb54YcKfoRx2aCOEBzIS1jxN4Cus2P5lxQFp0
 
 ###
 

@@ -30,13 +30,15 @@ function Settings() {
     }
   }, [token, userId]);
 
+  console.log(user);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmitUser = () => {
-    console.log(user);
+
     const init = {
         method: "PUT",
         headers: {
@@ -105,7 +107,7 @@ function Settings() {
 
             <div className="form-group row mb-3">
               <label
-                htmlFor="password"
+                htmlFor="passwordHash"
                 className="col-sm-4 col-form-label text-info"
               >
                 Update Password:
@@ -114,9 +116,9 @@ function Settings() {
                 <input
                   type="text"
                   className="form-control"
-                  id="password"
-                  name="password"
-                  value={user?.password ?? ""}
+                  id="passwordHash"
+                  name="passwordHash"
+                  value={user?.passwordHash ?? ""}
                   onChange={handleChange}
                 />
               </div>

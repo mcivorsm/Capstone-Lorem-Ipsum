@@ -14,13 +14,13 @@ public class DuplicateValidations {
     }
     public static boolean isUsernameDuplicate(User user, List<User> listUser){
         for(User u: listUser){
-            if(u.getUsername().equalsIgnoreCase(user.getUsername())) return true;
+            if(u.getUsername().equalsIgnoreCase(user.getUsername() ) && user.getId() != u.getId()) return true;
         }
         return false;
     }
     public static boolean isEmailDuplicate(User user, List<User> listUser){
         for(User u: listUser){
-            if(u.getEmail().equalsIgnoreCase(user.getEmail())) return true;
+            if(u.getEmail().equalsIgnoreCase(user.getEmail()) && user.getId() != u.getId()) return true;
         }
         return false;
     }
