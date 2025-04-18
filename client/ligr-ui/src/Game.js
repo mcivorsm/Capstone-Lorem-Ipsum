@@ -8,6 +8,7 @@ function Game({ authUser }) {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null); // Store any errors
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [rating, setRating] = useState();
   const url = "http://localhost:8080";
 
   useEffect(() => {
@@ -40,7 +41,20 @@ function Game({ authUser }) {
       .catch((error) => {
         console.error("Error fetching reviews:", error);
       });
+
+      fetch(`${url}/gameReview/game/${gameId}/avg`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Game not found");
+        }
+        return response.json();
+      })
+      .then(avg => setRating(avg.toFixed(1)))
+      .catch((error) => {
+        setError(error.message);
+      });
   }, [gameId]);
+
 
   const handleDeleteReview = (gameReviewId) => {
     const token = localStorage.getItem("jwtToken");
@@ -145,7 +159,17 @@ function Game({ authUser }) {
         >
           <strong>Region:</strong> {gameDetails.region}
         </p>
+
+        <p
+          style={{
+            color: "#0056b3",
+          }}
+        >
+          <strong>Rating:</strong> {rating} / 5.0
+        </p>
       </div>
+
+      
 
       {/* Reviews */}
       <div

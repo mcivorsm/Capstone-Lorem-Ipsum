@@ -7,6 +7,8 @@ function Settings({ authUser }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const { idFromURL } = useParams();
+  const [games, setGames] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const userId = (() => {
     if (idFromURL) {
@@ -99,13 +101,17 @@ function Settings({ authUser }) {
           Authorization: `Bearer ${token}`, // Attach token to request
         },
       })
-        .then((response) => {
-          if (response.status === 204) {
-            return null;
-          } else {
-            return Promise.reject(`Unexpected Status Code: ${response.status}`);
-          }
-        })
+      .then((response) => {
+        if (response.status === 204) {
+          // create a copy of the array
+          // remove the user
+          const newUsers = users.filter((user) => user.id !== userId);
+          // update the users state
+          setUsers(newUsers);
+        } else {
+          return Promise.reject(`Unexpected Status Code: ${response.status}`);
+        }
+      })
         .then((data) => {
           if (!data) {
             window.alert("Account deleted.");
