@@ -17,7 +17,7 @@ import Settings from "./Settings";
 import MasterChiefImg from "./Master_Chief_in_Halo_5.webp";
 
 function App() {
-  const [token, setToken] = useState(() => localStorage.getItem("jwtToken"))
+  const [token, setToken] = useState(() => localStorage.getItem("jwtToken"));
 
   // a user variable taken from decoded jwtToken, used for checking auth roles
   const [authUser, setAuthUser] = useState(() => {
@@ -37,7 +37,7 @@ function App() {
       return null;
     }
   });
-  
+
   return (
     <div className="App">
       <img
@@ -53,71 +53,133 @@ function App() {
         }}
       />
       <Router>
-      { token ? (<Navbar setToken={setToken} authUser={authUser} />) : (<RegisterLoginBar />)}
-        <Routes>
-          <Route path="/" element={<Home/>}/>
+    {token ? (
+      <Navbar setToken={setToken} authUser={authUser} />
+    ) : (
+      <RegisterLoginBar />
+    )}
+      <div
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.95)",
+          margin: "2rem auto",
+          padding: "2rem",
+          borderRadius: "10px",
+          maxWidth: "1200px",
+          minHeight: "90vh",
+          boxShadow: "0 0 15px rgba(0,0,0,0.2)",
+        }}
+      >
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Login setToken={setToken} setAuthUser={setAuthUser} />}/>
+            <Route
+              path="/login"
+              element={<Login setToken={setToken} setAuthUser={setAuthUser} />}
+            />
 
-          <Route path="/profile" element={
-            <ProtectedRoute token={token} user={authUser}>
-              <Profile authUser={authUser} />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute token={token} user={authUser}>
+                  <Profile authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/profile/:profileId" element={
-            <ProtectedRoute token={token}>
-              <Profile authUser={authUser} />
-            </ProtectedRoute>}/>
+            <Route
+              path="/profile/:profileId"
+              element={
+                <ProtectedRoute token={token}>
+                  <Profile authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/register" element={<Register/>}/>
+            <Route path="/register" element={<Register />} />
 
-          <Route path="/game/:gameId" element={
-            <ProtectedRoute token={token}>
-              <Game authUser={authUser} />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/game/:gameId"
+              element={
+                <ProtectedRoute token={token}>
+                  <Game authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/game/add" element={
-            <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <GameForm />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/game/add"
+              element={
+                <ProtectedRoute
+                  token={token}
+                  user={authUser}
+                  requiredRole="ROLE_ADMIN"
+                >
+                  <GameForm />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/game/edit/:id" element={
-            <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <GameForm />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/game/edit/:id"
+              element={
+                <ProtectedRoute
+                  token={token}
+                  user={authUser}
+                  requiredRole="ROLE_ADMIN"
+                >
+                  <GameForm />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/admin" element={
-            <ProtectedRoute token={token} user={authUser} requiredRole="ROLE_ADMIN">
-              <AdminPage />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute
+                  token={token}
+                  user={authUser}
+                  requiredRole="ROLE_ADMIN"
+                >
+                  <AdminPage />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/userlist" element={
-            <ProtectedRoute token={token}>
-              <UserList authUser={authUser} />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/userlist"
+              element={
+                <ProtectedRoute token={token}>
+                  <UserList authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/userlist" element={<UserList authUser={authUser}/>}/>
-          
-          <Route path="/settings" element={
-            <ProtectedRoute token={token}>
-              <Settings authUser={authUser}/>
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/userlist"
+              element={<UserList authUser={authUser} />}
+            />
 
-          <Route path="/settings/:idFromURL" element={
-            <ProtectedRoute token={token}>
-              <Settings authUser={authUser} />
-            </ProtectedRoute>
-          } />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute token={token}>
+                  <Settings authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="*" element={<NotFound/>}/>
-        </Routes>
+            <Route
+              path="/settings/:idFromURL"
+              element={
+                <ProtectedRoute token={token}>
+                  <Settings authUser={authUser} />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+      </div>
       </Router>
     </div>
   );

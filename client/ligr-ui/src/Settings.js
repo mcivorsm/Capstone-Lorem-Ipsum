@@ -226,7 +226,7 @@ function Settings({ authUser }) {
           className="text-center">
             
             <button
-              className="btn btn-outline-warning"
+              className="btn btn-outline-info"
               onClick={() => {
                 if (idFromURL) {
                   navigate(`/profile/${idFromURL}`);

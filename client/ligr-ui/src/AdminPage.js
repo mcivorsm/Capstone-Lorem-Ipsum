@@ -174,7 +174,7 @@ function AdminPage() {
                   </td>
                   <td>
                     <Link
-                      className="btn btn-outline-warning mr-4"
+                      className="btn btn-outline-info mr-4"
                       to={`/game/edit/${game.gameId}`}
                     >
                       Update

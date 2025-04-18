@@ -19,61 +19,6 @@ function UserList({ authUser }) {
       .catch(console.log);
   }, []);
 
-  // // game review retrieval
-  // useEffect(() => {
-  //   if (token) {
-  //     fetch(`http://localhost:8080/gameReview/user/${userId}`, {
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     })
-  //       .then((response) => {
-  //         if (response.status === 200) {
-  //           return response.json();
-  //         } else {
-  //           return Promise.reject(`Unexpected Status Code: ${response.status}`);
-  //         }
-  //       })
-  //       .then((data) => setReviews(data))
-  //       .catch(console.error);
-  //   }
-  // }, []);
-
-  // {
-  //   "profile": {
-  //     "profileId": 4,
-  //     "favoriteGame": {
-  //       "gameId": 4,
-  //       "title": "Star Defender",
-  //       "developer": "NovaCore Studios",
-  //       "genre": "Shooter",
-  //       "yearReleased": 2022,
-  //       "platform": "Xbox",
-  //       "region": "EU"
-  //     },
-  //     "dateJoined": "2021-11-20",
-  //     "region": "EU",
-  //     "profileDescription": "Admin account for moderation purposes.",
-  //     "preferredGenre": "Strategy"
-  //   },
-  //   "username": "admin_one",
-  //   "email": "admin@example.com",
-  //   "passwordHash": "adminpass",
-  //   "password": "adminpass",
-  //   "id": 4,
-  //   "enabled": true,
-  //   "accountNonExpired": true,
-  //   "credentialsNonExpired": true,
-  //   "admin": true,
-  //   "authorities": [
-  //     {
-  //       "authority": "ROLE_ADMIN"
-  //     },
-  //     {
-  //       "authority": "ROLE_USER"
-  //     }
-  //   ],
-  //   "accountNonLocked": true
-  // }
-
   // handle deleting a user
   const handleDeleteUser = (userId) => {
     const token = localStorage.getItem("jwtToken");

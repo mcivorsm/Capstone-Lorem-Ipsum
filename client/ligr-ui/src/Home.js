@@ -72,7 +72,7 @@ function Home() {
                 .slice(0, 10)
                 .map((game, index) => (
                   <tr
-                    key={game.id}
+                    key={game.gameId}
                     style={{
                       backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
                     }}
