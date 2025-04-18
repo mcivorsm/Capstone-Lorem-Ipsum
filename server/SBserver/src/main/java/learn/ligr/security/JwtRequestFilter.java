@@ -1,5 +1,6 @@
 package learn.ligr.security;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import learn.ligr.models.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,18 +38,22 @@ public class JwtRequestFilter extends BasicAuthenticationFilter {
             return;
         }
 
-        User user = converter.getUserFromToken(authorization);
+        try {
+            User user = converter.getUserFromToken(authorization);
 
-        if (user == null) {
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return;
+            if (user == null) {
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                return;
+            }
+
+            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+                    user, null, user.getAuthorities());
+
+            SecurityContextHolder.getContext().setAuthentication(token);
+
+            chain.doFilter(request, response);
+        } catch (ExpiredJwtException e) {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
-
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                user, null, user.getAuthorities());
-
-        SecurityContextHolder.getContext().setAuthentication(token);
-
-        chain.doFilter(request, response);
     }
 }

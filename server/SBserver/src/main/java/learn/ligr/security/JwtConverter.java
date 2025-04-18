@@ -87,6 +87,8 @@ public class JwtConverter {
             user.setAuthorities(authorities);
             return user;
 
+        } catch (ExpiredJwtException e) {
+            throw e; // we throw this exception specifically and let JwtRequestFilter handle it
         } catch (JwtException e) {
             // Handle JWT parsing exceptions
             System.out.println("Error parsing JWT: " + e.getMessage());
