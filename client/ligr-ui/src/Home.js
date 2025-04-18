@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MasterChiefImg from "./Master_Chief_in_Halo_5.webp"; // adjust path if needed
 
 function Home() {
   const [games, setGames] = useState([]);
@@ -72,7 +71,7 @@ function Home() {
                 .slice(0, 10)
                 .map((game, index) => (
                   <tr
-                    key={game.gameId}
+                    key={game.id}
                     style={{
                       backgroundColor: index % 2 === 0 ? "#e3f2fd" : "white", // light blue for striped rows
                     }}
