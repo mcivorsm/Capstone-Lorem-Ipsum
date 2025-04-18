@@ -75,6 +75,7 @@ public class ProfileJdbcTemplateRepository implements ProfileRepository {
     @Override
     public boolean deleteById(int profileId) {
 
+        jdbcTemplate.update("delete from user where user_id = ?", profileId);
         return jdbcTemplate.update(
                 "delete from profile where profile_id = ?", profileId) > 0;
     }
