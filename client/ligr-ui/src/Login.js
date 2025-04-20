@@ -17,7 +17,7 @@ const USER_DEFAULT = {
 const Login = ({ setToken, setAuthUser }) => {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
-  const url = "http://localhost:8080/login/authenticate";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/login/authenticate";
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function UserList({ authUser }) {
   const [users, setUsers] = useState([]);
-  const url = "http://localhost:8080/user";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user";
 
   // fetch all users on component load
   useEffect(() => {

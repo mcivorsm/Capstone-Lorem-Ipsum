@@ -9,7 +9,7 @@ function Game({ authUser }) {
   const [error, setError] = useState(null); // Store any errors
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [rating, setRating] = useState();
-  const url = "http://localhost:8080";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com";
 
   useEffect(() => {
     // Fetch game details

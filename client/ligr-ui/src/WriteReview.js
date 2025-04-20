@@ -21,7 +21,7 @@ function WriteReview({ gameId, onClose }) {
       rating: parseFloat(rating),
     };
 
-    fetch("http://localhost:8080/gameReview", {
+    fetch("http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/gameReview", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

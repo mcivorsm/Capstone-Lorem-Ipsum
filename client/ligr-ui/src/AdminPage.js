@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function AdminPage() {
   const [games, setGames] = useState([]);
   const [users, setUsers] = useState([]);
-  const url = "http://localhost:8080";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com";
 
   // fetch all games on component load
   useEffect(() => {
@@ -22,7 +22,7 @@ function AdminPage() {
           data.map(async (game) => {
             try {
               const res = await fetch(
-                `http://localhost:8080/gameReview/game/${game.gameId}/avg`
+                `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game/${game.gameId}/avg`
               );
               const avg = await res.json();
               return { ...game, rating: avg.toFixed(1) };

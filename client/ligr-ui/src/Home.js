@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [games, setGames] = useState([]);
-  const url = "http://localhost:8080/game";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game";
 
   useEffect(() => {
     fetch(url)
@@ -18,7 +18,7 @@ function Home() {
           data.map(async (game) => {
             try {
               const res = await fetch(
-                `http://localhost:8080/gameReview/game/${game.gameId}/avg`
+                `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/gameReview/game/${game.gameId}/avg`
               );
               const avg = await res.json();
               return { ...game, rating: avg.toFixed(1) };

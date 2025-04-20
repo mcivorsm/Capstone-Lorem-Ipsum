@@ -27,7 +27,7 @@ function Settings({ authUser }) {
       navigate("/");
     }
     if (token) {
-      fetch(`http://localhost:8080/user/id/${userId}`, {
+      fetch(`http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/id/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
@@ -59,7 +59,7 @@ function Settings({ authUser }) {
       },
       body: JSON.stringify(user),
     };
-    fetch(`http://localhost:8080/user/edit`, init)
+    fetch(`http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/edit`, init)
       .then((response) => {
         if (response.status === 204) {
           return null;
@@ -93,8 +93,8 @@ function Settings({ authUser }) {
 
     if (token) {
       const url = idFromURL
-        ? `http://localhost:8080/user/delete/${idFromURL}`
-        : `http://localhost:8080/user/delete/`;
+        ? `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/delete/${idFromURL}`
+        : `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/delete/`;
       fetch(url, {
         method: "DELETE",
         headers: {
