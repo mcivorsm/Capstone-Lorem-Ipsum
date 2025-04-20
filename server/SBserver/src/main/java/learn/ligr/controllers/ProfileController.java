@@ -23,7 +23,7 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @PutMapping("/edit" )
+    @PutMapping("/edit")
     public ResponseEntity<?> edit(@RequestBody @Valid Profile profile, BindingResult bindingResult){
 
         // automatic validation
