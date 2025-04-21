@@ -16,4 +16,5 @@ artifacts:
   files:
     - index.html
     - manifest.json
-    - static/**/*
+    - asset-manifest.json
+    - static/**/* 
