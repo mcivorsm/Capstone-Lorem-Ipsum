@@ -41,7 +41,9 @@ const Login = ({ setToken, setAuthUser }) => {
     };
     fetch(url, init)
     .then(response => {
+      
         if(response.status === 200){
+          const testChceck = false;
             return response.json();
         } else {
             if (response.status === 403) { // incorrect credentials

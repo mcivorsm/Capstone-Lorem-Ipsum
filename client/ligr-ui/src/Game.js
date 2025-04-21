@@ -21,7 +21,8 @@ function Game({ authUser }) {
         return response.json();
       })
       .then((data) => {
-        console.log("hello testing build pl");
+        console.log("hello testing build pl ****");
+        
         setGameDetails(data);
       })
       .catch((error) => {
