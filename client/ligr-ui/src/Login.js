@@ -49,7 +49,7 @@ const Login = ({ setToken, setAuthUser }) => {
             if (response.status === 403) { // incorrect credentials
               setErrors(["Username or password is incorrect."]);
             }
-            return Promise.reject(`Unexpected Status Code: ${response.status}`);
+            return Promise.reject(`*Unexpected Status Code: ${response.status}`);
         }
     })
     .then(data => {

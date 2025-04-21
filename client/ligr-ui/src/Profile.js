@@ -14,6 +14,8 @@ const Profile = ({ authUser }) => {
   const [games, setGames] = useState([]); // State for all games
   const navigate = useNavigate();
   const [errors, setErrors] = useState([]);
+const testflag = false;
+console.log(testflag);
 
   const { profileId } = useParams();
   const token = localStorage.getItem("jwtToken");

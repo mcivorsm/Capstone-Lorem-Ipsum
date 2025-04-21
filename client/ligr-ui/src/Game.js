@@ -33,7 +33,7 @@ function Game({ authUser }) {
     fetch(`${url}/gameReview/game/${gameId}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Reviews not found");
+          throw new Error("Reviews were not found");
         }
         return response.json();
       })
