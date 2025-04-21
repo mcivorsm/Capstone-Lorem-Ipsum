@@ -5,12 +5,13 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
+      - cd client/ligr-ui
       - npm install
   build:
     commands:
       - npm run build
 
 artifacts:
-  base-directory: build
+  base-directory: client/ligr-ui/build
   files:
     - '**/*'
