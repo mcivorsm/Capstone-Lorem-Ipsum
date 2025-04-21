@@ -4,6 +4,7 @@ function WriteReview({ gameId, onClose }) {
   const [rating, setRating] = useState(5);
   const [reviewText, setReviewText] = useState("");
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
