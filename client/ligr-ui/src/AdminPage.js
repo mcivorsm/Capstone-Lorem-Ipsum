@@ -22,7 +22,7 @@ function AdminPage() {
           data.map(async (game) => {
             try {
               const res = await fetch(
-                `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game/${game.gameId}/avg`
+                `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/gameReview/game/${game.gameId}/avg`
               );
               const avg = await res.json();
               return { ...game, rating: avg.toFixed(1) };

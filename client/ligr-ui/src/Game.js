@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"; // For accessing URL parameters
 import WriteReview from "./WriteReview";
 
 function Game({ authUser }) {
-  console.log("HELLO FROM LOCAL");
   const { gameId } = useParams(); // Get the gameId from the URL
   const [gameDetails, setGameDetails] = useState(null);
   const [reviews, setReviews] = useState([]);

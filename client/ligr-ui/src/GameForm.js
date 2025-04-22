@@ -14,7 +14,7 @@ const GAME_DEFAULT = {
 function GameForm() {
   const [game, setGame] = useState(GAME_DEFAULT);
   const [errors, setErrors] = useState([]);
-  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game";
   const navigate = useNavigate();
   const { id } = useParams();
 

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function WriteReview({ gameId, onClose }) {
   const [rating, setRating] = useState(5);
   const [reviewText, setReviewText] = useState("");
+  const navigate = useNavigate();
 
 
   const handleSubmit = (e) => {
@@ -37,7 +39,7 @@ function WriteReview({ gameId, onClose }) {
       .then(() => {
         alert("Review submitted!");
         onClose();
-        window.location.reload();
+        navigate(0);
       })
       .catch((err) => {
         alert("Error submitting review: " + err.message);
