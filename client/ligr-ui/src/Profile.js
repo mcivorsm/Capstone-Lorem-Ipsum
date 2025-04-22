@@ -14,6 +14,8 @@ const Profile = ({ authUser }) => {
   const [games, setGames] = useState([]); // State for all games
   const navigate = useNavigate();
   const [errors, setErrors] = useState([]);
+const testflag = false;
+console.log(testflag);
 
   const { profileId } = useParams();
   const token = localStorage.getItem("jwtToken");
@@ -21,8 +23,8 @@ const Profile = ({ authUser }) => {
   //PROFILE RETRIEVAL
   useEffect(() => {
     const url = profileId
-      ? `http://localhost:8080/profile/${profileId}`
-      : `http://localhost:8080/profile/`;
+      ? `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/profile/${profileId}`
+      : `http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/profile/`;
 
     if (token) {
       fetch(url, {
@@ -60,7 +62,7 @@ const Profile = ({ authUser }) => {
   //USER RETRIEVAL FOR USERNAME
   useEffect(() => {
     if (token) {
-      fetch(`http://localhost:8080/user/id/${userId}`, {
+      fetch(`http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/id/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
@@ -78,7 +80,7 @@ const Profile = ({ authUser }) => {
   //GAME REVIEW RETRIEVAL
   useEffect(() => {
     if (token) {
-      fetch(`http://localhost:8080/gameReview/user/${userId}`, {
+      fetch(`http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/gameReview/user/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
@@ -116,7 +118,7 @@ const Profile = ({ authUser }) => {
       },
       body: JSON.stringify(editingProfile),
     };
-    fetch(`http://localhost:8080/profile/edit`, init)
+    fetch(`http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/profile/edit`, init)
       .then((response) => {
         if (response.status === 204) {
           return null;
@@ -140,7 +142,7 @@ const Profile = ({ authUser }) => {
   //find games
   useEffect(() => {
     if (token) {
-      fetch("http://localhost:8080/game", {
+      fetch("http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -18,7 +18,7 @@ const USER_DEFAULT = {
 function Register() {
   const [user, setUser] = useState(USER_DEFAULT);
   const [errors, setErrors] = useState([]);
-  const url = "http://localhost:8080/user/register";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/user/register";
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {

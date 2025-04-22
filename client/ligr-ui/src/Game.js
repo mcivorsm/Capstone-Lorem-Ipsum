@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom"; // For accessing URL parameters
 import WriteReview from "./WriteReview";
 
 function Game({ authUser }) {
+  console.log("HELLO FROM LOCAL");
   const { gameId } = useParams(); // Get the gameId from the URL
   const [gameDetails, setGameDetails] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null); // Store any errors
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [rating, setRating] = useState();
-  const url = "http://localhost:8080";
+  const url = "http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com";
 
   useEffect(() => {
     // Fetch game details
@@ -21,6 +22,8 @@ function Game({ authUser }) {
         return response.json();
       })
       .then((data) => {
+      
+        
         setGameDetails(data);
       })
       .catch((error) => {
@@ -31,7 +34,7 @@ function Game({ authUser }) {
     fetch(`${url}/gameReview/game/${gameId}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Reviews not found");
+          throw new Error("Reviews were not found");
         }
         return response.json();
       })

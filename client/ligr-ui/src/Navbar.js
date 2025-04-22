@@ -14,7 +14,7 @@ const NavBar = ({ setToken, authUser }) => {
   useEffect(() => {
     // Fetch all games only once when the component mounts
     if (token) {
-      fetch("http://localhost:8080/game", {
+      fetch("http://LoremIpsumBackendServicesEC2-env.eba-9tm8q273.us-east-2.elasticbeanstalk.com/game", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Attach token to request
